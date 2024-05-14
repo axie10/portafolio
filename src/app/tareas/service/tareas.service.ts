@@ -94,27 +94,28 @@ export class TareasService {
 
 
     tareasFavoritas(value:Tareas){
+
         for(let i = 0; i < this.tareas.length; i++){
+
             if(this.tareas[i].id === value.id){
-
                 this.tareas[i].favorita = 1;
-
             }
         }
 
         this.guardarEnLocalStorage(this.tareas);
-        alert(this.tareaFavoritostareaAlert)
+        // alert(this.tareaFavoritostareaAlert)
     }
 
     quitardeFavorito(value:Tareas){
+        
         for(let i = 0; i < this.tareas.length; i++){
+            
             if(this.tareas[i].id === value.id){
-
                 this.tareas[i].favorita = 0;
             }
         }
         this.guardarEnLocalStorage(this.tareas);
-        alert(this.tareaquirtadaFavoritostareaCompletadaAlert)
+        // alert(this.tareaquirtadaFavoritostareaCompletadaAlert)
 
     }
 

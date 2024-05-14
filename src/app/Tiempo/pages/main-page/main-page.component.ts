@@ -1,8 +1,7 @@
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Tiempo } from './../../interface/tiempo.interface';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { List } from '../../interface/new-interface.interface';
-import { switchMap } from 'rxjs';
 import { TiempoService } from '../../../shared/services/tiempo.service';
 
 @Component({
@@ -43,14 +42,5 @@ export class MainPageComponent implements OnInit, OnChanges {
   setNombrePais(nombrepais: string[]) {
     this.nombrepais = nombrepais;
   }
-
-
-
-
-
-
-
-
-
 
 }

@@ -20,9 +20,6 @@ import { GraficoService } from '../../../shared/services/grafico.service';
 })
 export class BuscadorComponen implements OnInit {
 
-
-  public ciudadBandera?: string;
-
   ngOnInit(): void {
 
     this.buscarPaisPorDefecto();
@@ -34,8 +31,8 @@ export class BuscadorComponen implements OnInit {
       switchMap( ({ciudad}) => this.servicioTiempo.getTiempo(ciudad)),
       )
       .subscribe ( (data: Tiempo) => {
-      this.ciudadBandera = data.name;
-      this.buscarPaisBandera();
+      this.buscarPaisBandera(data.name);
+      this.nombre.emit([data.name, data.sys.country]);
     });
     
   }
@@ -128,16 +125,14 @@ export class BuscadorComponen implements OnInit {
   }
 
   //FUNCION PARA EL PAIS DE LA BANDERA
-  buscarPaisBandera() {
+  buscarPaisBandera(value:string) {
 
-    if(this.ciudadBandera === undefined) {return}
-
-    const paisBandera: string = this.ciudadBandera;
+    if(value === undefined) {return}
 
     forkJoin({
-      pais3: this.servicioTiempo.getTiempo(paisBandera),
-      pais4: this.servicioTiempoVarios.getTiempo(paisBandera),
-      pais5: this.servicioGrafica.getTiempo(paisBandera)
+      pais3: this.servicioTiempo.getTiempo(value),
+      pais4: this.servicioTiempoVarios.getTiempo(value),
+      pais5: this.servicioGrafica.getTiempo(value)
     }).subscribe(({ pais3, pais4, pais5 }) => {
       this.pais3 = pais3;
       this.servicioTiempo.guardarDatos(this.pais3);
