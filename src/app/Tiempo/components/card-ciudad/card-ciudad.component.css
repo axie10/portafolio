@@ -1,0 +1,10 @@
+
+.card{
+    border-radius: 1.5rem;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../../../../assets/nubes_fondo.jpg);
+    background-attachment: fixed;
+    width: 100%; 
+    height: 100%;
+}

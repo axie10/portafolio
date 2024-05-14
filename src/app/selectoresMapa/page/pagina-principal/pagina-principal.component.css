@@ -1,0 +1,135 @@
+.todo{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario{
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.mapa{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3%;
+}
+
+.infomunicipio{
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapadentro{
+    height: 500px;
+    width: 1200px;
+    border: 2px solid black;
+}
+
+.botonagregar{
+    position: relative;
+    margin: 2%;
+    display: flex;
+    justify-content: end;
+}
+
+@media (max-width: 1670px) {
+
+
+    .formulario{
+        flex-basis: 30%;
+    }
+    
+    .mapa{
+        flex-basis: 60%;
+        display: flex;
+        justify-content: center;
+        padding-top: 3%;
+        
+    }
+
+    .mapadentro{
+        height: 500px;
+        width: 800px;
+        border: 2px solid black;
+    }
+
+}
+
+
+@media (max-width: 1365px) {
+
+    .todo{
+        display: flex;
+        flex-flow: row wrap;
+    }
+    
+
+    .formulario{
+        flex-basis: 100%;
+    }
+    
+    .mapa{
+        flex-basis: 100%;
+        padding: 10%;
+        
+    }
+    .mapadentro{
+        height: 500px;
+        width: 800px;
+        border: 2px solid black;
+    }
+
+}
+
+@media (max-width: 1185px) {
+
+    .mapadentro{
+        height: 500px;
+        width: 500px;
+        border: 2px solid black;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .todo{
+        display: flex;
+        flex-flow: row wrap;
+    }
+    
+    .mapadentro{
+        height: 500px;
+        width: 800px;
+        border: 2px solid black;
+    }
+
+    .formulario{
+        flex-basis: 100%;
+    }
+    
+    .mapa{
+        flex-basis: 100%;
+        
+        
+    }
+
+    .mapadentro{
+        height: 300px;
+        width: 300px;
+        border: 2px solid black;
+    }
+
+    
+}
+

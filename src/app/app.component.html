@@ -1,0 +1,64 @@
+<div class="contactoprincipal">
+
+</div>
+
+
+<div class="principio">
+
+  <!-- div del header -->
+  <header class="header">
+
+      <div class="pepe cero">
+        <p class="portafoliotitulo">PORTAFOLIO MANU</p>
+        <p class="nombreusuario" *ngIf="currentuserValue?.user">User: {{currentuserValue?.user}}</p>
+      </div>
+
+      <div class="caja primera">
+        <a target="_blank" href="https://es.linkedin.com/in/jos%C3%A9-manuel-mosquete-abreu-662691166">
+          <img class="redsocial" src="../assets/linkdn.png" alt="">
+        </a>
+        <a target="_blank" href="https://es.linkedin.com/in/jos%C3%A9-manuel-mosquete-abreu-662691166">
+          <img class="redsocial" src="../assets/git.png" alt="">
+        </a>
+        <a target="_blank" href="https://www.youtube.com/channel/UCtFWc5aTA2W1dUm-TfOqwZg">
+          <img class="redsocial" src="../assets/youtube.png" alt="">
+        </a>
+      </div>
+
+      <div class="caja cuarta">
+          <a class="letracuartacaja" href=""><strong>JOSÉ MANUEL</strong></a>
+      </div>
+
+  </header>
+
+  <!-- div de toda la pagina web-->
+  <section class="layout2">
+
+      <section class="barralateral">
+
+        <ul class="list-group" *ngFor="let item of menuItems" >
+          
+          <li
+          class="list-group-item"
+          [routerLink]="[item.route]" 
+          routerLinkActive="active">
+            {{item.name}}
+          </li>
+        
+        </ul>
+        <div *ngIf="currentuserValue?.user" class="divbotonlogout">
+          <button class="botonlogut" (click)="onLogout()" style="display: flex;">
+            <mat-icon class="mat-18">logout</mat-icon>Logout
+          </button>
+
+        </div>
+
+      </section>
+
+      <section class="paginaprincipal">
+        <router-outlet></router-outlet>
+      </section>
+
+  </section>
+
+</div>

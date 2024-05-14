@@ -1,0 +1,157 @@
+
+
+
+<!-- ESTAS DOS SECCIONES LAS PODRIA DIVIDIR EN DOS COMPONENETES DIFERENTES -->
+
+<div class="row mt-4">
+
+  <!-- LISTADO DE TAREAS PENDIENTES -->
+
+  <div class="col-sd-12 col-md-12 col-lg-6">
+
+    <h4 class="d-flex justify-content-center"><strong>TAREAS PENDIENTES</strong></h4>
+    
+    <hr style="border-color: rgb(4, 255, 0); border-width: 4px;">
+
+    <div class="mt-5" style="overflow-y: scroll; height:60vh;">
+
+      <div *ngFor="let item of listadoTareas">
+
+        <ul class="list-group m-2" *ngIf="item.estado === 0 && item.favorita === 0">
+  
+          <div>
+
+            <!-- NOS MUESTRA LA FECHA CUANDO PASAMOS EL RATON POR ENCIMA 
+            USANDO EL (mousemove)="mostrarfecha(item.id)"  Y EL 
+            (mouseleave)="quitarFecha()" PARA QUITAR LA FECHA-->
+            <li 
+            (mousemove)="mostrarfecha(item.id)"
+            (mouseleave)="quitarFecha()"  
+            class="list-group-item bg-success bg-opacity-50 d-flex justify-content-between align-items-center"
+            style="border: 2px solid green;"
+            ><strong>
+                {{item.nombre}}
+              </strong>
+              <!-- EL DIV QUE SE ACTIVA CUANDO PASAMOS EL RATON POR ECNIMA DE LA TAREA
+              TENGO PUESTO 2 CONDICIONES QUE DEBE CUMPLIR, UNO ES QUE EXISTA LA PROPIEDAD
+              FECHA Y OTRO ES QUE EL ID SEA EL DE ESA FECHA EN CONCRETO PARA QUE NO
+              LO MUESTRE EN TODAS LAS TAREAS (QUE ME PASABA AL PRINCIPIO) -->
+
+              <div 
+              *ngIf="fechaTemplate && idParaFecha === item.id"
+              ><strong>Fecha: </strong>{{ fechaTemplate }}
+              </div>
+
+
+              <div>
+
+                <!-- boton editar tarea (MODAL) -->
+                <button
+                (click)="editartarea(item)"
+                class="btn btn-warning m-2" 
+                style="width: 45px; height: 40px; border: 2px solid yellow;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                  </svg>
+                </button>
+        
+                <!-- boton del tarea completada -->
+                <button (click)="tareaCompletada(item)" class="btn btn-success m-2" style="width: 45px; height: 40px; border: 2px solid greenyellow;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                  </svg>
+                </button>
+
+                <!-- boton del fav -->
+                <button (click)="anadiraFavorita(item)" type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 45px; height: 40px; border: 2px solid rgb(0, 162, 255);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+                  </svg>
+
+                </button>
+
+              </div>
+
+              
+            </li>
+      
+            <li *ngIf="item.descripcion" class="border border-success list-group-item fondodescripcion">{{item.descripcion}}</li>
+      
+          </div>
+      
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- LISTADO DE TAREAS TERMINADAS -->
+  <div class="col-sd-12 col-md-12 col-lg-6">
+
+    <h4 class="d-flex justify-content-center"><strong>TAREAS COMPLETADAS</strong></h4>
+
+    <hr style="border-color: rgb(255, 0, 0); border-width: 4px;">
+
+
+    <hr>
+
+    <div class="mt-5" style="overflow-y: scroll; height:60vh;">
+      
+      <div *ngFor="let item of listadoTareas">
+
+        <ul class="list-group m-2" *ngIf="item.estado === 1">
+  
+          <div>
+
+            <!-- NOS MUESTRA LA FECHA CUANDO PASAMOS EL RATON POR ENCIMA 
+            USANDO EL (mousemove)="mostrarfecha(item.id)"  Y EL 
+            (mouseleave)="quitarFecha()" PARA QUITAR LA FECHA-->
+            <li
+             (mousemove)="mostrarfecha(item.id)"
+             (mouseleave)="quitarFecha()" 
+             class="list-group-item bg-danger bg-opacity-50 d-flex justify-content-between align-items-center"
+             style="border: 3px solid red;">
+             <strong>
+                {{item.nombre}}
+              </strong>
+              <!-- EL DIV QUE SE ACTIVA CUANDO PASAMOS EL RATON POR ECNIMA DE LA TAREA
+              TENGO PUESTO 2 CONDICIONES QUE DEBE CUMPLIR, UNO ES QUE EXISTA LA PROPIEDAD
+              FECHA Y OTRO ES QUE EL ID SEA EL DE ESA FECHA EN CONCRETO PARA QUE NO
+              LO MUESTRE EN TODAS LAS TAREAS (QUE ME PASABA AL PRINCIPIO) -->
+              <div 
+              *ngIf="fechaTemplate && idParaFecha === item.id"
+              ><strong>Fecha: </strong>{{ fechaTemplate }}
+              </div>
+            
+              <button (click)="borrarTarea(item)" class="btn btn-danger m-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-trash3-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                </svg>
+              </button>
+
+            </li>
+      
+            <li *ngIf="item.descripcion" class=" border border-danger list-group-item fondodescripcion">{{item.descripcion}}</li>
+      
+          </div>
+      
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+

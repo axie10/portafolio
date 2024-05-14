@@ -1,0 +1,35 @@
+<div class="informacionpais">
+
+  <mat-card class="bandera">
+  
+    <div>
+
+      <div>
+        <img class="imagen" src="{{pais?.flags?.png}}" alt="">
+      </div>
+  
+      <div>
+        <mat-card-content class="texto">
+          <a target="_blank" href="{{pais?.maps?.googleMaps}}">
+            <mat-icon class="mat-18">pin_drop</mat-icon>
+          </a>
+          <div>
+            <strong>Name:</strong> {{pais?.name?.common}}
+          </div>
+          <div>
+            <strong>Población:</strong> {{pais?.population}} Hab.
+          </div>
+          <div>
+            <strong>Capital:</strong> {{pais?.capital}}
+          </div>
+          <div>
+            <strong>Cca3:</strong> {{pais?.cca3}}
+          </div>
+        </mat-card-content>
+      </div>
+  
+    </div>
+  
+  </mat-card>
+
+</div>

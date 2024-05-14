@@ -1,0 +1,45 @@
+<div class="todo">
+
+  <div class="titulo">
+    <h2 style="font-family: monospace;">Welcome!</h2>
+  </div>
+  
+  
+  <form [formGroup]="Form" class="formulariologin">
+  
+  
+    <!-- cuando ponemos el 'mat-' significa que este componenete viene de angular material -->
+    <mat-form-field class="inputusuario">
+      <mat-label>Usuario</mat-label>
+      <input
+      formControlName="usuario"
+      type="text" matInput
+      placeholder="Nombre de usuario">
+    </mat-form-field>
+  
+    <mat-form-field class="inputcontrasena">
+      <mat-label>Contraseña</mat-label>
+      <input 
+      formControlName="contraseña"
+      type="password" 
+      matInput 
+      placeholder="Contraseña">
+    </mat-form-field>
+  
+    <div class="ingresarregistro">
+  
+      <button type="button" class="btn btn-primary botonlogin" (click)="onLogin()">Iniciar sesión</button>
+
+      <hr>
+      <div class="registrarse">
+        <a routerLink="/login/registro">¿No tienes cuenta?</a>
+      </div>
+    
+    </div>
+    
+  
+  </form>
+  
+
+</div>
+

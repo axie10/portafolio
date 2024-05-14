@@ -1,0 +1,6 @@
+#sidebar {
+    height: 100%;
+    width: 250px;
+    border-radius: 0.2rem;
+    border: 4px solid rgba(7, 18, 27, 0.299);
+}

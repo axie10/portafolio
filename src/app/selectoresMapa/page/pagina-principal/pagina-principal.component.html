@@ -1,0 +1,106 @@
+<h1 class="titulo">Mapas</h1>
+<hr>
+
+<div class="todo">
+
+  <div class="formulario">
+      <form [formGroup]="myForm">
+
+        <!-- Region -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Comunidades Autónomas:</label>
+            <select formControlName="ccaa" class="form-control">
+      
+              <option value="">-- Seleccione CCAA --</option>
+              <option *ngFor="let region of CCAA1.results" [value]="region.acom_name">{{region.acom_name}}</option>
+      
+            </select>
+          </div>
+        </div>
+      
+      
+        <!-- Countries -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Provincia:</label>
+            <select formControlName="provincia" class="form-control">
+              <option value="">-- Seleccione Provincia --</option>
+              <option *ngFor="let provincia of provincia.results" [value]="provincia.prov_name">{{ provincia.prov_name }}</option>
+            </select>
+          </div>
+        </div>
+      
+        <!-- Countries -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Municipio:</label>
+            <select formControlName="municipio" class="form-control">
+              <option value="">-- Seleccione el municipio --</option>
+              <option *ngFor="let country of municipio.results" [value]="country.mun_name">{{ country.mun_name }}</option>
+            </select>
+          </div>
+        </div>
+  
+        <hr>
+        <button routerLink="/tiempo/{{municipioparatiempo}}" type="button" class="btn btn-success" data-bs-dismiss="modal">
+          Tiempo en {{municipioparatiempo}}
+        </button>
+      </form>
+  </div>
+
+  <div class="mapa">
+
+    <div id="map" class="mapadentro" #map>
+    </div>
+
+    <div class="botonagregar">
+      <button (click)="createMarker()"  class="btn btn-primary">
+        + Agregar marcador
+      </button>
+    </div>
+    
+  </div>
+
+</div>
+
+<hr>
+
+<div class="infomunicipio">
+  <div>
+    <div class="row" *ngFor="let country of infoMunicipio.results">
+      <h5>Información del municipio</h5>
+      <div class="col">
+        <p><strong>Nombre del municipio:</strong></p> 
+        <p>{{country.mun_name}}</p>
+      </div>
+
+      <div class="col">
+        <p>Coordenadas:</p>
+        <ul>
+          <li>
+            <p><strong>Latitud:</strong> {{country.geo_point_2d.lat}}</p>
+          </li>
+          <li>
+            <p><strong>Longitud:</strong> {{country.geo_point_2d.lon}}</p>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<mat-card class="cardfondo">
+
+    <mat-card-header class="d-flex justify-content-center mt-2">
+      <mat-card-title style="font-size: xx-large; margin-bottom: 18px; color: rgb(0, 0, 0);"><strong>Información</strong></mat-card-title>
+      <mat-card-subtitle style="margin-bottom: 19px;color: rgb(0, 0, 0);">{{dia | date:'medium'}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="mt-4">
+
+        <mat-card class="card" style="width: 100%;background-color: rgba(255, 255, 255, 0.473); border-radius: 1.5rem; margin: 1%;">
+          <mat-card-content style="color: rgb(0, 0, 0);"><strong>Humedad: </strong>{{result.humidity}} %</mat-card-content>
+        </mat-card>
+        <mat-card class="card" style="width: 100%;background-color: rgba(255, 255, 255, 0.473); border-radius: 1.5rem; margin: 1%; color: rgb(0, 0, 0);">
+          <mat-card-content><strong>Presión: </strong>{{result.pressure}} Pa</mat-card-content>
+        </mat-card>
+        <mat-card class="card" style="width: 100%;background-color: rgba(255, 255, 255, 0.473); border-radius: 1.5rem; margin: 1%; color: rgb(0, 0, 0);">
+          <mat-card-content><strong>Visibilidad: </strong>{{result.visibility}} m</mat-card-content>
+        </mat-card>
+        <mat-card class="card" style="width: 100%;background-color: rgba(255, 255, 255, 0.473); border-radius: 1.5rem; margin: 1%; color: rgb(0, 0, 0);">
+          <mat-card-content><strong>Velocidad del viento: </strong>{{result.wind_speed}} m/s</mat-card-content>
+        </mat-card>
+        <mat-card class="card" style="width: 100%;background-color: rgba(255, 255, 255, 0.473); border-radius: 1.5rem; margin: 1%; color: rgb(0, 0, 0);">
+          <mat-card-content><strong>Sugerencia: 
+          </strong>{{sugerencia}}</mat-card-content>
+        </mat-card>
+
+    </mat-card-content>
+  
+</mat-card>

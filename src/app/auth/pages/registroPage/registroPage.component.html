@@ -1,0 +1,51 @@
+
+<div>
+  <h2 class="titulo">
+    Registro
+  </h2>
+</div>
+
+<form class="formularioregistro" [formGroup]="Form">
+
+  <mat-form-field class="email">
+    <mat-label>Email</mat-label>
+    <input
+    formControlName="email"
+    type="email"
+    matInput
+    placeholder="email">
+  </mat-form-field>
+
+  <!-- cuando ponemos el 'mat-' significa que este componenete viene de angular material -->
+  <mat-form-field class="usuario">
+    <mat-label>Usuario</mat-label>
+    <input
+    formControlName="usuario"
+    type="text"
+    matInput
+    placeholder="Nombre de usuario">
+  </mat-form-field>
+
+  <mat-form-field class="contraseña">
+    <mat-label>Contraseña</mat-label>
+    <input
+    formControlName="contraseña"
+    type="password"
+    matInput
+    placeholder="Contraseña">
+  </mat-form-field>
+
+
+  <div class="registrarseyatienescuenta">
+  
+    <div class="yatienescuenta">
+      <a routerLink="/login">¿ya tienes cuenta?</a>
+    </div>
+
+    <button (click)="crearUsuario()" class="registrarse" mat-button mat-flat-button color="primary">
+      Registrarse
+      <mat-icon>login</mat-icon>
+    </button>
+  </div>
+
+</form>

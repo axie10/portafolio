@@ -1,0 +1,45 @@
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    font-family: monospace;
+}
+
+
+.formularioregistro{
+    padding: 5%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.email{
+    width: 50%;
+}
+
+.usuario{
+    width: 50%;
+}
+
+.contraseña{
+    width: 50%;
+}
+
+.registrarseyatienescuenta{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 50%;
+}
+
+.registrarse{
+    flex-basis: 25%;
+    display: flex;
+}
+
+.yatienescuenta{
+    flex-basis: 75%;
+    display: flex;
+    justify-content: start;
+}

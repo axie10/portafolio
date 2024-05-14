@@ -1,0 +1,42 @@
+
+
+
+  <form class="formulario">
+  
+    <mat-form-field>
+  
+      <mat-label>Ciudad, País</mat-label>
+      <input matInput type="text"
+      [matAutocomplete]="auto"
+      [formControl]="buscadorPais" 
+      (input)="buscarPais()" 
+      placeholder="Ciudad" >
+
+      <!-- seccion para sacar lo que estamso buscando en el input-->
+      <mat-autocomplete
+      (optionSelected)="opcionSeleccionada($event)" 
+      autoActiveFirstOption 
+      #auto="matAutocomplete">
+
+        <mat-option *ngFor="let i of pais6" [value]="i">
+            {{i.name}},{{i.country}}
+        </mat-option>
+
+        <mat-option 
+        *ngIf="pais6?.length === 0 && buscadorPais.value!.length" >
+            No se encontro ninguna ciudad
+        </mat-option>
+        
+      </mat-autocomplete> 
+  
+    </mat-form-field>
+  
+  </form>
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+
+<div class="paginaprincipal">
+    <!-- EL NAVBAR -->
+
+    <mat-toolbar class="toolbar">
+
+        <mat-toolbar-row class="toolbarRow">
+
+            <div class="nombreapp">
+                <button mat-icon-button>
+                    <mat-icon>rocket</mat-icon>
+                </button>
+                <span>WeatherrApp</span>
+            </div>
+
+            <div class="buscador">
+                <app-buscador (setsearch)="setList($event)" (nombre)="setNombrePais($event)"></app-buscador>
+            </div>
+    
+            <div class="nombreciudad">
+                <button mat-icon-button>
+                    <mat-icon>location_on</mat-icon>
+                </button>
+                <span><strong>{{nombrepais}}</strong></span>
+            </div>
+
+        </mat-toolbar-row>
+
+    </mat-toolbar>
+
+
+    <!-- DONDE SACO LAS DOS PRIMERAS MATCARD Y LA GRAFICA-->
+
+    <div class="dostarjetas">
+        <div class="cardciudad">
+            <app-card-ciudad></app-card-ciudad>
+        </div>
+
+        <div class="cardciudadgrande">
+            <app-card-grande-ciudad></app-card-grande-ciudad>
+        </div>
+    </div>
+
+    <div class="grafico">
+        <app-grafico *ngIf="list" [lista]="list"></app-grafico>
+    </div>
+    
+    <!-- DONDE SACO LA CARD DE VARIAS TEMPERATURAS  -->
+
+    <div class="variastemp">
+        <div class="cardsTemp">
+            <app-variastemperaturas></app-variastemperaturas>
+        </div>
+    </div>
+
+
+    <!-- EL FOOTER -->
+    <footer class="d-flex justify-content-center p-4">
+        <p><strong>Gracias por confiar en nosotros</strong></p>
+    </footer>
+
+</div>
