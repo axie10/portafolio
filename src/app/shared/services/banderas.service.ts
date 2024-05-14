@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Paises } from '../../banderas/interface/paises.interface';
+import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class FlagsService {
@@ -12,7 +13,8 @@ export class FlagsService {
     public pais2?: Paises;
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private route: Router
     ) { }
 
     private baseUrl: string = 'https://restcountries.com/v3.1/all?&fields=name,flags,cca3,capital,population,maps';
@@ -24,13 +26,15 @@ export class FlagsService {
     getBanderasPaises(): Observable<Paises[]>{
         return this.http.get<Paises[]>(`${this.baseUrl}`)
     }
+    
     // NOS SUBCRRIBIMOS A LA FUNCION DE SACAR TODAS LAS BANDERAS
     nosSubcribimos(){
         this.getBanderasPaises()
             .subscribe( data => {
-                this.flags = data;
+                    this.flags = data;
             }) 
     }
+
     // FUNCION PARA IMPRIMIR TODAS LAS BANDERAS
     get sacarFlags(): Paises []{
         return this.flags
@@ -54,18 +58,29 @@ export class FlagsService {
     }
 
 //LO USAMOS PARA SACAR EL INPUT
-
     getBuscarPais(pais: string): Observable<Paises> {
         return this.http.get<Paises>(`${this.baseUrl2}${pais}?fields=name,flags,cca3,capital,population,maps`)
     }
 
     nosSubcribimos3(pais: string) {
         this.getBuscarPais(pais)
-            .subscribe(data => {
-                this.pais2 = data;
-            })
+            .subscribe({
+                next: (data) => {
+                    this.pais2 = data;
+                },
+                error: (error) => {
+                    if (error.status === 400) {
+                        // Handle 404 error here
+                        console.log(error.status)
+                        console.log('Pais no encontrado');
+                    } else {
+                        // Handle other errors here
+                        console.log('Error al buscar el pais');
+                    }
+                }
+            });
     }
-    
+
     get buscarPais(): Paises {
         return this.pais2 ?? {} as Paises;
     }

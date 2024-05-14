@@ -25,6 +25,9 @@
     align-items: center;
 }
 
+.botonatras{
+    margin-left: 10%;
+}
 
 .botonsidenav{
     flex-basis: 5%;

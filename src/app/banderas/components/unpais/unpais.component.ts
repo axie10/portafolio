@@ -24,6 +24,4 @@ export class UnpaisComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
 }

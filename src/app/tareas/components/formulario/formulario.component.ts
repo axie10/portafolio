@@ -21,7 +21,7 @@ export class FormularioComponent {
     const dia = fechaActual.getDate();
     const mes = fechaActual.getMonth() + 1;
     const año = fechaActual.getFullYear();
-    return `${dia}/${mes}/${año}`;
+    return `${año}-${mes}-${dia}`;
   }
 
   //GUARDAMOS EN LA PROPIEDAD DE NUESTRO OBJETO TAREA
@@ -37,8 +37,8 @@ export class FormularioComponent {
     title: ''
   };
 
+  //FUNCION PARA GUARDAR LA TAREA EN EL ARRAY DE TAREAS DEL LOCALSTORAGE
   guardarTarea(){
-
     this.listadoTareas.guardarTarea(this.Tarea);
     // console.table(this.Tarea)
 

@@ -89,7 +89,6 @@
           </div>
         </div>
 
-
         <div class="formularioinput">
 
           <!-- FORMULARIO -->
@@ -106,6 +105,10 @@
             </mat-form-field>
           </form>
 
+        </div>
+
+        <div *ngIf="control" class="botonatras">
+          <button class="btn btn-success" (click)="atras()">Atrás</button>
         </div>
 
       </mat-toolbar>
@@ -139,7 +142,7 @@
 
 
   </div>
-
+ 
 </mat-drawer-container>
 
 

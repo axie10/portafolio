@@ -51,6 +51,11 @@ export class PaginaprincipalbanderasComponent implements DoCheck{
   }
 
 
+  atras(){
+    this.control = false;
+    this.pais.reset();
+  }
+
 
 
 }

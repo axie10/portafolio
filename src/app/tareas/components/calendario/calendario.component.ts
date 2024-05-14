@@ -33,9 +33,18 @@ export class CalendarioComponent {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
     dateClick: (arg) => this.handleDateClick(arg),
-    events :  []
+    events :  [],
+    eventContent: (arg, createElement) => {
+      const container = document.createElement('div');
+      container.innerHTML = arg.event.title;
+      container.style.backgroundColor = 'lightblue';
+      container.style.borderRadius = '2px';
+      container.style.padding = '3px';
+      return { domNodes: [container] };
+    }
   };
 
+  //FUNCION PARA ACTUALIZAR LOS EVENTOS DEL CALENDARIO
   actualizarEventos() {
     // Mapear los eventos2 en el formato esperado por FullCalendar y asignarlos a events
     //ESTO HA SIDO LO QUE YO NO HE SABIDO HACER
@@ -43,17 +52,15 @@ export class CalendarioComponent {
       title: evento.title,
       start: evento.start,
     }));
-    
   }
 
 
+  //FUNCION PARA AÑADIR UNA TAREA AL CALENDARIO
   handleDateClick(arg:any) {
     let titulotareacalendario = prompt('Título de la tarea: ');
     if(titulotareacalendario === null){return}
 
-
     let tarea: Tareas = {
-
       id: uuid(),
       nombre: titulotareacalendario,
       descripcion: '',
@@ -64,7 +71,10 @@ export class CalendarioComponent {
       title: ''
     }
 
+    console.log(arg.dateStr);
+
     this.listadoTareas.guardarTarea(tarea);
+    location.reload();
   }
 
 
