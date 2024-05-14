@@ -25,17 +25,18 @@ export class PaginaprincipalbanderasComponent implements DoCheck{
   ) {
   }
 
-  //UTILIZAMOS NGDOCHECK PARA QUE REVISE LA PRIPIEDAD ANTES DE CARGAR Y NO CARGUE EL UNDEFINED
+  //UTILIZAMOS NGDOCHECK PARA QUE REVISE LA PROPIEDAD ANTES DE CARGAR Y NO CARGUE EL UNDEFINED
   ngDoCheck(): void {
     this.result = this.flagsService.sacarPais;
+    // console.log(this.result);
   }
 
   // FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL INPUT
   buscarPais(){
-    if(this.pais.value === null){
+    if(this.pais.value === null || this.pais.value === ''){
       return
     }
-    this.flagsService.nosSubcribimos2(this.pais.value)
+    this.flagsService.nosSubcribimos3(this.pais.value)
     this.control = true;
   }
 
@@ -50,7 +51,7 @@ export class PaginaprincipalbanderasComponent implements DoCheck{
     // this.router.navigate(['/tiempo']);
   }
 
-
+  //FUNCION QUE NOS LLEVA A LA PAGINA DE BANDERAS
   atras(){
     this.control = false;
     this.pais.reset();

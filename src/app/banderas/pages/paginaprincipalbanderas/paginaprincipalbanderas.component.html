@@ -132,7 +132,7 @@
           <app-cardpais *ngIf="!control" (paises2)="cogerpais($event)"></app-cardpais>
 
           <!-- CARD DEL PAIS QUE BUSCO -->
-          <app-unpais *ngIf="control" [pais]="result"></app-unpais>
+          <app-unpais *ngIf="control && result !== undefined" [pais]="result"></app-unpais>
 
         </div>
 

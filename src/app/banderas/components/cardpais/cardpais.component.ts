@@ -31,7 +31,4 @@ export class CardpaisComponent implements OnInit {
     this.paises2.emit(pais)
   }
 
-
-
-
 }

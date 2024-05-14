@@ -58,33 +58,18 @@ export class FlagsService {
     }
 
 //LO USAMOS PARA SACAR EL INPUT
-    getBuscarPais(pais: string): Observable<Paises> {
-        return this.http.get<Paises>(`${this.baseUrl2}${pais}?fields=name,flags,cca3,capital,population,maps`)
-    }
 
-    nosSubcribimos3(pais: string) {
-        this.getBuscarPais(pais)
-            .subscribe({
-                next: (data) => {
-                    this.pais2 = data;
+    nosSubcribimos3(pais:string){
+        this.getBanderasPaisesPorPais(pais)
+            .subscribe({ 
+                next: data => {
+                    this.pais = data;
                 },
-                error: (error) => {
-                    if (error.status === 400) {
-                        // Handle 404 error here
-                        console.log(error.status)
-                        console.log('Pais no encontrado');
-                    } else {
-                        // Handle other errors here
-                        console.log('Error al buscar el pais');
+                error: error => {
+                    if (error) {
+                        alert('No se ha encontrado el pais');
                     }
                 }
-            });
+            }) 
     }
-
-    get buscarPais(): Paises {
-        return this.pais2 ?? {} as Paises;
-    }
-
-
-
 }

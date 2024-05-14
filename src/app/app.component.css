@@ -25,6 +25,16 @@
     /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E"); */
 }
 
+.iamgenPerfil{
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 0, 0, 0.358);
+    background-color: rgb(245, 244, 243);
+    border-radius: 1.5rem;
+
+}
+
 .header{
     display: flex;
     flex-flow: row wrap;
@@ -39,35 +49,30 @@
 }
 
 .nombreusuario{
-    margin-left: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: monospace;
+    padding-top: 11px;
+    
 }
 
 .divbotonlogout{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 9%;
+    margin-left: 5px;
 }
-.botondentrologout{
+
+
+.botonlogut{
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid rgb(0, 0, 0); */
+    background-color: rgba(215, 38, 21, 0.74);
+    border-radius: 0.3rem;
 }
 
-.botonlogut{
-    width: 100%;
-    height: 100%;
-    margin: 10px;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid rgba(255, 255, 255, 0.219);
-    background-color: rgba(209, 37, 21, 0.244);
-    border-radius: 0.5rem;
-    font-size: large;
+.perfilylogout{
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .caja{

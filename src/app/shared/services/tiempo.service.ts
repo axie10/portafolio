@@ -21,6 +21,7 @@ export class TiempoService implements OnInit {
     private baseUrl2: string = 'https://api.openweathermap.org/geo/1.0/direct?q=';
     private apikey2 : string = '&limit=5&units=metric&appid=1f9ccab4cdafe0e22916708e85513df9';
 
+    //objeto para guardar los datos
     public pais1: TiempoPais = {
         name: '',
         tem: 0,
@@ -39,10 +40,12 @@ export class TiempoService implements OnInit {
         return this.pais1;
     }
 
+    //metodo para obtener el tiempo de una ciudad
     getTiempo(ciudad:string): Observable<Tiempo>{
         return this.http.get<Tiempo>(`${this.baseUrl}${ciudad}${this.apikey}`)
     }
 
+    //metodo para obtener el autocompletar
     getautocompletar (ciudad:string): Observable<Autocompleted [] | undefined> {
         
         return this.http.get<Autocompleted []>(`${this.baseUrl2}${ciudad}${this.apikey2}`).
@@ -51,6 +54,7 @@ export class TiempoService implements OnInit {
         )
     }
 
+    //metodo para guardar los datos en el objeto
     guardarDatos(pais: Tiempo){
 
         this.pais1 = {

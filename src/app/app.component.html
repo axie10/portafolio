@@ -10,7 +10,6 @@
 
       <div class="pepe cero">
         <p class="portafoliotitulo">PORTAFOLIO MANU</p>
-        <p class="nombreusuario" *ngIf="nombreuser"><strong>User: </strong>{{nombreuser}}</p>
       </div>
 
       <div class="caja primera">
@@ -25,9 +24,19 @@
         </a>
       </div>
 
-      <div class="caja cuarta">
-          <a class="letracuartacaja" href=""><strong>JOSÉ MANUEL</strong></a>
+      <div class="caja cuarta perfilylogout">
+          <a class="letracuartacaja" href="">
+            <p class="nombreusuario" *ngIf="nombreuser">
+              <img class="iamgenPerfil" src="../assets/astronauta.png" alt="">{{nombreuser}}
+            </p>
+          </a>
+          <div *ngIf="nombreuser" class="divbotonlogout">
+            <button class="botonlogut" (click)="onLogout()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19v-4h2v4h14V5H5v4H3V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm5.5-4l-1.4-1.45L11.65 13H3v-2h8.65L9.1 8.45L10.5 7l5 5z"/></svg>
+            </button>
+          </div>
       </div>
+
 
   </header>
 
@@ -45,15 +54,6 @@
             {{item.name}}
           </li>
         </ul>
-        <div *ngIf="nombreuser" class="divbotonlogout">
-          <button class="botonlogut" (click)="onLogout()">
-            <div class="botondentrologout">
-              <mat-icon class="mat-18">logout</mat-icon>
-              Logout
-            </div>
-            
-          </button>
-        </div>
 
       </section>
 
