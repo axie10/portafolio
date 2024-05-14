@@ -1,4 +1,4 @@
-<div class="todo">
+
 
   <div class="titulo">
     <h2 style="font-family: monospace;">Welcome!</h2>
@@ -27,13 +27,18 @@
     </mat-form-field>
   
     <div class="ingresarregistro">
-  
-      <button type="button" class="btn btn-primary botonlogin" (click)="onLogin()">Iniciar sesión</button>
 
-      <hr>
       <div class="registrarse">
         <a routerLink="/login/registro">¿No tienes cuenta?</a>
       </div>
+  
+      <button (click)="onLogin()" class="botonlogin" mat-button mat-flat-button color="primary">
+        Iniciar sesión
+        <mat-icon>login</mat-icon>
+      </button>
+
+      
+  
     
     </div>
     
@@ -41,5 +46,4 @@
   </form>
   
 
-</div>
 

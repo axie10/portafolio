@@ -1,32 +1,16 @@
-.todo{
 
-    border: 0px solid rgba(255, 255, 255, 0.305);
-    border-radius: 1.5rem;
-    box-shadow: 10px 10px 10px 4px rgba(40, 40, 41, 0.319);
-    margin-left: 20%;
-    margin-right: 20%;
-    padding-bottom: 5%;
-    padding-top: 5%;
-}
-
-@media (max-width: 768px) {
-    .todo{
-        margin-left: 3%;
-        margin-right: 3%;
-    }
-    
-}
 
 
 .titulo{
     display: flex;
     justify-content: center;
-    padding-top: 0%;
+    margin-top: 3%;
+    font-family: monospace;
 }
 
 
 .formulariologin{
-    padding-top: 7%;
+    padding: 5%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -34,28 +18,27 @@
 }
 
 .inputusuario{
-    width: 55%;
+    width: 50%;
 }
 
 .inputcontrasena{
-    width: 55%;
+    width: 50%;
 }
 
 .ingresarregistro{
     display: flex;
-    flex-flow: column nowrap;
-    width: 55%;
-    margin-top: 2%;
+    flex-flow: row nowrap;
+    width: 50%;
 }
 
 
 .botonlogin{
-    flex-basis: 20%;
-    font-family: monospace;
-    font-size: x-large;
+    flex-basis: 25%;
+    display: flex;
 }
 
 .registrarse{
-    flex-basis: 80%;
-    font-family: monospace;
+    flex-basis: 75%;
+    display: flex;
+    justify-content: start;
 }
