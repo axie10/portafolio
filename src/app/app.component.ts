@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { AuthService } from './auth/service/auth.service';
 import { Router } from '@angular/router';
 
@@ -13,8 +13,10 @@ interface MenuItem {
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements DoCheck{
+
   title = 'PortafolioAxie';
+  public nombreuser: string = '';
 
   menuItems: MenuItem[] = [
     {name: 'HOME', route: 'home'},
@@ -31,9 +33,10 @@ export class AppComponent {
     private router: Router
   ) {}
 
-  //PARA OBTENER EL USUARIO ACTUAL Y SACARLO POR PANTALLA
-  get currentuserValue() {
-    return this.authService.currentuserValue;
+  ngDoCheck(): void {
+    // console.log('DoCheck');
+    //PARA QUE NOS SALGA EL NOMBRE DE USUARIO EN EL MENU LO SACAMOS DEL SESSIONSTORAGE QUE LO GUARDAMOS CUANDO INICIA SESIÓN
+    this.nombreuser = sessionStorage.getItem('user') || '';
   }
 
   //PARA CERRAR SESION

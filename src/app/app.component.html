@@ -10,7 +10,7 @@
 
       <div class="pepe cero">
         <p class="portafoliotitulo">PORTAFOLIO MANU</p>
-        <p class="nombreusuario" *ngIf="currentuserValue?.user"><strong>User: </strong>{{currentuserValue?.user}}</p>
+        <p class="nombreusuario" *ngIf="nombreuser"><strong>User: </strong>{{nombreuser}}</p>
       </div>
 
       <div class="caja primera">
@@ -44,13 +44,15 @@
           routerLinkActive="active">
             {{item.name}}
           </li>
-        
         </ul>
-        <div *ngIf="currentuserValue?.user" class="divbotonlogout">
-          <button class="botonlogut" (click)="onLogout()" style="display: flex;">
-            <mat-icon class="mat-18">logout</mat-icon>Logout
+        <div *ngIf="nombreuser" class="divbotonlogout">
+          <button class="botonlogut" (click)="onLogout()">
+            <div class="botondentrologout">
+              <mat-icon class="mat-18">logout</mat-icon>
+              Logout
+            </div>
+            
           </button>
-
         </div>
 
       </section>

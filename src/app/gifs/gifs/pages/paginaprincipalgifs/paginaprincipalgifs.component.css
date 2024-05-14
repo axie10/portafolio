@@ -8,22 +8,22 @@
 }
 
 
-@media (max-width: 915px) {
+@media (max-width: 545px) {
 
 
     .paginaprincipa{
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column nowrap;
     }
 
 
     .side{
-        flex-basis: 20%;
-
+        display: none;
+        
     }
 
     .home{
-
+        flex-basis: 80%;
     }
 
 }

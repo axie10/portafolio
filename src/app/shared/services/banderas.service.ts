@@ -58,12 +58,14 @@ export class FlagsService {
     getBuscarPais(pais: string): Observable<Paises> {
         return this.http.get<Paises>(`${this.baseUrl2}${pais}?fields=name,flags,cca3,capital,population,maps`)
     }
+
     nosSubcribimos3(pais: string) {
         this.getBuscarPais(pais)
             .subscribe(data => {
                 this.pais2 = data;
             })
     }
+    
     get buscarPais(): Paises {
         return this.pais2 ?? {} as Paises;
     }

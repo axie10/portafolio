@@ -8,18 +8,12 @@ import { Router } from '@angular/router';
 export class AuthService {
 
     private user: User [] = [];
-    private currentUser: User | undefined;
 
     constructor(
         private router: Router
     ) {
         //guardamos en el array user lo que tengamos en el localstorage y asi ya tenemos ese array con los datos que teniamos guardados
         this.user = JSON.parse(localStorage.getItem('user')!) || [];
-    }
-
-    //FUNCION PARA SACAR EL USUARIO ACTUAL Y LLEVARLO AL APP.COMPONENT.TS
-    get currentuserValue(): User | undefined {
-        return this.currentUser;
     }
 
     //FUNCION GENERAL PARA DESPUES DE LAS ACCIONES PODEMOS GUARDAR EN LOCALSTORAGE CON LOS NUEVOS DATOS
@@ -58,8 +52,8 @@ export class AuthService {
         for(let i = 0; i < this.user.length; i++){
             if(this.user[i].user === usuario && this.user[i].contraseña === contraseña){
                 alert('Bienvenido');
-                //si coincide guardamos en la variable currentUser el usuario que coincide con el usuario y la contraseña para poder usarlo en el app.component.ts
-                this.currentUser = this.user[i];
+                //guardamos en el sessionstorage el usuario que coincide con el usuario para poder usarlo en el app.component.ts
+                sessionStorage.setItem('user', this.user[i].user);
                 //guardamos en el sessionstorage el token que es el id del usuario que coincide con el usuario y la contraseña
                 sessionStorage.setItem('token', this.user[i].id);
                 return true;
@@ -88,8 +82,7 @@ export class AuthService {
                 //recorremos el array user para ver si el token que tenemos en el sessionstorage coincide con alguno de los tokens que tenemos en el array user
                 for(let i = 0; i < this.user.length; i++){
                     if(this.user[i].id === token){
-                        //si coincide guardamos en la variable currentUser el usuario que coincide con el token para poder usarlo en el app.component.ts
-                        this.currentUser = this.user[i];
+                        
                         //y le decimos al observer que es true
                         observer.next(true);
                         //y salimos de la funcion
@@ -107,20 +100,6 @@ export class AuthService {
             }
         });
     }
-
-    paginaError404(): Observable<boolean> {
-
-        return new Observable<boolean>(observer => {
-            //si hay un token en el sessionstorage no dejamos que vaya a la pagina de login
-            if(sessionStorage.getItem('token')){
-                this.router.navigate(['/home']);
-                observer.next(true);
-            } else {
-                this.router.navigate(['/login']);
-                observer.next(false);
-            }
-        });
-        }
     
 }
 

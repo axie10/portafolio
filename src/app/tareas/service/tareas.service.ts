@@ -88,7 +88,7 @@ export class TareasService {
 
         let borra = confirm("¿Desea eliminar el historial de tareas?");
         if(!borra) return;
-        localStorage.clear();
+        localStorage.removeItem('history');
         location.reload();
     }
 

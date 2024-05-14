@@ -42,3 +42,49 @@
     display: flex;
     justify-content: start;
 }
+
+.dentrodelboton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+@media (max-width: 1515px){
+
+    .ingresarregistro {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 50%;
+    }
+
+    .botonlogin{
+        flex-basis: 50%;
+    }
+
+    
+}
+
+
+@media (max-width: 999px){
+
+    .ingresarregistro{
+        display: flex;
+        flex-flow: column wrap;
+        flex-direction: column-reverse;
+        width: 50%;
+    }
+
+    .botonlogin{
+        margin-bottom: 5%;
+        width: 100%;
+    }
+
+    .dentrodelboton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1%;
+    }
+    
+}
