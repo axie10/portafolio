@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, DoCheck } from '@angular/core';
 import { Paises } from '../../interface/paises.interface';
-import { FlagsService } from '../../service/banderas.service';
+import { FlagsService } from '../../../shared/services/banderas.service';
+
 
 @Component({
   selector: 'app-unpais',

@@ -1,7 +1,8 @@
-import { Paises } from './../interface/paises.interface';
+
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Paises } from '../../banderas/interface/paises.interface';
 
 @Injectable({providedIn: 'root'})
 export class FlagsService {

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FlagsService } from '../../service/banderas.service';
+
 import { Paises } from '../../interface/paises.interface';
+import { FlagsService } from '../../../shared/services/banderas.service';
 
 @Component({
   selector: 'app-cardpais',

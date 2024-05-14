@@ -1,8 +1,8 @@
 import { Component, DoCheck, OnChanges, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FlagsService } from '../../service/banderas.service';
 import { Paises } from '../../interface/paises.interface';
 import { Router } from '@angular/router';
+import { FlagsService } from '../../../shared/services/banderas.service';
 
 
 @Component({
