@@ -5,17 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './historialdepaises.component.html',
   styleUrls: ['./historialdepaises.component.css']
 })
-export class HistorialdepaisesComponent implements OnInit {
+export class HistorialdepaisesComponent {
 
-  public historialpaises: string [] = [];
+  public historialpaises: string[] = [];
 
   constructor() {
-    this.historialpaises = JSON.parse(localStorage.getItem('historialpaises') || '{}');
-
-  }
-
-  ngOnInit() {
-    this.historialpaises = JSON.parse(localStorage.getItem('historialpaises') || '{}');
+    this.historialpaises = JSON.parse(localStorage.getItem('historialpaises') || '[]');
   }
 
 }
