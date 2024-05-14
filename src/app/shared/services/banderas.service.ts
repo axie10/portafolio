@@ -21,55 +21,15 @@ export class FlagsService {
     private baseUrl1: string = 'https://restcountries.com/v3.1/alpha/';
     private baseUrl2: string = 'https://restcountries.com/v3.1/name/';
 
-//TODAS LAS BANDERAS
     // FUNCION PARA HACER LA PETICION A LA API DE TODAS LAS BANDERAS
     getBanderasPaises(): Observable<Paises[]>{
         return this.http.get<Paises[]>(`${this.baseUrl}`)
     }
-    
-    // NOS SUBCRRIBIMOS A LA FUNCION DE SACAR TODAS LAS BANDERAS
-    nosSubcribimos(){
-        this.getBanderasPaises()
-            .subscribe( data => {
-                    this.flags = data;
-            }) 
-    }
 
-    // FUNCION PARA IMPRIMIR TODAS LAS BANDERAS
-    get sacarFlags(): Paises []{
-        return this.flags
-    }
-
-
-//LO USAMOS PARA SACAR EL MODAL
+    //LO USAMOS PARA SACAR EL MODAL Y EL INPUT YA QUE NOS PERMITE BUSCAR POR CODIGO DEL PAIS
     getBanderasPaisesPorPais(pais:string): Observable<Paises>{
         return this.http.get<Paises>(`${this.baseUrl1}${pais}?fields=name,flags,cca3,capital,population,maps`)
     }
 
-    nosSubcribimos2(pais:string){
-        this.getBanderasPaisesPorPais(pais)
-            .subscribe( data => {
-                this.pais = data;
-            }) 
-    }
 
-    get sacarPais(): Paises {
-        return this.pais?? {} as Paises;
-    }
-
-//LO USAMOS PARA SACAR EL INPUT
-
-    nosSubcribimos3(pais:string){
-        this.getBanderasPaisesPorPais(pais)
-            .subscribe({ 
-                next: data => {
-                    this.pais = data;
-                },
-                error: error => {
-                    if (error) {
-                        alert('No se ha encontrado el pais');
-                    }
-                }
-            }) 
-    }
 }

@@ -6,9 +6,9 @@
 
       <div class="modal-header">
 
-        <h5 class="modal-title" id="exampleModalLabel">Información de {{result?.name?.common}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Información de {{result2?.name?.common}}</h5>
 
-        <img class="imagenmodal" src="{{result?.flags?.png}}" alt="">
+        <img class="imagenmodal" src="{{result2?.flags?.png}}" alt="">
         
       </div>
 
@@ -17,28 +17,28 @@
         <ul>
           <li>
             <div>
-              <strong>País:</strong> {{result?.name?.common}}
+              <strong>País:</strong> {{result2?.name?.common}}
             </div>
           </li>
 
           <li>
             <div>
-              <strong>Población:</strong> {{result?.population | number}} Hab.
-            </div>
-            
-          </li>
-
-          <li>
-
-            <div>
-              <strong>Capital:</strong> {{result?.capital}}
+              <strong>Población:</strong> {{result2?.population | number}} Hab.
             </div>
             
           </li>
 
           <li>
+
             <div>
-              <strong>Cca3:</strong> {{result?.cca3}}
+              <strong>Capital:</strong> {{result2?.capital}}
+            </div>
+            
+          </li>
+
+          <li>
+            <div>
+              <strong>Cca3:</strong> {{result2?.cca3}}
             </div>
 
           </li>
@@ -65,6 +65,7 @@
 
   <mat-drawer #drawer class="dentrosidenav" mode="side">
     <p>HISTORIAL DE PAISES</p>
+    <app-historialdepaises></app-historialdepaises>
   </mat-drawer>
 
   <div class="sidenav">
@@ -132,7 +133,7 @@
           <app-cardpais *ngIf="!control" (paises2)="cogerpais($event)"></app-cardpais>
 
           <!-- CARD DEL PAIS QUE BUSCO -->
-          <app-unpais *ngIf="control && result !== undefined" [pais]="result"></app-unpais>
+          <app-unpais *ngIf="control" [pais]="result2"></app-unpais>
 
         </div>
 

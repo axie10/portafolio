@@ -1,4 +1,4 @@
-import { GifsService } from './../../../../gifs/services/gifs.service';
+import { GifsService } from '../../../../../shared/services/gifs.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

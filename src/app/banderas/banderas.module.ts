@@ -4,6 +4,7 @@ import { PaginaprincipalbanderasComponent } from './pages/paginaprincipalbandera
 import { CardpaisComponent } from './components/cardpais/cardpais.component';
 import { MaterialModule } from '../material/material.module';
 import { UnpaisComponent } from './components/unpais/unpais.component';
+import { HistorialdepaisesComponent } from './components/historialdepaises/historialdepaises.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UnpaisComponent } from './components/unpais/unpais.component';
     declarations: [
         PaginaprincipalbanderasComponent,
         CardpaisComponent,
-        UnpaisComponent
+        UnpaisComponent,
+        HistorialdepaisesComponent
     ],
     providers: [],
 })
