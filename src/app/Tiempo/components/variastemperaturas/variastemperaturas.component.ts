@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TiempoVariosDiasService } from '../../service/tiempo_varios_dias.service';
 import { List } from '../../interface/new-interface.interface';
+import { TiempoVariosDiasService } from '../../../shared/services/tiempo_varios_dias.service';
 
 @Component({
   selector: 'app-variastemperaturas',

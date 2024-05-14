@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { List, Newtiempo } from '../interface/new-interface.interface';
+import { List, Newtiempo } from '../../Tiempo/interface/new-interface.interface';
 
 
 @Injectable({providedIn: 'root'})

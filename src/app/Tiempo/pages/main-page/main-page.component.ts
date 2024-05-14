@@ -3,7 +3,7 @@ import { Tiempo } from './../../interface/tiempo.interface';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { List } from '../../interface/new-interface.interface';
 import { switchMap } from 'rxjs';
-import { TiempoService } from '../../service/tiempo.service';
+import { TiempoService } from '../../../shared/services/tiempo.service';
 
 @Component({
   selector: 'app-main-page',

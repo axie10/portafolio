@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Comunidadesautonomas, Result } from '../interfaces/cccaa.interface';
-import { Provincia } from '../interfaces/provincia.interface';
-import { Municipio } from '../interfaces/municipio.interface';
-import { Tiempopormarcador } from '../interfaces/tiempopormarcador.interface';
-import { Todoconmunicipio } from '../interfaces/sacartodoconmunicipio.interface';
+import { Comunidadesautonomas } from '../../selectoresMapa/interfaces/cccaa.interface';
+import { Provincia } from '../../selectoresMapa/interfaces/provincia.interface';
+import { Municipio } from '../../selectoresMapa/interfaces/municipio.interface';
+import { Tiempopormarcador } from '../../selectoresMapa/interfaces/tiempopormarcador.interface';
+import { Todoconmunicipio } from '../../selectoresMapa/interfaces/sacartodoconmunicipio.interface';
+
 
 @Injectable({providedIn: 'root'})
 export class ComunidadesAutonomasService {

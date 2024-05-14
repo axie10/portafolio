@@ -1,9 +1,10 @@
-import { TiempoPais } from './../interface/tiempo-pais-interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
-import { Tiempo } from '../interface/tiempo.interface';
-import { Autocompleted } from '../interface/autocompleted.interface';
+import { TiempoPais } from '../../Tiempo/interface/tiempo-pais-interface';
+import { Tiempo } from '../../Tiempo/interface/tiempo.interface';
+import { Autocompleted } from '../../Tiempo/interface/autocompleted.interface';
+
 
 @Injectable({providedIn: 'root'})
 

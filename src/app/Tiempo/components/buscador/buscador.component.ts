@@ -1,14 +1,15 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, DoCheck } from '@angular/core';
-import { TiempoService } from '../../service/tiempo.service';
 import { FormControl } from '@angular/forms';
 import { Tiempo } from '../../interface/tiempo.interface';
-import { TiempoVariosDiasService } from '../../service/tiempo_varios_dias.service';
 import { List, Newtiempo } from '../../interface/new-interface.interface';
-import { GraficoService } from '../../service/grafico.service';
+
 import { MatAutocompleteActivatedEvent } from '@angular/material/autocomplete';
 import { Autocompleted } from '../../interface/autocompleted.interface';
 import { forkJoin, switchMap, takeWhile, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { TiempoService } from '../../../shared/services/tiempo.service';
+import { TiempoVariosDiasService } from '../../../shared/services/tiempo_varios_dias.service';
+import { GraficoService } from '../../../shared/services/grafico.service';
 
 
 

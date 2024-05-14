@@ -1,9 +1,9 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Tiempo } from '../../interface/tiempo.interface';
-import { TiempoService } from '../../service/tiempo.service';
 import { TiempoPais } from '../../interface/tiempo-pais-interface';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { TiempoService } from '../../../shared/services/tiempo.service';
 
 @Component({
   selector: 'app-card-ciudad',

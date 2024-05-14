@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TiempoService } from '../../service/tiempo.service';
 import { TiempoPais } from '../../interface/tiempo-pais-interface';
+import { TiempoService } from '../../../shared/services/tiempo.service';
 
 @Component({
   selector: 'app-card-grande-ciudad',

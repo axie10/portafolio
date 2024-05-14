@@ -1,12 +1,12 @@
 import { Result } from './../../interfaces/provincia.interface';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Comunidadesautonomas } from '../../interfaces/cccaa.interface';
-import { ComunidadesAutonomasService } from '../../services/servicio-selectores-ccaa.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Provincia } from '../../interfaces/provincia.interface';
 import { switchMap, tap } from 'rxjs';
 import { Municipio } from '../../interfaces/municipio.interface';
 import { LngLat, Map, Marker } from 'mapbox-gl';
+import { ComunidadesAutonomasService } from '../../../shared/services/servicio-selectores-ccaa.service';
 
 interface MarkerAndColor {
   color: string;
