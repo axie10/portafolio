@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, DoCheck } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Paises } from '../../interface/paises.interface';
 import { FlagsService } from '../../../../shared/services/banderas.service';
 

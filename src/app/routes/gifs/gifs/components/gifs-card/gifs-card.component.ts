@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Gif, SearchResponse } from '../../interfaces/gifs.interfaces';
+import { Gif} from '../../interfaces/gifs.interfaces';
 
 @Component({
   selector: 'app-gifs-card',

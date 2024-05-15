@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnChanges, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Paises } from '../../interface/paises.interface';
 import { Router } from '@angular/router';
@@ -10,13 +10,14 @@ import { FlagsService } from '../../../../shared/services/banderas.service';
   templateUrl: './paginaprincipalbanderas.component.html',
   styleUrls: ['./paginaprincipalbanderas.component.css']
 })
-export class PaginaprincipalbanderasComponent{
+export class PaginaprincipalbanderasComponent implements OnInit{
 
   public pais = new FormControl('');
   public result?: Paises;
   public result2?: Paises;
   public control : boolean = false;
   public historialpaises: string [] = [];
+  public flags: Paises [] = [];
 
   @Output() 
   public paisTiempo = new EventEmitter<string>();
@@ -28,33 +29,41 @@ export class PaginaprincipalbanderasComponent{
     //SACAMOS EL HISTORIAL DE PAISES DEL LOCALSTORAGE
     this.historialpaises = JSON.parse(sessionStorage.getItem('historialpaises') || '[]');
   }
+  ngOnInit(): void {
+    this.flagsService.getBanderasPaises().subscribe( data => {
+      this.flags = data;
+    })
+  }
 
   // FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL INPUT
   buscarPais(){
+    
     //SI EL INPUT ESTA VACIO NO HACE NADA
-    if(this.pais.value === null || this.pais.value === ''){
-      return
+    if (this.pais.value === '' || this.pais.value === null) { 
+      return; 
     }
-    //SI NO ESTA VACIO HACE LA PETICION A LA API
-    this.flagsService.getBanderasPaisesPorPais(this.pais.value).subscribe({
-      next: (data: Paises) => {
-        this.result2 = data;
-        //GUARDAMOS EL PAIS EN EL HISTORIAL DE PAISES Y LO GUARDAMOS EN EL LOCALSTORAGE Y SI YA ESTA NO LO GUARDAMOS
-        if (!this.historialpaises.includes(this.result2.name.common)) {
-          this.historialpaises.push(this.result2.name.common);
-        }
-        sessionStorage.setItem('historialpaises', JSON.stringify(this.historialpaises));
-      },
-      error: (error) => {
-        if (error.status === 400) {
-          alert('No se ha encontrado el pais');
-        } else {
-          console.log('An error occurred:', error);
-        }
+    // BUSCAMOS EL PAIS EN EL ARRAY DE BANDERAS POR EL NOMBRE DEL PAIS Y LO GUARDAMOS EN UNA VARIABLE QUE ENVIAMOS AL HTML UNPAIS
+    let encontrarPais = this.flags.find(flag => flag.name.common.toLowerCase() === this.pais.value?.toLowerCase());
+
+    // SI SE ENCUENTRA EL PAIS, ASIGNAMOS EL RESULTADO
+    if (encontrarPais) {
+      this.result2 = encontrarPais;
+      //MOSTRAMOS LA CARD DEL PAIS PONIENDO EL CONTROL A TRUE
+      this.control = true;
+      //GUARDAMOS EL PAIS EN EL HISTORIAL DE PAISES Y HACEMOS UNA COMPROBACION PARA QUE NO SE REPITA
+      if (!this.historialpaises.includes(this.result2.name.common)) {
+        this.historialpaises.push(this.result2.name.common);
       }
-    });
-    //PONEMOS EL CONTROL A TRUE PARA QUE SE MUESTRE LA CARD
-    this.control = true;
+      //ACUTALIZAMOS EL LOCALSTORAGE CON EL NUEVO HISTORIAL DE PAISES SI NO SE REPITE
+      sessionStorage.setItem('historialpaises', JSON.stringify(this.historialpaises));
+      //VACIAMOS EL INPUT
+      this.pais.reset();
+
+    } else {
+      // SI NO SE ENCUENTRA EL PAIS, MOSTRAMOS UNA ALERTA
+      alert('No se ha encontrado el país');
+    }
+
   }
 
   // FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL EVENTEMMITER
