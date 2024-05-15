@@ -1,7 +1,7 @@
 import { Route, Router } from '@angular/router';
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../../../shared/services/auth.service';
 
 
 

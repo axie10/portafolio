@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './routes/auth/auth.module';
 import { BanderasModule } from './routes/banderas/banderas.module';
 import { ContactoModule } from './routes/contacto/contacto.module';
 import { GifssModule } from './routes/gifs/gifss.module';
