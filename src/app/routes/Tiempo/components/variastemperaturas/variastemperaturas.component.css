@@ -1,0 +1,22 @@
+
+.card{
+    transition: all 300ms;
+    background-color: #c9e3ed;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.452);
+}
+
+.cardfondo{
+
+    border-radius: 1.5rem;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../../../../../assets/nubes_fondo.jpg);
+    background-attachment: fixed;
+    width: 100%;
+    width: 100%;
+
+}

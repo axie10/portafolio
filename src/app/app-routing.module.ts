@@ -3,37 +3,38 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { share } from 'rxjs';
 import { Error404PageComponent } from './shared/pages/error404-page/error404-page.component';
+import 'tslib';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./contacto/contacto.module').then(m => m.ContactoModule)
+    loadChildren: () => import('./routes/contacto/contacto.module').then(m => m.ContactoModule)
   },
   {
     path: 'portafolio',
-    loadChildren: () => import('./paginaprincipal/paginaprincipal.module').then(m => m.PaginaprincipalModule)
+    loadChildren: () => import('./routes/paginaprincipal/paginaprincipal.module').then(m => m.PaginaprincipalModule)
   },
   {
     path: 'tiempo',
-    loadChildren: () => import('./Tiempo/tiempo.module').then(m => m.TiempoModule),
+    loadChildren: () => import('./routes/Tiempo/tiempo.module').then(m => m.TiempoModule),
     canActivate: [AuthGuard],
     canMatch: [AuthGuard]
   },
   {
     path: 'tareas',
-    loadChildren: () => import('./tareas/tareas.module').then(m => m.TareasModule)
+    loadChildren: () => import('./routes/tareas/tareas.module').then(m => m.TareasModule)
   },
   {
     path: 'gifss',
-    loadChildren: () => import('./gifs/gifss.module').then(m => m.GifssModule)
+    loadChildren: () => import('./routes/gifs/gifss.module').then(m => m.GifssModule)
   },
   {
     path: 'banderas',
-    loadChildren: () => import('./banderas/banderas.module').then(m => m.BanderasModule)
+    loadChildren: () => import('./routes/banderas/banderas.module').then(m => m.BanderasModule)
   },
   {
     path: 'selectoresmapa',
-    loadChildren: () => import('./selectoresMapa/selectores-mapa.module').then(m => m.SelectoresMapaModule)
+    loadChildren: () => import('./routes/selectoresMapa/selectores-mapa.module').then(m => m.SelectoresMapaModule)
   },
   {
     path: 'login',

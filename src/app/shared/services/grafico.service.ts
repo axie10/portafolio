@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Graficos } from '../../Tiempo/interface/datos-grafico.interface';
+import { Graficos } from '../../routes/Tiempo/interface/datos-grafico.interface';
 
 @Injectable({providedIn: 'root'})
 export class GraficoService {
