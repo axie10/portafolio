@@ -6,11 +6,6 @@ import { Provincia } from '../../routes/selectoresMapa/interfaces/provincia.inte
 import { Municipio } from '../../routes/selectoresMapa/interfaces/municipio.interface';
 import { Tiempopormarcador } from '../../routes/selectoresMapa/interfaces/tiempopormarcador.interface';
 import { Todoconmunicipio } from '../../routes/selectoresMapa/interfaces/sacartodoconmunicipio.interface';
-// import { Comunidadesautonomas } from '../../selectoresMapa/interfaces/cccaa.interface';
-// import { Provincia } from '../../selectoresMapa/interfaces/provincia.interface';
-// import { Municipio } from '../../selectoresMapa/interfaces/municipio.interface';
-// import { Tiempopormarcador } from '../../selectoresMapa/interfaces/tiempopormarcador.interface';
-// import { Todoconmunicipio } from '../../selectoresMapa/interfaces/sacartodoconmunicipio.interface';
 
 
 @Injectable({providedIn: 'root'})
@@ -22,7 +17,6 @@ export class ComunidadesAutonomasService {
 
     // FUNCION PARA HACER LA PETICION A LA API DE TODAS LAS CCAA
     getCCAA(): Observable<Comunidadesautonomas> {
-
         return this.httpClient.get<Comunidadesautonomas>('https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/georef-spain-comunidad-autonoma/records?limit=20&select=acom_name');
     }
 

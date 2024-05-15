@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Gif, SearchResponse } from '../../routes/gifs/gifs/interfaces/gifs.interfaces';
+import { enviromnets } from '../../../environments/environments';
 
 //con el providedIn: 'root' vamos a decirle a este servicio que va a estar
 //disoponible en toda nuestra aplicacion con solo importarlo donde lo
@@ -14,7 +15,6 @@ export class GifsService {
 
     public giflist: Gif [] = [];
     private tagshistory : string [] = [];
-    private apiKey: string = "PzVd4ZFTo7U0CwNwr7Pi8PZjPxeFxYqy";
     private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
 
@@ -57,20 +57,14 @@ export class GifsService {
         this.orgizarhistorial(tag);
         //esto lo usamos para dividir los aprametros y no tener una url tan larga
         const params = new HttpParams()
-        .set('api_key', this.apiKey)
+        .set('api_key', enviromnets.gifs_key)
         .set('limit',10)
         .set('q', tag)
 
-        this.http.get<SearchResponse>(`${this.serviceUrl}/search`, {params}).
-        subscribe(resp => {
-            
+        this.http.get<SearchResponse>(`${this.serviceUrl}/search`,{params}).
+        subscribe(resp => { 
             this.giflist = resp.data;
-
-
         });
-        // console.log(this.tagshistory)
-        //('https://api.giphy.com/v1/gifs/search?api_key=PzVd4ZFTo7U0CwNwr7Pi8PZjPxeFxYqy&q=valorant&limit=10')
-
     }
 
 
