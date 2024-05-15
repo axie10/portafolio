@@ -4,7 +4,7 @@ import { PaginaprincipalbanderasComponent } from './pages/paginaprincipalbandera
 import { CardpaisComponent } from './components/cardpais/cardpais.component';
 import { UnpaisComponent } from './components/unpais/unpais.component';
 import { HistorialdepaisesComponent } from './components/historialdepaises/historialdepaises.component';
-import { MaterialModule } from '../../material/material.module';
+import { MaterialModule } from '../../shared/material/material.module';
 
 
 @NgModule({

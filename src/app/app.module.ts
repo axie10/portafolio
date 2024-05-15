@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MaterialModule } from './material/material.module';
 import { AuthModule } from './auth/auth.module';
 import { BanderasModule } from './routes/banderas/banderas.module';
 import { ContactoModule } from './routes/contacto/contacto.module';
@@ -14,6 +13,7 @@ import { SelectoresMapaModule } from './routes/selectoresMapa/selectores-mapa.mo
 import { TiempoModule } from './routes/Tiempo/tiempo.module';
 import { SharedModule } from './shared/shared.module';
 import { TareasModule } from './routes/tareas/tareas.module';
+import { MaterialModule } from './shared/material/material.module';
 
 
 @NgModule({
