@@ -10,7 +10,8 @@ export class HistorialdepaisesComponent {
   public historialpaises: string[] = [];
 
   constructor() {
-    this.historialpaises = JSON.parse(localStorage.getItem('historialpaises') || '[]');
+    //SACAMOS EL HISTORIAL DE PAISES DEL LOCALSTORAGE
+    this.historialpaises = JSON.parse(sessionStorage.getItem('historialpaises') || '[]');
   }
 
 }

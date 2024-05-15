@@ -26,7 +26,7 @@ export class PaginaprincipalbanderasComponent{
     private router: Router
   ) {
     //SACAMOS EL HISTORIAL DE PAISES DEL LOCALSTORAGE
-    this.historialpaises = JSON.parse(localStorage.getItem('historialpaises') || '[]');
+    this.historialpaises = JSON.parse(sessionStorage.getItem('historialpaises') || '[]');
   }
 
   // FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL INPUT
@@ -36,14 +36,24 @@ export class PaginaprincipalbanderasComponent{
       return
     }
     //SI NO ESTA VACIO HACE LA PETICION A LA API
-    this.flagsService.getBanderasPaisesPorPais(this.pais.value).subscribe( data => {
-      this.result2 = data;
-      //GUARDAMOS EL PAIS EN EL HISTORIAL DE PAISES Y LO GUARDAMOS EN EL LOCALSTORAGE Y SI YA ESTA NO LO GUARDAMOS
-      if (!this.historialpaises.includes(this.result2.name.common)) {
-        this.historialpaises.push(this.result2.name.common);
+    this.flagsService.getBanderasPaisesPorPais(this.pais.value).subscribe({
+      next: (data: Paises) => {
+        this.result2 = data;
+        //GUARDAMOS EL PAIS EN EL HISTORIAL DE PAISES Y LO GUARDAMOS EN EL LOCALSTORAGE Y SI YA ESTA NO LO GUARDAMOS
+        if (!this.historialpaises.includes(this.result2.name.common)) {
+          this.historialpaises.push(this.result2.name.common);
+        }
+        sessionStorage.setItem('historialpaises', JSON.stringify(this.historialpaises));
+      },
+      error: (error) => {
+        if (error.status === 400) {
+          alert('No se ha encontrado el pais');
+        } else {
+          console.log('An error occurred:', error);
+        }
       }
-      localStorage.setItem('historialpaises', JSON.stringify(this.historialpaises));
-    })
+    });
+    //PONEMOS EL CONTROL A TRUE PARA QUE SE MUESTRE LA CARD
     this.control = true;
   }
 

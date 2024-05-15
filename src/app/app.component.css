@@ -29,7 +29,7 @@
     margin-right: 5px;
     width: 40px;
     height: 40px;
-    border: 3px solid rgba(0, 0, 0, 0.358);
+    border: 1px solid rgba(0, 0, 0, 0.358);
     background-color: rgb(245, 244, 243);
     border-radius: 1.5rem;
 
@@ -50,7 +50,6 @@
 
 .nombreusuario{
     padding-top: 11px;
-    
 }
 
 .divbotonlogout{
@@ -65,7 +64,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid rgb(0, 0, 0); */
+    border: 2px solid rgba(0, 0, 0, 0.311);
     background-color: rgba(215, 38, 21, 0.74);
     border-radius: 0.3rem;
 }
