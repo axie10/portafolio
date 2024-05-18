@@ -1,10 +1,10 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, DoCheck } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Tiempo } from '../../interface/tiempo.interface';
-import { List, Newtiempo } from '../../interface/new-interface.interface';
+import { Tiempo } from '../../../../shared/interfaces/Tiempo/tiempo.interface';
+import { List, Newtiempo } from '../../../../shared/interfaces/Tiempo/new-interface.interface';
 
 import { MatAutocompleteActivatedEvent } from '@angular/material/autocomplete';
-import { Autocompleted } from '../../interface/autocompleted.interface';
+import { Autocompleted } from '../../../../shared/interfaces/Tiempo/autocompleted.interface';
 import { forkJoin, switchMap, takeWhile, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { TiempoService } from '../../../../shared/services/tiempo.service';
@@ -23,18 +23,18 @@ export class BuscadorComponen implements OnInit {
 
   ngOnInit(): void {
 
-    this.buscarPaisPorDefecto();
+     //BUSCAMOS LA CIUDAD POR DEFECTO, MADRID
+     this.buscarPaisPorDefecto();
      
-    //SACAMOS DE LA URL LA CIUDAD PARA PODER UTILIZARLA Y BUSCAR EL PAIS
-    this.route.params
-    .pipe(
-      takeWhile(({ciudad})=> ciudad !== undefined),
-      switchMap( ({ciudad}) => this.servicioTiempo.getTiempo(ciudad)),
-      )
-      .subscribe ( (data: Tiempo) => {
-      this.buscarPaisBandera(data.name);
-      this.nombre.emit([data.name, data.sys.country]);
-    });
+     //RUTA QUE USO TANTO PARA CUANDO VIENE DESDE LA VENTANA DE "BANDERA" COMO LA VENTANA DE "MAPAS"
+     this.route.params
+     .pipe(
+       //HAGO UN CONTROL DE ERRORES PARA QUE NO PUEDA BUSCAR CON SIN PARAMETRO
+       takeWhile(({ciudad})=> ciudad !== undefined),
+       ).subscribe ( ({ciudad}) => {
+       //LLAMO A LA FUNCION BUSCAR PAIS POR BANDERA QUE TAMBIEN LA USO PARA EL MAPA, ESTA FUNCION SE SUSCRIBE Y SACA TODOS LOS DATOS DE LA VISTA TIEMPO
+       this.buscarTiempoPorPaisBanderaAndMapa(ciudad);
+     }); 
     
   }
 
@@ -126,7 +126,7 @@ export class BuscadorComponen implements OnInit {
   }
 
   //FUNCION PARA EL PAIS DE LA BANDERA
-  buscarPaisBandera(value:string) {
+  buscarTiempoPorPaisBanderaAndMapa(value:string) {
 
     if(value === undefined) {return}
 
@@ -137,6 +137,8 @@ export class BuscadorComponen implements OnInit {
     }).subscribe(({ pais3, pais4, pais5 }) => {
       this.pais3 = pais3;
       this.servicioTiempo.guardarDatos(this.pais3);
+      //ME LLEVO EL NOMBRE DEL PAIS Y LA CIUDAD AL NAVBAR
+      this.nombre.emit([pais3.name, pais3.sys.country]);
 
       this.pais4 = pais4;
       this.servicioTiempoVarios.guardarDatos(this.pais4);

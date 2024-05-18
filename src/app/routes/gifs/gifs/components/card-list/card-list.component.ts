@@ -1,5 +1,5 @@
 import { Component, Input} from '@angular/core';
-import { Gif } from '../../interfaces/gifs.interfaces';
+import { Gif } from '../../../../../shared/interfaces/gifs/gifs.interfaces';
 
 @Component({
   selector: 'app-card-list',

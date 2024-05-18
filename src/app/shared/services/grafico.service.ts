@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Graficos } from '../../routes/Tiempo/interface/datos-grafico.interface';
+import { Graficos } from '../interfaces/Tiempo/datos-grafico.interface';
 import { enviromnets } from '../../../environments/environments';
 
 @Injectable({providedIn: 'root'})

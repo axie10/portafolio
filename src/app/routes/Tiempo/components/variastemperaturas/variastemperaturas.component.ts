@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { List } from '../../interface/new-interface.interface';
+import { List } from '../../../../shared/interfaces/Tiempo/new-interface.interface';
 import { TiempoVariosDiasService } from '../../../../shared/services/tiempo_varios_dias.service';
 
 @Component({

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
-import { TiempoPais } from '../../routes/Tiempo/interface/tiempo-pais-interface';
-import { Tiempo } from '../../routes/Tiempo/interface/tiempo.interface';
-import { Autocompleted } from '../../routes/Tiempo/interface/autocompleted.interface';
+import { TiempoPais } from '../interfaces/Tiempo/tiempo-pais-interface';
+import { Tiempo } from '../interfaces/Tiempo/tiempo.interface';
+import { Autocompleted } from '../interfaces/Tiempo/autocompleted.interface';
 import { enviromnets } from '../../../environments/environments';
 
 

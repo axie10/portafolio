@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TareasService } from '../../service/tareas.service';
+import { TareasService } from '../../../../shared/services/tareas.service';
 
 @Component({
   selector: 'app-paginaprincipaltareas',

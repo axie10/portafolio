@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { List } from '../../interface/new-interface.interface';
-import { series, temperaturas_grafico } from '../../interface/temperaturas-grafico';
+import { List } from '../../../../shared/interfaces/Tiempo/new-interface.interface';
+import { series, temperaturas_grafico } from '../../../../shared/interfaces/Tiempo/temperaturas-grafico';
 
 @Component({
   selector: 'app-grafico',

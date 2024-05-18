@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import {v4 as uuid} from 'uuid';
-import { TareasService } from '../../service/tareas.service';
-import { Tareas } from '../../interface/tarea.interface';
+import { TareasService } from '../../../../shared/services/tareas.service';
+import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 
 @Component({
   selector: 'app-formulario',

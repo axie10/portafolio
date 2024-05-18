@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Gif, SearchResponse } from '../../routes/gifs/gifs/interfaces/gifs.interfaces';
+import { Gif, SearchResponse } from '../interfaces/gifs/gifs.interfaces';
 import { enviromnets } from '../../../environments/environments';
 
 //con el providedIn: 'root' vamos a decirle a este servicio que va a estar

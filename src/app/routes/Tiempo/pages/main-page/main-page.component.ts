@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
-import { Tiempo } from './../../interface/tiempo.interface';
+import { Tiempo } from '../../../../shared/interfaces/Tiempo/tiempo.interface';
 import { Component, OnChanges, OnInit } from '@angular/core';
-import { List } from '../../interface/new-interface.interface';
+import { List } from '../../../../shared/interfaces/Tiempo/new-interface.interface';
 import { TiempoService } from '../../../../shared/services/tiempo.service';
 
 @Component({

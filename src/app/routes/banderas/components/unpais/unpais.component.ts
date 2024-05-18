@@ -1,5 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { Paises } from '../../interface/paises.interface';
+import { Paises } from '../../../../shared/interfaces/banderas/paises.interface';
 import { FlagsService } from '../../../../shared/services/banderas.service';
 
 

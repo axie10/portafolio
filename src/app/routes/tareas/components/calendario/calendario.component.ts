@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, forwardRef } from '@angular/core';
 import { CalendarOptions, Calendar, EventClickArg } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg, EventDragStopArg } from '@fullcalendar/interaction';
-import { TareasCalendario } from '../../interface/tareas-calendario.interface.ts';
-import { TareasService } from '../../service/tareas.service.js';
-import { Tareas } from '../../interface/tarea.interface.js';
+import { TareasCalendario } from '../../../../shared/interfaces/Tareas/tareas-calendario.interface.ts.js';
+import { TareasService } from '../../../../shared/services/tareas.service.js';
+import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface.js';
 import {v4 as uuid} from 'uuid';
 
 

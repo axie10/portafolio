@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { List, Newtiempo } from '../../routes/Tiempo/interface/new-interface.interface';
+import { List, Newtiempo } from '../interfaces/Tiempo/new-interface.interface';
 import { enviromnets } from '../../../environments/environments';
 
 

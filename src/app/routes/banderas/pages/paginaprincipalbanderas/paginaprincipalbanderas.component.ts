@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Paises } from '../../interface/paises.interface';
+import { Paises } from '../../../../shared/interfaces/banderas/paises.interface';
 import { Router } from '@angular/router';
 import { FlagsService } from '../../../../shared/services/banderas.service';
 

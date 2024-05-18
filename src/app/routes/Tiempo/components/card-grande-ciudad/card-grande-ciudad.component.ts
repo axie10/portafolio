@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TiempoPais } from '../../interface/tiempo-pais-interface';
+import { TiempoPais } from '../../../../shared/interfaces/Tiempo/tiempo-pais-interface';
 import { TiempoService } from '../../../../shared/services/tiempo.service';
 
 @Component({

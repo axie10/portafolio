@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { TiempoRoutingModule } from './tiempo-routing.module';
 import { MainPageComponent } from './pages/main-page/main-page.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardCiudadComponent } from './components/card-ciudad/card-ciudad.component';
 import { CardGrandeCiudadComponent } from './components/card-grande-ciudad/card-grande-ciudad.component';
 import { BuscadorComponen } from './components/buscador/buscador.component';
@@ -23,7 +22,6 @@ import { MaterialModule } from '../../shared/module/material/material.module';
     ],
     declarations: [
         MainPageComponent,
-        NavbarComponent,
         CardCiudadComponent,
         CardGrandeCiudadComponent,
         BuscadorComponen,

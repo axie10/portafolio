@@ -1,6 +1,6 @@
-import { TareasCalendario } from './../interface/tareas-calendario.interface.ts';
+import { TareasCalendario } from '../interfaces/Tareas/tareas-calendario.interface.ts.js';
 import { Injectable } from '@angular/core';
-import { Tareas } from '../interface/tarea.interface';
+import { Tareas } from '../interfaces/Tareas/tarea.interface.js';
 
 @Injectable({providedIn: 'root'})
 

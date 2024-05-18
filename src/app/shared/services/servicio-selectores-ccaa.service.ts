@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Comunidadesautonomas } from '../../routes/selectoresMapa/interfaces/cccaa.interface';
-import { Provincia } from '../../routes/selectoresMapa/interfaces/provincia.interface';
-import { Municipio } from '../../routes/selectoresMapa/interfaces/municipio.interface';
-import { Tiempopormarcador } from '../../routes/selectoresMapa/interfaces/tiempopormarcador.interface';
-import { Todoconmunicipio } from '../../routes/selectoresMapa/interfaces/sacartodoconmunicipio.interface';
+import { Comunidadesautonomas } from '../interfaces/selectoresMapa/cccaa.interface';
+import { Provincia } from '../interfaces/selectoresMapa/provincia.interface';
+import { Municipio } from '../interfaces/selectoresMapa/municipio.interface';
+import { Tiempopormarcador } from '../interfaces/selectoresMapa/tiempopormarcador.interface';
+import { Todoconmunicipio } from '../interfaces/selectoresMapa/sacartodoconmunicipio.interface';
 
 
 @Injectable({providedIn: 'root'})

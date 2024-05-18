@@ -3,7 +3,7 @@ import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { Paises } from '../../routes/banderas/interface/paises.interface';
+import { Paises } from '../interfaces/banderas/paises.interface';
 
 @Injectable({providedIn: 'root'})
 export class FlagsService {
