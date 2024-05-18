@@ -13,7 +13,7 @@ import { SelectoresMapaModule } from './routes/selectoresMapa/selectores-mapa.mo
 import { TiempoModule } from './routes/Tiempo/tiempo.module';
 import { SharedModule } from './shared/shared.module';
 import { TareasModule } from './routes/tareas/tareas.module';
-import { MaterialModule } from './shared/material/material.module';
+import { MaterialModule } from './shared/module/material/material.module';
 
 
 @NgModule({

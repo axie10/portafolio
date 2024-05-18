@@ -10,15 +10,16 @@
 
     <mat-card-content>
 
-      <mat-card-content class="mt-3">
+      <mat-card-content *ngIf="result !== undefined" class="mt-3">
 
-        <p style="font-size: xx-large; color: rgb(0, 0, 0);"><strong>{{result.name}}</strong></p>
-        <hr style="color: rgb(0, 0, 0);">
-        <p style="font-size: large;color: rgb(0, 0, 0);">{{result.weatherdescripcion}}</p>
-        <hr style="color: rgb(0, 0, 0);">
-        <p style="font-size: xx-large;color: rgb(0, 0, 0);"><strong>{{result.tem}} ºC</strong></p>
-        <hr style="color: rgb(0, 0, 0);">
-        <p style="font-size: large;color: rgb(0, 0, 0);"><strong>{{result.temp_min}}ºC - {{result.temp_max}}ºC</strong></p>
+        <!-- Slice para limitar el número de caracteres a mostrar -->
+        <p class="texto1"><strong>{{result.name | slice:0:17}}</strong></p>
+        <hr class="hr">
+        <p class="texto2">{{result.weatherdescripcion}}</p>
+        <hr class="hr">
+        <p class="texto1"><strong>{{result.tem}} ºC</strong></p>
+        <hr class="hr">
+        <p class="texto2"><strong>{{result.temp_min}}ºC - {{result.temp_max}}ºC</strong></p>
 
       </mat-card-content>
 

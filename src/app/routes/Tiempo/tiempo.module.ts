@@ -8,7 +8,7 @@ import { BuscadorComponen } from './components/buscador/buscador.component';
 import { VariastemperaturasComponent } from './components/variastemperaturas/variastemperaturas.component';
 import { GraficoComponent } from './components/grafico/grafico.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { MaterialModule } from '../../shared/material/material.module';
+import { MaterialModule } from '../../shared/module/material/material.module';
 
 
 

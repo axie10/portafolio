@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LayoutPageComponent } from './pages/layoutPage/layoutPage.component';
 import { RegistroPageComponent } from './pages/registroPage/registroPage.component';
 import { LoginPageComponent } from './pages/loginPage/loginPage.component';
-import { MaterialModule } from '../../shared/material/material.module';
+import { MaterialModule } from '../../shared/module/material/material.module';
 
 
 @NgModule({

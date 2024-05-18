@@ -8,7 +8,7 @@ import { TareasFavoritasComponent } from './components/tareasFavoritas/tareasFav
 import { TareasRoutingModule } from './tareas-routing.module';
 import { PaginaprincipaltareasComponent } from './page/paginaprincipaltareas/paginaprincipaltareas.component';
 import { ListatareasterminadasComponent } from './components/listatareasterminadas/listatareasterminadas.component';
-import { MaterialModule } from '../../shared/material/material.module';
+import { MaterialModule } from '../../shared/module/material/material.module';
 
 
 @NgModule({
