@@ -16,28 +16,9 @@ export class TiempoService implements OnInit {
         this.guardarDatos
     }
 
-    //url para sacar la temperatura de una ciudad
-    private baseUrl: string = 'http://api.openweathermap.org/data/2.5/weather?q=';
-    private urlparametros : string = '&units=metric&APPID=';
-
-    //url para sacar el autocompletar
-    private baseUrl2: string = 'https://api.openweathermap.org/geo/1.0/direct?q=';
-    private urlparametros2 : string = '&limit=5&units=metric&appid=';
 
     //objeto para guardar los datos
-    public pais1: TiempoPais = {
-        name: '',
-        tem: 0,
-        temp_min: 0,
-        temp_max: 0,
-        humidity: 0,
-        pressure: 0,
-        icon: '',
-        wind_speed: 0,
-        visibility: 0,
-        timezone: 0,
-        weatherdescripcion: ''
-    };
+    public pais1: TiempoPais = {};
 
     get sacarpaises(){
         return this.pais1;
@@ -45,15 +26,26 @@ export class TiempoService implements OnInit {
 
     //metodo para obtener el tiempo de una ciudad
     getTiempo(ciudad:string): Observable<Tiempo>{
-        return this.http.get<Tiempo>(`${this.baseUrl}${ciudad}${this.urlparametros}${enviromnets.tiempo_key}`)
+
+        //url para sacar la temperatura de una ciudad
+        const baseUrl: string = 'http://api.openweathermap.org/data/2.5/weather?q=';
+        const urlparametros : string = '&units=metric&APPID=';
+
+        return this.http.get<Tiempo>(`${baseUrl}${ciudad}${urlparametros}${enviromnets.tiempo_key}`)
     }
 
     //metodo para obtener el autocompletar
     getautocompletar (ciudad:string): Observable<Autocompleted [] | undefined> {
-        return this.http.get<Autocompleted []>(`${this.baseUrl2}${ciudad}${this.urlparametros2}${enviromnets.tiempo_autocompletar_key}`)
+
+        //url para sacar el autocompletar
+        const  baseUrl2: string = 'https://api.openweathermap.org/geo/1.0/direct?q=';
+        const  urlparametros2 : string = '&limit=5&units=metric&appid=';
+
+        return this.http.get<Autocompleted []>(`${baseUrl2}${ciudad}${urlparametros2}${enviromnets.tiempo_autocompletar_key}`)
     }
 
     //metodo para guardar los datos en el objeto
+    //el metodo es arcaico, pero es el que hice
     guardarDatos(pais: Tiempo){
 
         this.pais1 = {

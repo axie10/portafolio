@@ -23,6 +23,8 @@ export class CardGrandeCiudadComponent {
   //FUNCION PARA SACAR LAS RECOMENDACIONES
   get sugerencia(): string{
 
+    if(this.result.humidity === undefined){return 'No se ha encontrado la ciudad';}
+
     if(this.result.humidity > 80){
 
       return "No salgas de casa";

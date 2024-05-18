@@ -39,8 +39,15 @@ export class FormularioComponent {
 
   //FUNCION PARA GUARDAR LA TAREA EN EL ARRAY DE TAREAS DEL LOCALSTORAGE
   guardarTarea(){
+
+    if(this.Tarea.nombre === ''){
+      alert('El nombre de la tarea no puede estar vacio');
+      return;
+    }
+
+
     this.listadoTareas.guardarTarea(this.Tarea);
-    // console.table(this.Tarea)
+    
 
     this.Tarea = {
       id: uuid(),

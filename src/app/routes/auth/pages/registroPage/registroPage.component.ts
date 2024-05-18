@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../../shared/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {v4 as uuid} from 'uuid';
-import { User } from '../../interface/user.interface';
+import { User } from '../../../../shared/interfaces/auth/user.interface';
+import { AuthService } from '../../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-registroPage',

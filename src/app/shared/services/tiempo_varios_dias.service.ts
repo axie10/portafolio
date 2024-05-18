@@ -15,10 +15,6 @@ export class TiempoVariosDiasService {
     //variable para sacar la temperatura de varuios dias
     public date: List [] | undefined;
 
-    //url para sacar lñ atemperatera de varuios dias
-    private baseUrl: string = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
-    private url2 : string = '&units=metric&cnt=5&APPID=';
-
     get result(){
         return this.date;
     }
@@ -26,22 +22,17 @@ export class TiempoVariosDiasService {
     //PARA LAS TARJETA DE LOS 5 DIAS
     //hacemos alpeticion get para la parte de sacar la tenmperatura de 5 dias
     getTiempo(ciudad:string): Observable<Newtiempo>{
-        return this.http.get<Newtiempo>(`${this.baseUrl}${ciudad}${this.url2}${enviromnets.tiempo_key}`)
+
+        //url para sacar lñ atemperatera de varuios dias
+        const baseUrl: string = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
+        const url2 : string = '&units=metric&cnt=5&APPID=';
+
+        return this.http.get<Newtiempo>(`${baseUrl}${ciudad}${url2}${enviromnets.tiempo_key}`)
     }
 
     //sacamos los datos para las tarjetas de 5 dias
     guardarDatos(value: Newtiempo){
         this.date = value.list;
     }
-
-   
-    
-
-
-
-
-
-
-
 
 }

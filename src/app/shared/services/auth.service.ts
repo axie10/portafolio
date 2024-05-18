@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../routes/auth/interface/user.interface';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { User } from '../interfaces/auth/user.interface';
 
 
 @Injectable({providedIn: 'root'})

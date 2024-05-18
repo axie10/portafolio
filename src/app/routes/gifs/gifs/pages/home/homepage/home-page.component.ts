@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Gif } from '../../../../../../shared/interfaces/gifs/gifs.interfaces';
 import { GifsService } from '../../../../../../shared/services/gifs.service';
+import { Gif } from '../../../../../../shared/interfaces/gifs/gifs.interfaces';
+
 
 
 @Component({

@@ -83,9 +83,8 @@ export class PaginaprincipalbanderasComponent implements OnInit{
   atras(){
     this.control = false;
     this.pais.reset();
+    window.location.reload();
   }
-
-
 
 }
 

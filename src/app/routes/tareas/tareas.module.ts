@@ -7,7 +7,6 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
 import { TareasFavoritasComponent } from './components/tareasFavoritas/tareasFavoritas.component';
 import { TareasRoutingModule } from './tareas-routing.module';
 import { PaginaprincipaltareasComponent } from './page/paginaprincipaltareas/paginaprincipaltareas.component';
-import { ListatareasterminadasComponent } from './components/listatareasterminadas/listatareasterminadas.component';
 import { MaterialModule } from '../../shared/module/material/material.module';
 
 
@@ -17,8 +16,7 @@ import { MaterialModule } from '../../shared/module/material/material.module';
     ListatareasComponent,
     CalendarioComponent,
     TareasFavoritasComponent,
-    PaginaprincipaltareasComponent,
-    ListatareasterminadasComponent
+    PaginaprincipaltareasComponent
    ],
   imports: [
     TareasRoutingModule,

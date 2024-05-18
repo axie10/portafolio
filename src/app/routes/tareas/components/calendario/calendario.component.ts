@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, forwardRef } from '@angular/core';
-import { CalendarOptions, Calendar, EventClickArg } from '@fullcalendar/core';
+import { Component} from '@angular/core';
+import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg, EventDragStopArg } from '@fullcalendar/interaction';
 import { TareasCalendario } from '../../../../shared/interfaces/Tareas/tareas-calendario.interface.ts.js';
-import { TareasService } from '../../../../shared/services/tareas.service.js';
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface.js';
 import {v4 as uuid} from 'uuid';
+import { TareasService } from '../../../../shared/services/tareas.service.js';
+import { SlicePipe } from '@angular/common';
 
 
 
@@ -36,7 +37,8 @@ export class CalendarioComponent {
     events :  [],
     eventContent: (arg, createElement) => {
       const container = document.createElement('div');
-      container.innerHTML = arg.event.title;
+      //slice para que solo muestre los primeros 8 caracteres
+      container.innerHTML = arg.event.title.slice(0, 8);
       container.style.backgroundColor = 'lightblue';
       container.style.borderRadius = '2px';
       container.style.padding = '3px';
@@ -58,7 +60,11 @@ export class CalendarioComponent {
   //FUNCION PARA AÑADIR UNA TAREA AL CALENDARIO
   handleDateClick(arg:any) {
     let titulotareacalendario = prompt('Título de la tarea: ');
-    if(titulotareacalendario === null){return}
+    if(titulotareacalendario === null || titulotareacalendario === ''){
+      alert('El nombre de la tarea no puede estar vacio');
+      return
+    }
+
 
     let tarea: Tareas = {
       id: uuid(),

@@ -38,7 +38,6 @@ export class BuscadorComponen implements OnInit {
     
   }
 
-
   constructor(
     private servicioTiempo: TiempoService,
     private servicioTiempoVarios: TiempoVariosDiasService,
@@ -59,27 +58,23 @@ export class BuscadorComponen implements OnInit {
   public buscadorPais = new FormControl('');
   
   // esta es para guaradar el valor recogido despues de subcribirnos
-  public pais3?: Tiempo;
-  public pais4?: Newtiempo;
-  public pais5?: Newtiempo;
   public pais6?: Autocompleted [] = [];
 
   //PARA EL AUTOCOMPLETED
   buscarPais() {
-    const value: string = this.buscadorPais.value ?? '';
-
-    if (value !== '') {
+    if(this.buscadorPais.value === null) {return}
+    const value = this.buscadorPais.value;
       this.servicioTiempo.getautocompletar(value)
-      .subscribe( 
-        pais => {
-          this.pais6 = pais;
-        },
-      )}
+      .subscribe( pais => {
+        this.pais6 = pais
+      })
   }
 
   //ME SUSCRIBO A LA FUNCION DE AUTOCOMPLETAR
   opcionSeleccionada(event: MatAutocompleteActivatedEvent): void {
 
+    //CONTROL DE ERRORES
+    if(event.option?.value === undefined) {return}
     const nombrePais = event.option?.value.name;
 
     //me llevo el nombre del pais y el nombre de la ciudad para la barras de busqueda
@@ -91,38 +86,30 @@ export class BuscadorComponen implements OnInit {
       pais5: this.servicioGrafica.getTiempo(nombrePais)
     }).subscribe(({ pais3, pais4, pais5 }) => {
 
-      this.pais3 = pais3;
-      this.servicioTiempo.guardarDatos(this.pais3);
-      
-      this.pais4 = pais4;
-      this.servicioTiempoVarios.guardarDatos(this.pais4);
+      this.servicioTiempo.guardarDatos(pais3);
+      this.servicioTiempoVarios.guardarDatos(pais4);
+      this.setsearch.emit(pais5.list);
 
-      this.pais5 = pais5;
-      this.setsearch.emit(this.pais5?.list);
-
-      // Clear the input value
-      this.buscadorPais.setValue('');
     });
+    //LIMPIO EL INPUT
+    this.buscadorPais.setValue('');
   }
 
   //FUNCION POR DEFECTO
   buscarPaisPorDefecto() {
-  const defaultCity: string = 'Madrid';
+    const defaultCity: string = 'Madrid';
 
-  forkJoin({
-    pais3: this.servicioTiempo.getTiempo(defaultCity),
-    pais4: this.servicioTiempoVarios.getTiempo(defaultCity),
-    pais5: this.servicioGrafica.getTiempo(defaultCity)
-  }).subscribe(({ pais3, pais4, pais5 }) => {
-    this.pais3 = pais3;
-    this.servicioTiempo.guardarDatos(this.pais3);
+    forkJoin({
+      pais3: this.servicioTiempo.getTiempo(defaultCity),
+      pais4: this.servicioTiempoVarios.getTiempo(defaultCity),
+      pais5: this.servicioGrafica.getTiempo(defaultCity)
+    }).subscribe(({ pais3, pais4, pais5 }) => {
 
-    this.pais4 = pais4;
-    this.servicioTiempoVarios.guardarDatos(this.pais4);
+      this.servicioTiempo.guardarDatos(pais3);
+      this.servicioTiempoVarios.guardarDatos(pais4);
+      this.setsearch.emit(pais5.list);
 
-    this.pais5 = pais5;
-    this.setsearch.emit(this.pais5?.list);
-  });
+    });
   }
 
   //FUNCION PARA EL PAIS DE LA BANDERA
@@ -135,16 +122,12 @@ export class BuscadorComponen implements OnInit {
       pais4: this.servicioTiempoVarios.getTiempo(value),
       pais5: this.servicioGrafica.getTiempo(value)
     }).subscribe(({ pais3, pais4, pais5 }) => {
-      this.pais3 = pais3;
-      this.servicioTiempo.guardarDatos(this.pais3);
+
+      this.servicioTiempo.guardarDatos(pais3);
       //ME LLEVO EL NOMBRE DEL PAIS Y LA CIUDAD AL NAVBAR
       this.nombre.emit([pais3.name, pais3.sys.country]);
-
-      this.pais4 = pais4;
-      this.servicioTiempoVarios.guardarDatos(this.pais4);
-
-      this.pais5 = pais5;
-      this.setsearch.emit(this.pais5?.list);
+      this.servicioTiempoVarios.guardarDatos(pais4);
+      this.setsearch.emit(pais5.list);
     });
   }
 
