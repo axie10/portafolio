@@ -21,4 +21,15 @@ export class GraficoService {
     }
 
 
+    //////FUNCION PARA EL BUSCADOR YA QUE METO EL PAIS TAMBIEN Y ASI NO SE CONFUNDE AL BUSCAR CIUDADES CON EL MISMO NOMBRE
+    getTiempoBuscador(ciudad:string,pais:string): Observable<Graficos>{
+
+        //url para sacar la temperatura de muchios dias para el grafuico
+        const baseUrl1: string = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
+        const url2: string = '&units=metric&APPID=';
+
+        return this.http.get<Graficos>(`${baseUrl1}${ciudad},${pais}${url2}${enviromnets.tiempo_key}`)
+    }
+
+
 }

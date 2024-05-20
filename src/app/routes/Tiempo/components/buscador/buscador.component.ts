@@ -21,6 +21,8 @@ export class BuscadorComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.buscarPais();
+
      //BUSCAMOS LA CIUDAD POR DEFECTO, MADRID
      this.buscarPaisPorDefecto();
      
@@ -74,17 +76,19 @@ export class BuscadorComponent implements OnInit {
     //CONTROL DE ERRORES
     if(event.option?.value === undefined) {return}
     const nombrePais = event.option?.value.name;
+    const acronimopais = event.option?.value.country;
 
     //me llevo el nombre del pais y el nombre de la ciudad para la barras de busqueda
     this.nombre.emit([nombrePais, event.option?.value.country]);
 
     forkJoin({
-      pais3: this.servicioTiempo.getTiempo(nombrePais),
-      pais4: this.servicioTiempoVarios.getTiempo(nombrePais),
-      pais5: this.servicioGrafica.getTiempo(nombrePais)
+      pais3: this.servicioTiempo.getTiempoBuscador(nombrePais, acronimopais),
+      pais4: this.servicioTiempoVarios.getTiempoBuscador(nombrePais, acronimopais),
+      pais5: this.servicioGrafica.getTiempoBuscador(nombrePais, acronimopais)
     }).subscribe(({ pais3, pais4, pais5 }) => {
 
       this.servicioTiempo.guardarDatos(pais3);
+      pais4.list.shift();
       this.servicioTiempoVarios.guardarDatos(pais4);
       this.setsearch.emit(pais5.list);
 
@@ -104,6 +108,7 @@ export class BuscadorComponent implements OnInit {
     }).subscribe(({ pais3, pais4, pais5 }) => {
 
       this.servicioTiempo.guardarDatos(pais3);
+      pais4.list.shift();
       this.servicioTiempoVarios.guardarDatos(pais4);
       this.setsearch.emit(pais5.list);
 
@@ -124,6 +129,7 @@ export class BuscadorComponent implements OnInit {
       this.servicioTiempo.guardarDatos(pais3);
       //ME LLEVO EL NOMBRE DEL PAIS Y LA CIUDAD AL NAVBAR
       this.nombre.emit([pais3.name, pais3.sys.country]);
+      pais4.list.shift();
       this.servicioTiempoVarios.guardarDatos(pais4);
       this.setsearch.emit(pais5.list);
     });

@@ -63,4 +63,15 @@ export class TiempoService implements OnInit {
         };
     }
 
+
+    ///FUNCION PARA EL BUSCADOR YA QUE METO EL PAIS TAMBIEN Y ASI NO SE CONFUNDE AL BUSCAR CIUDADES CON EL MISMO NOMBRE
+    getTiempoBuscador(ciudad:string,pais:string): Observable<Tiempo>{
+
+        //url para sacar la temperatura de una ciudad
+        const baseUrl: string = 'http://api.openweathermap.org/data/2.5/weather?q=';
+        const urlparametros : string = '&units=metric&APPID=';
+
+        return this.http.get<Tiempo>(`${baseUrl}${ciudad},${pais}${urlparametros}${enviromnets.tiempo_key}`)
+    }
+
 }

@@ -11,18 +11,18 @@
       <div class="row d-flex justify-content-center dates">
         
           <mat-card class="col-2 m-2 card" *ngFor="let results of result; let i = index">
-
-            <mat-card-header class="d-flex justify-content-center">
-
-              <mat-card-subtitle><strong>{{ results.dt * 1000 | date: 'EEEE' : 'es' }}</strong></mat-card-subtitle>
-              
-            </mat-card-header>
-
-            <img mat-card-image src="{{url}}{{results.weather[0].icon}}@2x.png" alt=""><mat-card-content>
-
-              <p class="d-flex justify-content-center"><strong>{{results.temp.day}}ºC</strong></p>
-
-            </mat-card-content>
+            
+              <ng-container >
+                <mat-card-header class="d-flex justify-content-center">
+                  <mat-card-subtitle><strong>{{ results.dt * 1000 | date: 'EEEE' : 'es' }}</strong></mat-card-subtitle>
+                </mat-card-header>
+  
+                <img mat-card-image src="{{url}}{{results.weather[0].icon}}@2x.png" alt="">
+                <mat-card-content>
+                  <p class="d-flex justify-content-center"><strong>{{results.temp.day}}ºC</strong></p>
+                </mat-card-content>
+              </ng-container>
+           
           </mat-card>
 
       </div>

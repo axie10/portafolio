@@ -26,7 +26,7 @@ export class TiempoVariosDiasService {
 
         //url para sacar lñ atemperatera de varuios dias
         const baseUrl: string = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
-        const url2 : string = '&units=metric&cnt=5&APPID=';
+        const url2 : string = '&units=metric&cnt=6&APPID=';
 
         return this.http.get<Newtiempo>(`${baseUrl}${ciudad}${url2}${enviromnets.tiempo_key}`)
     }
@@ -34,6 +34,17 @@ export class TiempoVariosDiasService {
     //sacamos los datos para las tarjetas de 5 dias
     guardarDatos(value: Newtiempo){
         this.date = value.list;
+    }
+
+
+    //////FUNCION PARA EL BUSCADOR YA QUE METO EL PAIS TAMBIEN Y ASI NO SE CONFUNDE AL BUSCAR CIUDADES CON EL MISMO NOMBRE
+    getTiempoBuscador(ciudad:string,pais:string): Observable<Newtiempo>{
+
+        //url para sacar lñ atemperatera de varuios dias
+        const baseUrl: string = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
+        const url2 : string = '&units=metric&cnt=6&APPID=';
+
+        return this.http.get<Newtiempo>(`${baseUrl}${ciudad},${pais}${url2}${enviromnets.tiempo_key}`)
     }
 
 }

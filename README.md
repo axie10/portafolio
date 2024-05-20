@@ -1,27 +1,47 @@
-# Portafolio02
+# Proyecto Angular de Manu | Portafolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+Este proyecto en Angular fue desarrollado despues de 2 meses de trabajo y aprendizaje,
+incluye una variedad de aplicaciones dentro de él, cada una con su funcionalidad específica.
+A continuación, se describen brevemente las diferentes partes del proyecto:
 
-## Development server
+# Aplicaciones incluidas:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+----Aplicación del Tiempo:
 
-## Code scaffolding
+Esta aplicación muestra información meteorológica obtenida de una API externa. (OpenWeather)
+Permite visualizar datos como la temperatura, condiciones climáticas, etc.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+----Aplicación de Tareas:
 
-## Build
+Una aplicación para gestionar tareas.
+Permite añadir tareas que se agregan a un calendario para un seguimiento más fácil.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+----Aplicación de Selector de Ciudades:
 
-## Running unit tests
+Incluye diferentes selectores en los puedes ir filtrando las CCAA, provincias y municipios de España.
+Incluye un mapa interactivo para seleccionar ciudades.
+También se integra con la aplicación del tiempo.
+Utiliza dos APIs externas: RESTCountries y Mapbox para obtener información geográfica y de ubicación.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+----Aplicación de GIFs:
 
-## Running end-to-end tests
+Permite buscar GIFs a través de una API y muestra los resultados.
+Los usuarios pueden buscar GIFs por palabras clave y obtener resultados en tiempo real.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+----Aplicación de Banderas:
 
-## Further help
+Una aplicación que muestra información detallada sobre diferentes países al hacer clic en sus banderas.
+Se integra con la aplicación del Tiempo para proporcionar información adicional sobre el clima de cada país.
+Utiliza APIs externa: RESTCountries.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Funcionalidades adicionales:
+
+---Sistema de Autenticación:
+
+Incluye un sistema básico de inicio de sesión y registro.
+Utiliza localStorage y sessionStorage para almacenar la información del usuario.
+
+
+# Para iniciar el proyesto:
+
+Debes ejecuatr en la consola "ng serve -o"

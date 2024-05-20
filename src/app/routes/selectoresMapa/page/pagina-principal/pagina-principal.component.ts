@@ -43,8 +43,8 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
     if(!this.divMap) return console.error('No se pudo cargar el mapa');
     this.map = new Map({
       container: this.divMap?.nativeElement, // container ID
-      style: 'mapbox://styles/mapbox/streets-v12', // style URL
-      center: this.coordenadas, // starting position [lng, lat]
+      style: 'mapbox://styles/mapbox/streets-v12', // style
+      center: this.coordenadas, // 
       zoom: 2, // starting zoom
     });
   }
@@ -95,6 +95,7 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
       ).subscribe(results => {
         this.municipio = results;
       });
+
     this.myForm.get('municipio')!.valueChanges.pipe(
       switchMap((provincia) => this.service.getMunicipios(provincia))
     ).subscribe(results => {
@@ -119,10 +120,10 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
   refreshMap(): void {
     if (!this.divMap) return console.error('No se pudo cargar el mapa');
     this.map = new Map({
-      container: this.divMap?.nativeElement, // container ID
-      style: 'mapbox://styles/mapbox/streets-v12', // style URL
-      center: this.coordenadas, // starting position [lng, lat]
-      zoom: 10, // starting zoom
+      container: this.divMap?.nativeElement, 
+      style: 'mapbox://styles/mapbox/streets-v12', 
+      center: this.coordenadas, 
+      zoom: 10, 
     });
   }
 
@@ -131,15 +132,15 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
     if(!this.map) return;
     const color = '#xxxxxx'.replace(/x/g, y=>(Math.random()*16|0).toString(16));
     const lngLat = this.map.getCenter();
+    //CREO EL MARCADOR
     this.añadirMarcador(lngLat, color);
     //NOS SUSCRIBIMOS A LA FUNCION PARA SACAR LA CIUDAD
     this.service.getTiempopormarcador(lngLat.lat, lngLat.lng)
       .subscribe(({ name }) => {
       this.ciudadmarcador = name;
-      // Subscribe to another service using the name
+      //ME SUSCRIBO A LA FUNCION DEL MUNICIPIO PARA SACAR LOS DATOS DE LA CCCA Y PROVINCIA QUE IRAN EN LOS SELECTORES
       this.service.getTodoslosDatosdelSelector(name)
         .subscribe(data => {
-          // console.log(data);
           if(data.results[0]){
             this.myForm.get('ccaa')?.setValue(data.results[0].acom_name);
             this.myForm.get('provincia')?.setValue(data.results[0].prov_name);
@@ -152,12 +153,14 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
 
   }
 
+  //FUNCION PARA AÑADIR EL MARCADOR AL MAPA
   añadirMarcador(lngLat: LngLat, color:string){
     if( !this.map ) return;
 
     const marker = new Marker({
       color: color,
-      draggable: true
+      //indicamos que no se puede mover el marcador
+      draggable: false
     })
     .setLngLat(lngLat)
     .addTo(this.map);

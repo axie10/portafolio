@@ -16,10 +16,9 @@ export class VariastemperaturasComponent {
   public url: string = 'https://openweathermap.org/img/wn/';
   public url2: string = '2x.png';
 
-  public dia = new Date();
-
   get result() : List [] | undefined{
-    return this.TiempoVariosdias.result
+    const result = this.TiempoVariosdias.result;
+    return result;
   }
 
 }
