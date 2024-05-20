@@ -9,6 +9,8 @@
     flex-grow: 1;   
     /* border-radius: 0.4rem; */
     margin: 1%;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
 }
 
 .project img{
@@ -52,6 +54,38 @@ img{
     transition: all 300ms;
 }
 
+
+.project:nth-child(odd) {
+    animation-name: slideInFromLeft;
+}
+
+.project:nth-child(even) {
+    animation-name: slideInFromRight;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 
 @media (max-width: 615px) {

@@ -18,6 +18,7 @@ export class PaginaprincipalbanderasComponent implements OnInit{
   public control : boolean = false;
   public historialpaises: string [] = [];
   public flags: Paises [] = [];
+  
 
   @Output() 
   public paisTiempo = new EventEmitter<string>();

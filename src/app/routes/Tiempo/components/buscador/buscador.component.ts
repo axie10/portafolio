@@ -19,7 +19,7 @@ import { GraficoService } from '../../../../shared/services/grafico.service';
   templateUrl: './buscador.component.html',
   styleUrls: ['./buscador.component.css']
 })
-export class BuscadorComponen implements OnInit {
+export class BuscadorComponent implements OnInit {
 
   ngOnInit(): void {
 

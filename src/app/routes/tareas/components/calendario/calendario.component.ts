@@ -6,7 +6,6 @@ import { TareasCalendario } from '../../../../shared/interfaces/Tareas/tareas-ca
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface.js';
 import {v4 as uuid} from 'uuid';
 import { TareasService } from '../../../../shared/services/tareas.service.js';
-import { SlicePipe } from '@angular/common';
 
 
 
@@ -21,7 +20,7 @@ export class CalendarioComponent {
   public events2: TareasCalendario [] = [];
   public date = new Date();
 
-  constructor( private listadoTareas: TareasService) {
+  constructor(private listadoTareas: TareasService) {
 
     this.events2 = this.listadoTareas.conseguirTareasCalendario();
     // console.log(this.events2);
@@ -64,7 +63,6 @@ export class CalendarioComponent {
       alert('El nombre de la tarea no puede estar vacio');
       return
     }
-
 
     let tarea: Tareas = {
       id: uuid(),
