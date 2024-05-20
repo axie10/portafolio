@@ -31,12 +31,11 @@ export class PaginaprincipalbanderasComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    //ME SUSCRIBO AQUI PARA TENER LOS DATOS Y PODER USARLOS EN EL HTML
     this.flagsService.getBanderasPaises().subscribe( data => {
       this.flags = data;
     })
   }
-
-
 
   // FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL INPUT
   buscarPais(){

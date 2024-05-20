@@ -25,7 +25,6 @@ export class CardpaisComponent implements OnInit {
     //NOS SUBSCRIBIMOS A LA FUNCION DE SACAR TODAS LAS BANDERAS
     this.servicioFlags.getBanderasPaises().subscribe( data => {
       this.flags = data;
-      // console.log(this.flags)
     })
   }
 
