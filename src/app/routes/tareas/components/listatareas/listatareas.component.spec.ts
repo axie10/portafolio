@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListatareasComponent } from './listatareas.component';
 import { TareasService } from '../../../../shared/services/tareas.service';
-import { of } from 'rxjs';
 
 describe('ListatareasComponent', () => {
   let component: ListatareasComponent;

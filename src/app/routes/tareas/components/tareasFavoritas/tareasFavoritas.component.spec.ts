@@ -1,74 +1,45 @@
-// import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-// import { ComponentFixture, TestBed } from "@angular/core/testing";
-// import { TareasFavoritasComponent } from "./tareasFavoritas.component";
-// import { TareasService } from '../../../../shared/services/tareas.service';
-// import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
-// import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TareasFavoritasComponent } from './tareasFavoritas.component';
+import { TareasService } from '../../../../shared/services/tareas.service';
+import { of } from 'rxjs';
 
-// const mockTareas: Tareas [] = [
-//   {
-//     id: '1',
-//     nombre: 'Tarea 1',
-//     descripcion: 'Descripción de la tarea 1',
-//     estado: 0,
-//     fecha: '2022-01-01',
-//     favorita: 1,
-//     start: new Date(),
-//     title: 'Tarea favorita'
-//   },
-//   {
-//     id: '2',
-//     nombre: 'Tarea 2',
-//     descripcion: 'Descripción de la tarea 2',
-//     estado: 0,
-//     fecha: '2022-01-01',
-//     favorita: 0,
-//     start: new Date(),
-//     title: 'Tarea favorita'
-//   },
-//   {
-//     id: '3',
-//     nombre: 'Tarea 3',
-//     descripcion: 'Descripción de la tarea 3',
-//     estado: 0,
-//     fecha: '2022-01-01',
-//     favorita: 0,
-//     start: new Date(),
-//     title: 'Tarea favorita'
-//   }
-// ];
+describe('TareasFavoritasComponent', () => {
+  let component: TareasFavoritasComponent;
+  let fixture: ComponentFixture<TareasFavoritasComponent>;
+  let tareasService: TareasService;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [TareasFavoritasComponent],
+      providers: [TareasService], // Agregar el servicio al providers
+    }).compileComponents();
+  });
 
-// describe("TareasFavoritasComponent", () => {
-//   let component: TareasFavoritasComponent;
-//   let fixture: ComponentFixture<TareasFavoritasComponent>;
-//   let myService: TareasService;
-  
-//   beforeEach( () => {
-//     TestBed.configureTestingModule({
-//       declarations: [TareasFavoritasComponent],
-//       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-//       providers: [{ provide: TareasService, useValue: {} }],
-//       imports: [
-//         HttpClientTestingModule
-//       ]
-//     }).compileComponents();
-//   });
-  
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(TareasFavoritasComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//     myService = TestBed.inject(TareasService);
-//   });
-  
-//   it('should ...', () => {
-//     expect(component).toBeTruthy();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TareasFavoritasComponent);
+    component = fixture.componentInstance;
+    tareasService = TestBed.inject(TareasService); // Inyectar el servicio
+    fixture.detectChanges();
+  });
 
-//   // tareaCompletada(value:Tareas){
-//   //   this.listadotareas.tareaCompletada(value);
-//   // }
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
+  });
 
-  
-// });
+  it('should call tareaCompletada method', () => {
+    const tarea: any = { id: 1, titulo: 'Tarea 1', descripcion: 'Descripción de la tarea 1' };
+    spyOn(tareasService, 'tareaCompletada').and.callThrough();
+    component.tareaCompletada(tarea);
+    expect(tareasService.tareaCompletada).toHaveBeenCalledWith(tarea);
+  });
+
+  it('should call borrarTarea method', () => {
+    const tarea: any = { id: 1, titulo: 'Tarea 1', descripcion: 'Descripción de la tarea 1' };
+    spyOn(console, 'log');
+    spyOn(tareasService, 'borrarTarea').and.callThrough();
+    component.borrarTarea(tarea);
+    expect(console.log).toHaveBeenCalledWith(tarea);
+    expect(tareasService.borrarTarea).toHaveBeenCalledWith(tarea);
+  });
+
+});

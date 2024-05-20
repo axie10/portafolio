@@ -21,13 +21,12 @@ export class CalendarioComponent {
   public date = new Date();
 
   constructor(private listadoTareas: TareasService) {
-
     this.events2 = this.listadoTareas.conseguirTareasCalendario();
     // console.log(this.events2);
     // Funcion para actualizar los eventos del calendario y asignarlo a el events del calendario
     this.actualizarEventos();
-
   }
+
   
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',

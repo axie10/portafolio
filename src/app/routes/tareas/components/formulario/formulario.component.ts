@@ -45,10 +45,8 @@ export class FormularioComponent {
       return;
     }
 
-
     this.listadoTareas.guardarTarea(this.Tarea);
     
-
     this.Tarea = {
       id: uuid(),
       nombre: '',
