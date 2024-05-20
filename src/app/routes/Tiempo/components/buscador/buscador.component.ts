@@ -1,8 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Tiempo } from '../../../../shared/interfaces/Tiempo/tiempo.interface';
 import { List, Newtiempo } from '../../../../shared/interfaces/Tiempo/new-interface.interface';
-
 import { MatAutocompleteActivatedEvent } from '@angular/material/autocomplete';
 import { Autocompleted } from '../../../../shared/interfaces/Tiempo/autocompleted.interface';
 import { forkJoin, switchMap, takeWhile, tap } from 'rxjs';

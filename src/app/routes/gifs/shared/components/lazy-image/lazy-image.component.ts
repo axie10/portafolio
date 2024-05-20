@@ -16,7 +16,6 @@ export class LazyImageComponent implements OnInit {
 
   public controler: boolean = false;
 
-
   ngOnInit(): void {
     if (!this.url) throw new Error('Method not implemented.');
   }

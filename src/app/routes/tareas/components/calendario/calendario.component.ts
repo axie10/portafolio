@@ -22,13 +22,13 @@ export class CalendarioComponent {
 
   constructor(private listadoTareas: TareasService) {
 
+    //ME TRAIGO LAS TAREAS QUE ESTEN EN EL LOCAL Y LAS ASIGNO A EVENTS2
     this.events2 = this.listadoTareas.conseguirTareasCalendario();
-    // console.log(this.events2);
     // Funcion para actualizar los eventos del calendario y asignarlo a el events del calendario
     this.actualizarEventos();
-
   }
-  
+
+  //CREO EL OBJETO CALENDARIO CON SUS OPCIONES
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
@@ -59,11 +59,13 @@ export class CalendarioComponent {
   //FUNCION PARA AÑADIR UNA TAREA AL CALENDARIO
   handleDateClick(arg:any) {
     let titulotareacalendario = prompt('Título de la tarea: ');
+    //CONTROL DE ERRORES PARA QUE NO VENGA VACIO NI NULO
     if(titulotareacalendario === null || titulotareacalendario === ''){
       alert('El nombre de la tarea no puede estar vacio');
       return
     }
 
+    //CREO UN OBJETO TAREAS DONDE ASIGNO LOS VALORES DE LA NUEVA TAREA ASIGNADA MEDIANTE EL CALENDARIO Y LO PUSEO EN EL LOCALSTORAGE
     let tarea: Tareas = {
       id: uuid(),
       nombre: titulotareacalendario,
@@ -75,9 +77,9 @@ export class CalendarioComponent {
       title: ''
     }
 
-    console.log(arg.dateStr);
-
+    //FUNCION PARA GUARDAR LA NUEVA TAREA EN EL LOCALSTORAGE
     this.listadoTareas.guardarTarea(tarea);
+    //RECARCARGO LA PAGINA PARA QUE SE ACTUALICE EL CALENDARIO
     location.reload();
   }
 

@@ -23,11 +23,6 @@ export class TareasFavoritasComponent {
     this.listadotareas.tareaCompletada(value);
   }
 
-
-  get listadotareas1 () {
-    return [...this.listadotareas.tareas];
-  }
-
   borrarTarea(value:Tareas){
     console.log(value)
     this.listadotareas.borrarTarea(value);

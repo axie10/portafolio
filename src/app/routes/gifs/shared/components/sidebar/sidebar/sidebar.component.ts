@@ -12,13 +12,11 @@ export class SidebarComponent {
   constructor(private gifsService:GifsService) { }
 
   get mostrarHistorial():string []{
-    return this.gifsService.tagsHistory;
-    
+    return this.gifsService.tagsHistory; 
   }
 
   buscaTag(tag:string) {
     this.gifsService.searchtag(tag);
-
   }
 
 

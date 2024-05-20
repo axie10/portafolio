@@ -19,6 +19,7 @@ export class FormularioComponent {
   obtenerFecha():string{
     let fechaActual = new Date();
     const dia = fechaActual.getDate();
+    //LE SUMO UNO AL MES PORQUE ENERO SALE COMO 0
     const mes = fechaActual.getMonth() + 1;
     const año = fechaActual.getFullYear();
     return `${año}-${mes}-${dia}`;
@@ -40,15 +41,16 @@ export class FormularioComponent {
   //FUNCION PARA GUARDAR LA TAREA EN EL ARRAY DE TAREAS DEL LOCALSTORAGE
   guardarTarea(){
 
+    //CONTROL DE ERRORES PARA EVITAR QUE EL TITULO VENGA VACIO
     if(this.Tarea.nombre === ''){
       alert('El nombre de la tarea no puede estar vacio');
       return;
     }
 
-
+    //TENGO EN EL FORMULARIO EL NGSUBMIT, EN EL NGMODEL ASIGNO A LA PROPIEDAD DEL OBJETO TAREA
     this.listadoTareas.guardarTarea(this.Tarea);
     
-
+    //CREO OTRA VEZ EL OBJETO PARA QUE SE RESERTEE EL UUID
     this.Tarea = {
       id: uuid(),
       nombre: '',

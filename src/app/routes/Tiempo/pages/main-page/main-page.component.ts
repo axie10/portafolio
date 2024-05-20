@@ -9,36 +9,24 @@ import { TiempoService } from '../../../../shared/services/tiempo.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent implements OnInit, OnChanges {
+export class MainPageComponent implements OnChanges {
 
   list: List[] | undefined;
   nombrepais: string[] = ["Madrid", "ES"];
-  activatedRoute: any;
-  public ciudadBandera?: Tiempo;
 
   constructor(
-    private route: ActivatedRoute,
-    private servicio: TiempoService
   ) { }
 
   ngOnChanges() {
     this.setNombrePais(this.nombrepais);
   }
 
-  ngOnInit() {
-    // this.route.params
-    // .pipe(
-    //   switchMap( ({ciudad}) => this.servicio.getTiempo(ciudad)))
-    // .subscribe ( (data: Tiempo) => { // Explicitly type the 'data' parameter as 'Tiempo'
-    //   this.ciudadBandera = data;
-    //   console.log(this.ciudadBandera);
-    // });
-  }
-
+  //ESTE METODO ES PARA PASARLE LA LISTA DE TEMPERATURAS AL GRAFICO
   setList(list: List[]) {
     this.list = list;
   }
 
+  //METODO PARA SACAR LA CIUDAD Y EL PAIS EN LA NAVBAR
   setNombrePais(nombrepais: string[]) {
     this.nombrepais = nombrepais;
   }

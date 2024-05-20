@@ -16,15 +16,17 @@ export class GraficoComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // this.temperatura = this.result();
+    this.temperatura = this.result();
   }
 
+  // EL INPUT QUE NOS VIENE DEL MAINPAGE PARA PASAR LA LISTA DE LOS PROXIMOS DIAS
   @Input({required:true})
   public lista : List [] | undefined;
 
+  //CREAMO UN OBJETO TIPO TEMPERATURASGRAFICO PARA PODER PASARSELO AL GRAFICO
   temperatura : temperaturas_grafico [] = [];
 
-  // options
+  //OPCIONES DEL GRAFICO
   legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = false;
@@ -35,22 +37,20 @@ export class GraficoComponent implements OnInit, OnChanges {
   yAxisLabel: string = 'Temperatura';
   timeline: boolean = true;
 
-  result(): temperaturas_grafico[] {
 
+  result(): temperaturas_grafico[] {
     // debugger
     let newtemp: temperaturas_grafico[] = [];
     let line: temperaturas_grafico = {
-
       name: "temperatura_media",
       series: this.gettemperaturas()
-
     };
     newtemp.push(line);
     return newtemp;
   }
 
 
-  //metodo de mapeo
+  //MAPEO PARA SACAR DE LA LISTA SOLO EL DIA Y LA TEMPERATURA
   gettemperaturas(): series[] {
 
     if (this.lista === undefined) {

@@ -1,3 +1,39 @@
 .fondodescripcion{
     background-color: rgba(240, 248, 255, 0.937);
 }
+
+.linea1{
+    border-color: rgb(4, 255, 0); 
+    border-width: 4px;
+}
+
+.cajaverde{
+    border: 2px solid green;
+}
+
+.botoneditar{
+    width: 45px; 
+    height: 40px; 
+    border: 2px solid yellow;
+}
+
+.botoncompletar{
+    width: 45px; 
+    height: 40px; 
+    border: 2px solid greenyellow;
+}
+
+.botonfavorito{
+    width: 45px; 
+    height: 40px; 
+    border: 2px solid rgb(0, 162, 255);
+}
+
+.linea2{
+    border-color: rgb(255, 0, 0); 
+    border-width: 4px;
+}
+
+.cajaroja{
+    border: 2px solid red;
+}

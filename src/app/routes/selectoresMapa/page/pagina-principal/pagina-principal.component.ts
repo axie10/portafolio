@@ -13,10 +13,6 @@ interface MarkerAndColor {
   marker: Marker;
 }
 
-interface PlainMarkers {
-  color: string;
-  lngLat: number[];
-}
 
 @Component({
   selector: 'app-pagina-principal',
@@ -26,8 +22,7 @@ interface PlainMarkers {
 export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
 
   //PARA COORDENADAS
-  public ciudadmarcador: string = '';
-
+  public ciudadmarcador: string = ''; 
 
   //PARA EL MARCADOR
   public markersPublic : MarkerAndColor[] = [];
@@ -45,7 +40,6 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
   @ViewChild('map') divMap?: ElementRef;
 
   ngAfterViewInit(): void {
-
     if(!this.divMap) return console.error('No se pudo cargar el mapa');
     this.map = new Map({
       container: this.divMap?.nativeElement, // container ID
@@ -75,7 +69,7 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
     this.tiempoparamunicipio();
   }
 
-  //FUNCION PARA IMPRIMIR TODOS LOS PAISES
+  //FUNCION PARA IMPRIMIR TODOS LAS CCAA
   onCCAAChanged(): void {
     this.service.getCCAA()
       .subscribe(results => {

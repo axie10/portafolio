@@ -8,10 +8,9 @@ import { FlagsService } from '../../../../shared/services/banderas.service';
   templateUrl: './unpais.component.html',
   styleUrls: ['./unpais.component.css']
 })
-export class UnpaisComponent implements OnInit {
+export class UnpaisComponent {
 
-  public result2?: Paises;
-
+  //se recibe el pais desde el componente padre
   @Input()
   public pais?: Paises;
 
@@ -19,9 +18,6 @@ export class UnpaisComponent implements OnInit {
   constructor(
     private servicio: FlagsService
   ) {
-  }
-
-  ngOnInit() {
   }
 
 }

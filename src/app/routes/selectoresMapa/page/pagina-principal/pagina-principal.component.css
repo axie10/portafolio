@@ -33,6 +33,7 @@
     height: 500px;
     width: 1200px;
     border: 2px solid black;
+    z-index: 1;
 }
 
 .botonagregar{
@@ -40,6 +41,12 @@
     margin: 2%;
     display: flex;
     justify-content: end;
+}
+
+.punto{
+    z-index: 999;
+    position: relative;
+    top: 50%;
 }
 
 @media (max-width: 1670px) {

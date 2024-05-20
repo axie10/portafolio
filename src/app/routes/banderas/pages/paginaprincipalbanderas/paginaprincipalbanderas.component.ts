@@ -13,7 +13,7 @@ import { FlagsService } from '../../../../shared/services/banderas.service';
 export class PaginaprincipalbanderasComponent implements OnInit{
 
   public pais = new FormControl('');
-  public result?: Paises;
+  // public result?: Paises;
   public result2?: Paises;
   public control : boolean = false;
   public historialpaises: string [] = [];
@@ -25,7 +25,6 @@ export class PaginaprincipalbanderasComponent implements OnInit{
 
   constructor(
     private flagsService: FlagsService,
-    private router: Router
   ) {
     //SACAMOS EL HISTORIAL DE PAISES DEL LOCALSTORAGE
     this.historialpaises = JSON.parse(sessionStorage.getItem('historialpaises') || '[]');
@@ -67,7 +66,7 @@ export class PaginaprincipalbanderasComponent implements OnInit{
 
   }
 
-  // FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL EVENTEMMITER
+  //FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL EVENTEMMITER
   cogerpais(value: string){
       //NOS TRAE EL CODIGO DEL PAIS POR UN POUTPUT DE LA CARD Y NOS SUSBRINBIMOS CUANDO SE PDORUCE EL EVENTEMMITER 
       this.flagsService.getBanderasPaisesPorPais(value).subscribe( data => {

@@ -10,8 +10,10 @@ import { FlagsService } from '../../../../shared/services/banderas.service';
 })
 export class CardpaisComponent implements OnInit {
 
+  //VARIABLE PARA CARGAR TODAS LAS BANDERAS
   public flags: Paises [] = [];
 
+  //SE EMITE EL PAIS SELECCIONADO
   @Output()
   public paises2: EventEmitter<string> = new EventEmitter<string>();
 
