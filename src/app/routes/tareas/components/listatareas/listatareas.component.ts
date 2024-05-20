@@ -23,7 +23,6 @@ export class ListatareasComponent {
     this.listadotareas.tareaCompletada(value);
   }
 
-
   get listadotareas1 () {
     return [...this.listadotareas.tareas];
   }

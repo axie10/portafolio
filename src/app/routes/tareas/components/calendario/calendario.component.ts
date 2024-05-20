@@ -5,7 +5,7 @@ import interactionPlugin, { DateClickArg, EventDragStopArg } from '@fullcalendar
 import { TareasCalendario } from '../../../../shared/interfaces/Tareas/tareas-calendario.interface.ts.js';
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface.js';
 import {v4 as uuid} from 'uuid';
-import { TareasService } from '../../../../shared/services/tareas.service.js';
+import { TareasService } from '../../../../shared/services/tareas.service';
 
 
 

@@ -11,6 +11,7 @@ import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 export class TareasFavoritasComponent {
 
   constructor(private listadotareas: TareasService) { }
+  
 
   // @Input()
   // public tareas: Tareas [] = [];
@@ -23,7 +24,6 @@ export class TareasFavoritasComponent {
     this.listadotareas.tareaCompletada(value);
   }
 
-
   get listadotareas1 () {
     return [...this.listadotareas.tareas];
   }
@@ -32,15 +32,6 @@ export class TareasFavoritasComponent {
     console.log(value)
     this.listadotareas.borrarTarea(value);
   }
-
-  // editartarea(value?:Tareas){
-
-  //   if(!value) return;
-  //   let nuevoNombre = prompt("Nuevo titulo a tu tarea: ");
-  //   if(!nuevoNombre) return;
-  //   this.listadotareas.editarTarea(value, nuevoNombre);
-
-  // }
 
   /*PROPIEDADES QUE USAMOS EN EL TEMPLATE PARA MOSTRAR LA FECHA
   Y PARA COMPROBAR EL ID Y AL PNERME ENCIMA DE UNA TAREA LO MUESTRE EN TODAS
