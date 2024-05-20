@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, DoCheck } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Tiempo } from '../../../../shared/interfaces/Tiempo/tiempo.interface';
 import { List, Newtiempo } from '../../../../shared/interfaces/Tiempo/new-interface.interface';
@@ -62,7 +62,7 @@ export class BuscadorComponent implements OnInit {
 
   //PARA EL AUTOCOMPLETED
   buscarPais() {
-    if(this.buscadorPais.value === null) {return}
+    if(this.buscadorPais.value === null || this.buscadorPais.value === '') {return}
     const value = this.buscadorPais.value;
       this.servicioTiempo.getautocompletar(value)
       .subscribe( pais => {
