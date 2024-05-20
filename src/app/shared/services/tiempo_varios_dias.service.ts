@@ -15,6 +15,7 @@ export class TiempoVariosDiasService {
     //variable para sacar la temperatura de varuios dias
     public date: List [] | undefined;
 
+    //PARA SACAR LOS DATOS DE LOS 5 DIAS
     get result(){
         return this.date;
     }

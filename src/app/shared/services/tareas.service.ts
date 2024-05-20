@@ -48,6 +48,7 @@ export class TareasService {
 
         for(let i = 0; i < this.tareas.length; i++){
             if(this.tareas[i].id === value.id){
+                //USO SPLICE PARA ELIMINAR LA TAREA QUE COINCIDE CON EL ID Y CON EL SPLICE SELECCIONO EL NUMERO DE ELEMENTOS QUE QUIERO ELIMINAR
                 this.tareas.splice(i,1)
             }
         }
@@ -100,7 +101,7 @@ export class TareasService {
         }
 
         this.guardarEnLocalStorage(this.tareas);
-        // alert(this.tareaFavoritostareaAlert)
+        alert(this.tareaFavoritostareaAlert)
     }
 
     //LO USO PARA QUITAR LAS TAREAS DE FAVORITO COMBIANDOLE EL ESTADOD DE LA PROPIEDAD "FAVORITA" A 1
@@ -113,7 +114,7 @@ export class TareasService {
             }
         }
         this.guardarEnLocalStorage(this.tareas);
-        // alert(this.tareaquirtadaFavoritostareaCompletadaAlert)
+        alert(this.tareaquirtadaFavoritostareaCompletadaAlert)
 
     }
 
