@@ -1,6 +1,7 @@
 import { Component, } from '@angular/core';
 import { TareasService } from '../../../../shared/services/tareas.service';
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -10,10 +11,14 @@ import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 })
 export class TareasFavoritasComponent {
 
-  constructor(private listadotareas: TareasService) { }
+  //PROPIEDADES PARA EL SNACKBAR
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  // @Input()
-  // public tareas: Tareas [] = [];
+  constructor(
+    private listadotareas: TareasService,
+    private _snackBar: MatSnackBar
+  ) { }
 
   get listadoTareas (){
     return [...this.listadotareas.tareas]
@@ -45,9 +50,13 @@ export class TareasFavoritasComponent {
   }
 
   quitardeFavorito(value:Tareas){
-
     this.listadotareas.quitardeFavorito(value);
-
+    this._snackBar.open("Tarea quitada de favoritos", 'Cerrar', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: 'custom-snackbar-azul',
+      duration: 2000
+    });
   }
 
 }

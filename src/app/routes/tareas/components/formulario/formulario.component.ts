@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {v4 as uuid} from 'uuid';
 import { TareasService } from '../../../../shared/services/tareas.service';
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBarConfig  } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-formulario',
@@ -11,7 +12,11 @@ import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 })
 export class FormularioComponent {
 
-  constructor(private listadoTareas: TareasService) { }
+  //PROPIEDADES PARA EL SNACKBAR
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  constructor(private listadoTareas: TareasService, private _snackBar: MatSnackBar) { }
 
   //OBTENEMOS LA FECHA DEL MOMENTO QUE SE CREA LA TAREA
   //VAMOS SACANDO EL DIA, MES Y AÑO CON LAS FUNCIONES DEL TIPO 'DATE()'
@@ -43,12 +48,23 @@ export class FormularioComponent {
 
     //CONTROL DE ERRORES PARA EVITAR QUE EL TITULO VENGA VACIO
     if(this.Tarea.nombre === ''){
-      alert('El nombre de la tarea no puede estar vacio');
+      this._snackBar.open('El titulo no puede estar vacio', 'Cerrar',{
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        panelClass: 'custom-snackbar-rojo',
+        duration: 2000
+      });
       return;
     }
 
     //TENGO EN EL FORMULARIO EL NGSUBMIT, EN EL NGMODEL ASIGNO A LA PROPIEDAD DEL OBJETO TAREA
     this.listadoTareas.guardarTarea(this.Tarea);
+    this._snackBar.open('Tarea guardada', 'Cerrar' ,{
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: 'custom-snackbar-verde',
+      duration: 2000
+    });
     
     //CREO OTRA VEZ EL OBJETO PARA QUE SE RESERTEE EL UUID
     this.Tarea = {

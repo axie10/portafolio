@@ -28,7 +28,7 @@ export class TareasService {
     guardarTarea(value:Tareas){
         this.tareas.push(value);
         this.guardarEnLocalStorage(this.tareas);
-        alert(this.tareaGuardadaAlert);
+
     }
 
     //LO USO PARA CAMBIAR EL ESTADO DE UNA TAREA Y PASARLA A COMPLETADA
@@ -40,7 +40,6 @@ export class TareasService {
         }
         
         this.guardarEnLocalStorage(this.tareas);
-        alert(this.tareaCompletadaAlert);
     }
 
     //LO USO PARA BORRAR UNA TAREA, LA BUSCO POR EL ID Y CUANDO COINCIDE LA ELIMINO
@@ -54,7 +53,6 @@ export class TareasService {
         }
         //UUNA VEZ QUE ESTA ELIMINADA LA VUELVO A GUARDAR EN EL LOCALSTORAGE PARA ACTUALIZAR
         this.guardarEnLocalStorage(this.tareas);
-        alert(this.tareaEliminadatareaCompletadaAlert);
     }
 
     //LO USO PARA EDITAR LAS TAREAS LA BUSCO POR EL ID Y CUANDO COINCIDE CAMBIO EL NOMBRE
@@ -67,7 +65,6 @@ export class TareasService {
         }
         //GUARDO EN EL LOCALSTORAGE PARA ACTUALIZAR
         this.guardarEnLocalStorage(this.tareas);
-        alert(this.tareaEditada)
     }
 
     //LO USO PARA SACAR EN LA ETIQUETA DE LA TAREA CUANDO HAGO EL HOVER LA FECHA DE LA TAREA
@@ -101,7 +98,6 @@ export class TareasService {
         }
 
         this.guardarEnLocalStorage(this.tareas);
-        alert(this.tareaFavoritostareaAlert)
     }
 
     //LO USO PARA QUITAR LAS TAREAS DE FAVORITO COMBIANDOLE EL ESTADOD DE LA PROPIEDAD "FAVORITA" A 1
@@ -114,8 +110,6 @@ export class TareasService {
             }
         }
         this.guardarEnLocalStorage(this.tareas);
-        alert(this.tareaquirtadaFavoritostareaCompletadaAlert)
-
     }
 
 

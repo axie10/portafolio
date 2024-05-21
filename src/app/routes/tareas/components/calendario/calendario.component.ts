@@ -6,6 +6,7 @@ import { TareasCalendario } from '../../../../shared/interfaces/Tareas/tareas-ca
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface.js';
 import {v4 as uuid} from 'uuid';
 import { TareasService } from '../../../../shared/services/tareas.service.js';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 
 
@@ -17,10 +18,17 @@ import { TareasService } from '../../../../shared/services/tareas.service.js';
 })
 export class CalendarioComponent {
 
+  //PROPIEDADES PARA EL SNACKBAR
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   public events2: TareasCalendario [] = [];
   public date = new Date();
 
-  constructor(private listadoTareas: TareasService) {
+  constructor(
+    private listadoTareas: TareasService,
+    private _snackBar: MatSnackBar
+  ) {
 
     //ME TRAIGO LAS TAREAS QUE ESTEN EN EL LOCAL Y LAS ASIGNO A EVENTS2
     this.events2 = this.listadoTareas.conseguirTareasCalendario();
@@ -61,7 +69,12 @@ export class CalendarioComponent {
     let titulotareacalendario = prompt('Título de la tarea: ');
     //CONTROL DE ERRORES PARA QUE NO VENGA VACIO NI NULO
     if(titulotareacalendario === null || titulotareacalendario === ''){
-      alert('El nombre de la tarea no puede estar vacio');
+      this._snackBar.open("El titutlo no puede estar vacio", 'Cerrar', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        panelClass: 'custom-snackbar-rojo',
+        duration: 2000
+      });
       return
     }
 
@@ -79,8 +92,17 @@ export class CalendarioComponent {
 
     //FUNCION PARA GUARDAR LA NUEVA TAREA EN EL LOCALSTORAGE
     this.listadoTareas.guardarTarea(tarea);
+    this._snackBar.open("Tarea guardada", 'Cerrar', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: 'custom-snackbar-verde',
+      duration: 2000
+    });
     //RECARCARGO LA PAGINA PARA QUE SE ACTUALICE EL CALENDARIO
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
+    
   }
 
 

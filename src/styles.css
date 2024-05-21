@@ -5,3 +5,41 @@ html, body {
     cursor:crosshair;
 }
 body { margin: 0;  }
+
+.custom-snackbar-rojo {
+    background-color: #ff4040;
+    color: white;         
+    font-size: 16px;      
+    text-align: center;   
+    padding: 10px;
+    border-radius: 0.8rem;
+}
+
+.custom-snackbar-verde {
+    background-color: #04ee18; 
+    color: rgb(23, 244, 3);           
+    font-size: 16px;       
+    text-align: center;    
+    padding: 10px;
+    border-radius: 0.8rem;
+}
+
+.custom-snackbar-azul {
+    background-color: #0019f3; 
+    color: white;          
+    font-size: 16px;         
+    text-align: center;       
+    padding: 10px;
+    border-radius: 0.8rem;
+}
+
+
+.custom-snackbar-amarillo {
+    background-color: #fff704; 
+    color: white;           
+    font-size: 16px;          
+    text-align: center;      
+    padding: 10px;
+    border-radius: 0.8rem;
+}
+
