@@ -20,3 +20,11 @@
     width: 100%;
 
 }
+
+@media (max-width: 465px){
+
+    .nombredia{
+        font-size: 0.6rem;
+    }
+
+}

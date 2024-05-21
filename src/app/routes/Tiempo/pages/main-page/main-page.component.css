@@ -162,6 +162,10 @@
         flex-basis: auto;
     }
 
+    .cardciudad{
+        margin-right: 4%;
+    }
+
 }
 
 @media (max-width: 1215px){
