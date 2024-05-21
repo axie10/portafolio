@@ -42,4 +42,9 @@ describe('TareasFavoritasComponent', () => {
     expect(tareasService.borrarTarea).toHaveBeenCalledWith(tarea);
   });
 
+
+
+
+
+
 });

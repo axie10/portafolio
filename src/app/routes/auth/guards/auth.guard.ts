@@ -24,6 +24,5 @@ export class AuthGuard {
     //FUNCION PARA PROTEGER LAS RUTAS 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
         return this.checkAuth();
-    }
-    
+    }  
 }

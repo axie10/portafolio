@@ -28,12 +28,17 @@ export class LoginPageComponent implements OnInit{
   }
 
   onLogin(): void {
-    const usuario = this.Form.get('usuario')?.value;
-    const contraseña = this.Form.get('contraseña')?.value;
-
-    if(this.authService.validarUsuario(usuario, contraseña)){
-      this.router.navigate(['/tiempo']);
+    if (this.Form.valid) {
+      const usuario = this.Form.get('usuario')?.value;
+      const contraseña = this.Form.get('contraseña')?.value;
+   
+      if (this.authService.validarUsuario(usuario, contraseña)) {
+        this.router.navigate(['/tiempo']);
+      }
+    } else {
+      return;
     }
   }
-
 }
+
+

@@ -11,10 +11,6 @@ import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 export class TareasFavoritasComponent {
 
   constructor(private listadotareas: TareasService) { }
-  
-
-  // @Input()
-  // public tareas: Tareas [] = [];
 
   get listadoTareas (){
     return [...this.listadotareas.tareas]
@@ -23,11 +19,7 @@ export class TareasFavoritasComponent {
   tareaCompletada(value:Tareas){
     this.listadotareas.tareaCompletada(value);
   }
-
-  get listadotareas1 () {
-    return [...this.listadotareas.tareas];
-  }
-
+  
   borrarTarea(value:Tareas){
     console.log(value)
     this.listadotareas.borrarTarea(value);

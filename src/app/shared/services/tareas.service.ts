@@ -15,8 +15,6 @@ export class TareasService {
     public tareaGuardadaAlert: string = "Tarea guardada";
     public tareaEditada: string = "Tarea editada";
 
-
-
     constructor() {
         this.tareas = JSON.parse(localStorage.getItem('history')!) || [];
     }
