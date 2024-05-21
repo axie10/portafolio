@@ -6,12 +6,13 @@ html, body {
 }
 body { margin: 0;  }
 
+/* ESTILOS PARA LOS SNACKBAR */
 .custom-snackbar-rojo {
     background-color: #ff4040;
     color: white;         
     font-size: 16px;      
     text-align: center;   
-    padding: 10px;
+    padding: 5px;
     border-radius: 0.8rem;
 }
 
@@ -20,7 +21,7 @@ body { margin: 0;  }
     color: rgb(23, 244, 3);           
     font-size: 16px;       
     text-align: center;    
-    padding: 10px;
+    padding: 5px;
     border-radius: 0.8rem;
 }
 
@@ -29,7 +30,7 @@ body { margin: 0;  }
     color: white;          
     font-size: 16px;         
     text-align: center;       
-    padding: 10px;
+    padding: 5px;
     border-radius: 0.8rem;
 }
 
@@ -39,7 +40,7 @@ body { margin: 0;  }
     color: white;           
     font-size: 16px;          
     text-align: center;      
-    padding: 10px;
+    padding: 5px;
     border-radius: 0.8rem;
 }
 

@@ -56,11 +56,12 @@ export class TareasService {
     }
 
     //LO USO PARA EDITAR LAS TAREAS LA BUSCO POR EL ID Y CUANDO COINCIDE CAMBIO EL NOMBRE
-    editarTarea(value:Tareas, nuevonombre:string){
+    editarTarea(value:Tareas, nuevonombre:string, nuevadescripcion:string){
 
         for(let i = 0; i < this.tareas.length; i++){
             if(this.tareas[i].id === value.id){
                 this.tareas[i].nombre = nuevonombre;
+                this.tareas[i].descripcion = nuevadescripcion;
             }
         }
         //GUARDO EN EL LOCALSTORAGE PARA ACTUALIZAR

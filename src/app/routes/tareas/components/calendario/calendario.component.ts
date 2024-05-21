@@ -68,7 +68,8 @@ export class CalendarioComponent {
   handleDateClick(arg:any) {
     let titulotareacalendario = prompt('Título de la tarea: ');
     //CONTROL DE ERRORES PARA QUE NO VENGA VACIO NI NULO
-    if(titulotareacalendario === null || titulotareacalendario === ''){
+    if(titulotareacalendario === null){return}
+    if( titulotareacalendario === ''){
       this._snackBar.open("El titutlo no puede estar vacio", 'Cerrar', {
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
