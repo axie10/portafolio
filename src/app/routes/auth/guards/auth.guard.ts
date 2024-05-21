@@ -16,12 +16,12 @@ export class AuthGuard {
         return this.authService.checkAuthentication();
     }
 
-    //FUNCION PARA PROTEGER LAS RUTAS 
+    //FUNCION PARA PROTEGER UN CONJUNTO DE RUTAS
     canMatch(route: Route, segments: UrlSegment[]): boolean | Observable<boolean> {
         return this.checkAuth();
     }
     
-    //FUNCION PARA PROTEGER LAS RUTAS 
+    //FUNCION PARA PROTEGER UNA RUTA EN ESPECIFICO
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
         return this.checkAuth();
     }

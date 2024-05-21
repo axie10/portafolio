@@ -25,10 +25,4 @@ export class FlagsService {
         return this.http.get<Paises[]>(`${this.baseUrl}`)
     }
 
-    //LO USAMOS PARA SACAR EL MODAL Y EL INPUT YA QUE NOS PERMITE BUSCAR POR CODIGO DEL PAIS
-    getBanderasPaisesPorPais(pais:string): Observable<Paises>{
-        return this.http.get<Paises>(`${this.baseUrl1}${pais}?fields=name,flags,cca3,capital,population,maps`)
-    }
-
-
 }

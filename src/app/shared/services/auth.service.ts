@@ -26,10 +26,11 @@ export class AuthService {
 
         //comprobamos tanto el nombre de usuario para que no pueda haber dos iguales como el email para decirle que ya esta registrado
         for(let i = 0; i < this.user.length; i++){
-            //si el nombre de usuario o el email ya estan registrados le decimos que no puede registrarse
+            //SI EL USUARIO YA EXISTE LE AVISO QUE TIENE QUE REGISTRARSE CON OTRO NOMBRE DE USUARIO
             if(this.user[i].user === userNuevo.user){
                 alert('Debe ingresar otro nombre de usuario');
                 return;
+            //SI EL EMAIL YA EXISTE YA LE DECIMOS QUE AY ESTA REGISTRADO
             } else if(this.user[i].email === userNuevo.email){
                 alert('El email ya esta registrado');
                 return;
@@ -71,6 +72,7 @@ export class AuthService {
     //COMPROBAR SI ESTA AUTENTICADO EL USUARIO Y CADA VEZ QUE RECARGE LA PAGINA O SE VAYA A OTRA PAGINA NO TENGAMOS QUE HACER LOGIN DE NUEVO
     checkAuthentication(): Observable<boolean> {
 
+        
         return new Observable<boolean>(observer => {
 
             //comprobamos si hay un token en el sessionstorage 

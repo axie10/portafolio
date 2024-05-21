@@ -21,6 +21,7 @@ export class BuscadorComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //PARA PODER BUSCAR EL PAIS CUANDO ESTA EN LA PESTAÑA QUE VIENE DEL MAPA O DE LA BANDERA
     this.buscarPais();
 
      //BUSCAMOS LA CIUDAD POR DEFECTO, MADRID
@@ -74,7 +75,10 @@ export class BuscadorComponent implements OnInit {
   opcionSeleccionada(event: MatAutocompleteActivatedEvent): void {
 
     //CONTROL DE ERRORES
-    if(event.option?.value === undefined) {return}
+    if(event.option?.value === undefined) {
+      alert('No se ha encontrado la ciudad')
+      return
+    }
     const nombrePais = event.option?.value.name;
     const acronimopais = event.option?.value.country;
 
@@ -88,6 +92,7 @@ export class BuscadorComponent implements OnInit {
     }).subscribe(({ pais3, pais4, pais5 }) => {
 
       this.servicioTiempo.guardarDatos(pais3);
+      //BORRO EL PRIMER OBJETO DEL ARRAY PARA QUE NO ME SAQUE EL DIA DE HOY
       pais4.list.shift();
       this.servicioTiempoVarios.guardarDatos(pais4);
       this.setsearch.emit(pais5.list);
@@ -108,6 +113,7 @@ export class BuscadorComponent implements OnInit {
     }).subscribe(({ pais3, pais4, pais5 }) => {
 
       this.servicioTiempo.guardarDatos(pais3);
+      //BORRO EL PRIMER OBJETO DEL ARRAY PARA QUE NO ME SAQUE EL DIA DE HOY
       pais4.list.shift();
       this.servicioTiempoVarios.guardarDatos(pais4);
       this.setsearch.emit(pais5.list);
@@ -129,6 +135,7 @@ export class BuscadorComponent implements OnInit {
       this.servicioTiempo.guardarDatos(pais3);
       //ME LLEVO EL NOMBRE DEL PAIS Y LA CIUDAD AL NAVBAR
       this.nombre.emit([pais3.name, pais3.sys.country]);
+      //BORRO EL PRIMER OBJETO DEL ARRAY PARA QUE NO ME SAQUE EL DIA DE HOY
       pais4.list.shift();
       this.servicioTiempoVarios.guardarDatos(pais4);
       this.setsearch.emit(pais5.list);
