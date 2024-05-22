@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TiempoService } from '../../../../shared/services/tiempo.service';
 import { TiempoVariosDiasService } from '../../../../shared/services/tiempo_varios_dias.service';
 import { GraficoService } from '../../../../shared/services/grafico.service';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 
 
@@ -44,6 +45,7 @@ export class BuscadorComponent implements OnInit {
     private servicioTiempoVarios: TiempoVariosDiasService,
     private servicioGrafica: GraficoService,
     private route: ActivatedRoute,
+    private snackbarService: SnackbarService
   ) { }
 
 
@@ -76,7 +78,7 @@ export class BuscadorComponent implements OnInit {
 
     //CONTROL DE ERRORES
     if(event.option?.value === undefined) {
-      alert('No se ha encontrado la ciudad')
+      this.snackbarService.show('No se ha encontrado la ciudad', 2000, 'custom-snackbar-rojo');
       return
     }
     const nombrePais = event.option?.value.name;

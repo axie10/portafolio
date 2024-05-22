@@ -1,6 +1,7 @@
 import { Component, DoCheck } from '@angular/core';
 import { AuthService } from './shared/services/auth.service';
 import { Router } from '@angular/router';
+import { SnackbarService } from './shared/services/snackbar.service';
 
 //INTERFAZ PARA EL MENU
 interface MenuItem {
@@ -30,7 +31,7 @@ export class AppComponent implements DoCheck{
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private snackbarService: SnackbarService
   ) {}
 
   ngDoCheck(): void {
@@ -42,7 +43,10 @@ export class AppComponent implements DoCheck{
   //PARA CERRAR SESION
   onLogout() {
     this.authService.logout();
-    window.location.reload();
+    this.snackbarService.show('Se ha cerrado la sesión', 2000, 'custom-snackbar-rojo');
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 
 }

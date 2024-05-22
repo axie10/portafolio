@@ -4,6 +4,7 @@ import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { TareaMatDialogComponent } from '../../../../shared/components/task-mat-dialog/task-mat-dialog.component';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ListatareasComponent {
   constructor(
     private listadotareas: TareasService,
     private _snackBar: MatSnackBar,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackbarService: SnackbarService
   ) { }
 
   //PARA EL MATDIALOG
@@ -32,23 +34,13 @@ export class ListatareasComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {
-        this._snackBar.open("La tarea no fue editada", 'Cerrar', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-          panelClass: 'custom-snackbar-rojo',
-          duration: 1000
-        });
+        this.snackbarService.show('La tarea no fue editada', 1000, 'custom-snackbar-rojo');
         setTimeout(() => {
           location.reload();
         }, 1000);
       } else {
         this.listadotareas.editarTarea(result, result.nombre, result.descripcion);
-        this._snackBar.open("Tarea editada", 'Cerrar', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-          panelClass: 'custom-snackbar-amarillo',
-          duration: 2000
-        });
+        this.snackbarService.show('Tarea editada', 1000, 'custom-snackbar-amarillo');
       }
     });
   }
@@ -63,24 +55,14 @@ export class ListatareasComponent {
   //OBTENGO LA TAREA CUANDO HAGO CLICK EN EL BOTON DE COMPLETAR Y SE LA PASO A AL FUNCION TAREACOMPLETADA DEL SERVICIO QUE LA FILTRA POR EL ID
   tareaCompletada(value:Tareas):void{
     this.listadotareas.tareaCompletada(value);
-    this._snackBar.open("Tarea completada", 'Cerrar',{
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      panelClass: 'custom-snackbar-verde',
-      duration: 2000
-    });
+    this.snackbarService.show('Tarea completada', 2000, 'custom-snackbar-verde');
   }
 
   borrarTarea(value:Tareas):void{
     let borra = confirm("¿Desea eliminar la tareas?");
     if(!borra) return;
     this.listadotareas.borrarTarea(value);
-    this._snackBar.open("Tarea eliminada", 'Cerrar', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      panelClass: 'custom-snackbar-rojo',
-      duration: 2000
-    });
+    this.snackbarService.show('area eliminada', 2000, 'custom-snackbar-rojo');
   }
 
   /*PROPIEDADES QUE USAMOS EN EL TEMPLATE PARA MOSTRAR LA FECHA
@@ -105,13 +87,7 @@ export class ListatareasComponent {
   //FUNCION PARA AÑADIR LA TAREA A FAVORITOS, ME LLEVO LA TAREA COMO PARAMETRO Y SE LA PASO A LA FUNCION DEL SERVICIO QUE CAMBIA EL ESTADO DE LA PROPIEDAD "FAVORITA"
   anadiraFavorita(value: Tareas):void{
     this.listadotareas.tareasFavoritas(value);
-    this.listadotareas.tareasFavoritas(value);
-    this._snackBar.open("Tarea añadida a favorito", 'Cerrar', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      panelClass: 'custom-snackbar-azul',
-      duration: 2000
-    });
+    this.snackbarService.show('Tarea añadida a favorito', 2000, 'custom-snackbar-azul');
   }
 
 }

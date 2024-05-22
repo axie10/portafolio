@@ -2,6 +2,7 @@ import { Component, } from '@angular/core';
 import { TareasService } from '../../../../shared/services/tareas.service';
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class TareasFavoritasComponent {
 
   constructor(
     private listadotareas: TareasService,
-    private _snackBar: MatSnackBar
+    private snackbarService: SnackbarService
   ) { }
 
   get listadoTareas (){
@@ -51,12 +52,7 @@ export class TareasFavoritasComponent {
 
   quitardeFavorito(value:Tareas){
     this.listadotareas.quitardeFavorito(value);
-    this._snackBar.open("Tarea quitada de favoritos", 'Cerrar', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      panelClass: 'custom-snackbar-azul',
-      duration: 2000
-    });
+    this.snackbarService.show('Tarea quitada de favoritos', 2000, 'custom-snackbar-azul');
   }
 
 }

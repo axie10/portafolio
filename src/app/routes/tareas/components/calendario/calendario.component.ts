@@ -7,6 +7,7 @@ import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface.js'
 import {v4 as uuid} from 'uuid';
 import { TareasService } from '../../../../shared/services/tareas.service.js';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { SnackbarService } from '../../../../shared/services/snackbar.service.js';
 
 
 
@@ -27,7 +28,7 @@ export class CalendarioComponent {
 
   constructor(
     private listadoTareas: TareasService,
-    private _snackBar: MatSnackBar
+    private snackbarService: SnackbarService
   ) {
 
     //ME TRAIGO LAS TAREAS QUE ESTEN EN EL LOCAL Y LAS ASIGNO A EVENTS2
@@ -70,12 +71,7 @@ export class CalendarioComponent {
     //CONTROL DE ERRORES PARA QUE NO VENGA VACIO NI NULO
     if(titulotareacalendario === null){return}
     if( titulotareacalendario === ''){
-      this._snackBar.open("El titutlo no puede estar vacio", 'Cerrar', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-        panelClass: 'custom-snackbar-rojo',
-        duration: 2000
-      });
+      this.snackbarService.show('El titutlo no puede estar vacio', 2000, 'custom-snackbar-rojo');
       return
     }
 
@@ -93,12 +89,7 @@ export class CalendarioComponent {
 
     //FUNCION PARA GUARDAR LA NUEVA TAREA EN EL LOCALSTORAGE
     this.listadoTareas.guardarTarea(tarea);
-    this._snackBar.open("Tarea guardada", 'Cerrar', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      panelClass: 'custom-snackbar-verde',
-      duration: 2000
-    });
+    this.snackbarService.show('Tarea guardada', 2000, 'custom-snackbar-verde');
     //RECARCARGO LA PAGINA PARA QUE SE ACTUALICE EL CALENDARIO
     setTimeout(() => {
       location.reload();

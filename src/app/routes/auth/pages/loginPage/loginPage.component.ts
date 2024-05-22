@@ -24,7 +24,6 @@ export class LoginPageComponent implements OnInit{
     private authService : AuthService,
   ) { }
   ngOnInit(): void {
-    // alert('Debe iniciar sesión para acceder a la aplicación.');
   }
 
   onLogin(): void {

@@ -7,6 +7,7 @@ import { switchMap, tap } from 'rxjs';
 import { Municipio } from '../../../../shared/interfaces/selectoresMapa/municipio.interface';
 import { LngLat, Map, Marker } from 'mapbox-gl';
 import { ComunidadesAutonomasService } from '../../../../shared/services/servicio-selectores-ccaa.service';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 interface MarkerAndColor {
   color: string;
@@ -60,6 +61,7 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
   constructor(
     private service: ComunidadesAutonomasService,
     private fb: FormBuilder,
+    private snackbarService: SnackbarService
   ) { }
 
   ngOnInit(): void {
@@ -146,7 +148,8 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
             this.myForm.get('provincia')?.setValue(data.results[0].prov_name);
             this.myForm.get('municipio')?.setValue(data.results[0].mun_name);
           } else {
-            return alert('No se ha encontrado el municipio');
+            this.snackbarService.show('No se ha encontrado el municipio', 2000, 'custom-snackbar-rojo');
+            return 
           }
         });
       });

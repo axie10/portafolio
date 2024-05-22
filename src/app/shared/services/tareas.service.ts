@@ -7,13 +7,6 @@ import { TareasCalendario } from '../interfaces/Tareas/tareas-calendario.interfa
 export class TareasService {
 
     public tareas : Tareas [] = [];
-    //variables para los alerts
-    public tareaFavoritostareaAlert: string = "Tarea guardada en favorito";
-    public tareaquirtadaFavoritostareaCompletadaAlert: string = "Tarea fuera de favoritos";
-    public tareaCompletadaAlert: string = "Tarea completada";
-    public tareaEliminadatareaCompletadaAlert: string = "Tarea eliminada";  
-    public tareaGuardadaAlert: string = "Tarea guardada";
-    public tareaEditada: string = "Tarea editada";
 
     constructor() {
         this.tareas = JSON.parse(localStorage.getItem('history')!) || [];

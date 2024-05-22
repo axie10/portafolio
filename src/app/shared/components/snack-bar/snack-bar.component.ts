@@ -1,24 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+// snackbar.component.ts
+import { Component, Inject } from '@angular/core';
+import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-snack-bar',
-  templateUrl: './snack-bar.component.html',
-  styleUrls: ['./snack-bar.component.css']
+  selector: 'app-snackbar',
+  template: `
+  <span>{{ data.message }}</span>`,
 })
-export class SnackBarComponent implements OnInit {
-
+export class SnackbarComponent {
   constructor(
-    private _snackBar: MatSnackBar
+    public snackBarRef: MatSnackBarRef<SnackbarComponent>,
+    @Inject(MAT_SNACK_BAR_DATA) public data: any
   ) { }
-
-  ngOnInit() {
-  }
-
-  openSnackBar(message: string, action: string) {
-    message = 'This is a message';
-    action = 'Action';
-    this._snackBar.open(message, action);
-  }
-
 }

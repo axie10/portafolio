@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Paises } from '../../../../shared/interfaces/banderas/paises.interface';
 import { Router } from '@angular/router';
 import { FlagsService } from '../../../../shared/services/banderas.service';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class PaginaprincipalbanderasComponent implements OnInit{
 
   constructor(
     private flagsService: FlagsService,
+    private snackbarService: SnackbarService
   ) {
     //SACAMOS EL HISTORIAL DE PAISES DEL LOCALSTORAGE
     this.historialpaises = JSON.parse(sessionStorage.getItem('historialpaises') || '[]');
@@ -63,7 +65,7 @@ export class PaginaprincipalbanderasComponent implements OnInit{
 
     } else {
       // SI NO SE ENCUENTRA EL PAIS, MOSTRAMOS UNA ALERTA
-      alert('No se ha encontrado el país');
+      this.snackbarService.show('No se ha encontrado el pais', 2000, 'custom-snackbar-rojo');
     }
 
   }

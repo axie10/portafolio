@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/auth/user.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from './snackbar.service';
 
 
 @Injectable({providedIn: 'root'})
@@ -12,7 +13,7 @@ export class AuthService {
 
     constructor(
         private router: Router,
-        private _snackBar: MatSnackBar
+        private snackbarService: SnackbarService
     ) {
         //guardamos en el array user lo que tengamos en el localstorage y asi ya tenemos ese array con los datos que teniamos guardados
         this.user = JSON.parse(localStorage.getItem('user')!) || [];
@@ -30,21 +31,11 @@ export class AuthService {
         for(let i = 0; i < this.user.length; i++){
             //SI EL USUARIO YA EXISTE LE AVISO QUE TIENE QUE REGISTRARSE CON OTRO NOMBRE DE USUARIO
             if(this.user[i].user === userNuevo.user){
-                this._snackBar.open('Debe ingresar otro nombre de usuario', 'Cerrar',{
-                    horizontalPosition: 'center',
-                    verticalPosition: 'top',
-                    panelClass: 'custom-snackbar-rojo',
-                    duration: 2000
-                });
+                this.snackbarService.show('Debe ingresar otro nombre de usuario', 2000, 'custom-snackbar-rojo');
                 return;
             //SI EL EMAIL YA EXISTE YA LE DECIMOS QUE AY ESTA REGISTRADO
             } else if(this.user[i].email === userNuevo.email){
-                this._snackBar.open('El email ya esta registrado', 'Cerrar',{
-                    horizontalPosition: 'center',
-                    verticalPosition: 'top',
-                    panelClass: 'custom-snackbar-rojo',
-                    duration: 2000
-                });
+                this.snackbarService.show('El email ya esta registrado', 2000, 'custom-snackbar-rojo');
                 return;
             } 
         }
@@ -52,12 +43,7 @@ export class AuthService {
         this.user.push(userNuevo);
         //y guardamos en el localstorage el array user con el nuevo usuario
         this.guardarEnLocalStorage(this.user);
-        this._snackBar.open('Usuario creado correctamente', 'Cerrar',{
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-            panelClass: 'custom-snackbar-verde',
-            duration: 2000
-        });
+        this.snackbarService.show('Usuario creado correctamente', 2000, 'custom-snackbar-verde');
         //y lo mandamos al login para que pueda hacer logearse
         this.router.navigate(['/login']);
 
@@ -69,12 +55,7 @@ export class AuthService {
         //recorremos el array user para ver si el usuario y la contraseña que hemos introducido coinciden con alguno de los que tenemos en el array user
         for(let i = 0; i < this.user.length; i++){
             if(this.user[i].user === usuario && this.user[i].contraseña === contraseña){
-                this._snackBar.open('Bienvenido', 'Cerrar',{
-                    horizontalPosition: 'center',
-                    verticalPosition: 'top',
-                    panelClass: 'custom-snackbar-verde',
-                    duration: 2000
-                });
+                this.snackbarService.show('Bienvenido', 2000, 'custom-snackbar-verde');
                 //guardamos en el sessionstorage el usuario que coincide con el usuario para poder usarlo en el app.component.ts
                 sessionStorage.setItem('user', this.user[i].user);
                 //guardamos en el sessionstorage el token que es el id del usuario que coincide con el usuario y la contraseña
@@ -82,12 +63,8 @@ export class AuthService {
                 return true;
             }
         }
-        this._snackBar.open('Usuario o contraseña incorrectos', 'Cerrar',{
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-            panelClass: 'custom-snackbar-rojo',
-            duration: 2000
-        });
+
+        this.snackbarService.show('Usuario o contraseña incorrectos', 2000, 'custom-snackbar-rojo');
         return false;
     }
 

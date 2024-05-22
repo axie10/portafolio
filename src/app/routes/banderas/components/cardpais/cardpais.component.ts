@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Paises } from '../../../../shared/interfaces/banderas/paises.interface';
 import { FlagsService } from '../../../../shared/services/banderas.service';
 import { Router } from '@angular/router';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-cardpais',
@@ -20,6 +21,7 @@ export class CardpaisComponent implements OnInit {
 
   constructor(
     private servicioFlags: FlagsService,
+    private snackbarService: SnackbarService
   ) { }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class CardpaisComponent implements OnInit {
         this.flags = data;
       },
       error: (error: any) => {
-        alert('Error al cargar las banderas');
+        this.snackbarService.show('Error al cargar las banderas', 2000, 'custom-snackbar-rojo');
       }
     });
   }

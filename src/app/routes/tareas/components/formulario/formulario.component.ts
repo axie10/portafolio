@@ -4,6 +4,7 @@ import {v4 as uuid} from 'uuid';
 import { TareasService } from '../../../../shared/services/tareas.service';
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBarConfig  } from '@angular/material/snack-bar';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-formulario',
@@ -16,7 +17,10 @@ export class FormularioComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private listadoTareas: TareasService, private _snackBar: MatSnackBar) { }
+  constructor(
+    private listadoTareas: TareasService, 
+    private snackbarService: SnackbarService
+  ) { }
 
   //OBTENEMOS LA FECHA DEL MOMENTO QUE SE CREA LA TAREA
   //VAMOS SACANDO EL DIA, MES Y AÑO CON LAS FUNCIONES DEL TIPO 'DATE()'
@@ -48,23 +52,13 @@ export class FormularioComponent {
 
     //CONTROL DE ERRORES PARA EVITAR QUE EL TITULO VENGA VACIO
     if(this.Tarea.nombre === ''){
-      this._snackBar.open('El titulo no puede estar vacio', 'Cerrar',{
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-        panelClass: 'custom-snackbar-rojo',
-        duration: 2000
-      });
+      this.snackbarService.show('La operación se completó con éxito', 2000, 'custom-snackbar-rojo');
       return;
     }
 
     //TENGO EN EL FORMULARIO EL NGSUBMIT, EN EL NGMODEL ASIGNO A LA PROPIEDAD DEL OBJETO TAREA
     this.listadoTareas.guardarTarea(this.Tarea);
-    this._snackBar.open('Tarea guardada', 'Cerrar' ,{
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      panelClass: 'custom-snackbar-verde',
-      duration: 2000
-    });
+    this.snackbarService.show('Tarea guardada', 2000, 'custom-snackbar-verde');
     
     //CREO OTRA VEZ EL OBJETO PARA QUE SE RESERTEE EL UUID
     this.Tarea = {
