@@ -39,8 +39,23 @@
     cursor: pointer;
 }
 
+.mat-button-rojo {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c33030d1;
+    color: #fff;
+    cursor: pointer;
+}
+
 .mat-button:hover {
     background-color: #3e8e41;
+}
+
+.mat-button-rojo:hover {
+    background-color: #ea0c0c;
 }
 
 .form{

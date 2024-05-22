@@ -19,7 +19,7 @@ import { Tareas } from '../../interfaces/Tareas/tarea.interface';
     </mat-dialog-content>
     <mat-dialog-actions class="mat-dialog-actions">
       <button class="mat-button" mat-button [mat-dialog-close]="true">Guardar</button>
-      <button mat-button [mat-dialog-close]="false">Cancelar</button>
+      <button class="mat-button-rojo" mat-button [mat-dialog-close]="false">Cancelar</button>
     </mat-dialog-actions>
 
   </div>
