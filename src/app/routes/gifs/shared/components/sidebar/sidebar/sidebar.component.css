@@ -4,3 +4,8 @@
     border-radius: 0.2rem;
     border: 4px solid rgba(7, 18, 27, 0.299);
 }
+
+.historial{
+    background-color: rgba(0, 0, 255, 0.26);
+    color: white;
+}

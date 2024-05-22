@@ -15,7 +15,7 @@
     height: 100%;
     filter: blur(100px) saturate(100%);
     top: 0px;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 .sidenav{
@@ -27,6 +27,7 @@
 
 .dentrosidenav {
     padding: 20px;
+    background-color: rgba(0, 0, 255, 0.233);
 }
 
 .colorbarradenavegacion{
@@ -60,7 +61,7 @@
 .nombreapp{
     justify-content: start;
     font-size: x-large;
-    color: rgba(12, 80, 82, 0.841);
+    color: rgba(0, 0, 255, 0.637);
 }
 
 .formularioinput{
