@@ -21,15 +21,15 @@ export class TareasFavoritasComponent {
     private snackbarService: SnackbarService
   ) { }
 
-  get listadoTareas (){
+  get listadoTareas (): Tareas[]{
     return [...this.listadotareas.tareas]
   }
 
-  tareaCompletada(value:Tareas){
+  tareaCompletada(value:Tareas):void{
     this.listadotareas.tareaCompletada(value);
   }
 
-  borrarTarea(value:Tareas){
+  borrarTarea(value:Tareas):void{
     this.listadotareas.borrarTarea(value);
   }
 
@@ -40,17 +40,17 @@ export class TareasFavoritasComponent {
   public fechaTemplate?: string = "";
   public idParaFecha?: string = "";
 
-  mostrarfecha(value:string){
+  mostrarfecha(value:string):void{
     this.fechaTemplate = this.listadotareas.mostrarFechadeTarea(value);
     this.idParaFecha = value;
   }
 
-  quitarFecha(){
+  quitarFecha():void{
     this.fechaTemplate = "";
     this.idParaFecha = "";
   }
 
-  quitardeFavorito(value:Tareas){
+  quitardeFavorito(value:Tareas):void{
     this.listadotareas.quitardeFavorito(value);
     this.snackbarService.show('Tarea quitada de favoritos', 2000, 'custom-snackbar-azul');
   }

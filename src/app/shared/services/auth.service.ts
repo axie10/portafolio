@@ -69,7 +69,7 @@ export class AuthService {
     }
 
     //LOGOUT
-    logout(){
+    logout(): void{
         sessionStorage.clear();
     }
 

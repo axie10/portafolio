@@ -13,19 +13,19 @@ export class TareasService {
     }
 
     //GUARDAR LA TAREAS EN EL LOCALSTORAGE
-    guardarEnLocalStorage(value: Tareas []){
+    guardarEnLocalStorage(value: Tareas []): void{
         localStorage.setItem('history', JSON.stringify(value));
     }
 
     //OBTENER LAS TAREAS
-    guardarTarea(value:Tareas){
+    guardarTarea(value:Tareas): void{
         this.tareas.push(value);
         this.guardarEnLocalStorage(this.tareas);
 
     }
 
     //LO USO PARA CAMBIAR EL ESTADO DE UNA TAREA Y PASARLA A COMPLETADA
-    tareaCompletada(value:Tareas){
+    tareaCompletada(value:Tareas): void{
         for(let i = 0; i < this.tareas.length; i++){
             if(this.tareas[i].id === value.id){
                 value.estado = 1;
@@ -36,7 +36,7 @@ export class TareasService {
     }
 
     //LO USO PARA BORRAR UNA TAREA, LA BUSCO POR EL ID Y CUANDO COINCIDE LA ELIMINO
-    borrarTarea(value:Tareas){
+    borrarTarea(value:Tareas): void{
 
         for(let i = 0; i < this.tareas.length; i++){
             if(this.tareas[i].id === value.id){
@@ -49,7 +49,7 @@ export class TareasService {
     }
 
     //LO USO PARA EDITAR LAS TAREAS LA BUSCO POR EL ID Y CUANDO COINCIDE CAMBIO EL NOMBRE
-    editarTarea(value:Tareas, nuevonombre:string, nuevadescripcion:string){
+    editarTarea(value:Tareas, nuevonombre:string, nuevadescripcion:string): void{
 
         for(let i = 0; i < this.tareas.length; i++){
             if(this.tareas[i].id === value.id){
@@ -73,7 +73,7 @@ export class TareasService {
     }
 
     //LO USO PARA LIMPIAR EL HISTORIAL DE TAREAS
-    borrarLocalstorage(){
+    borrarLocalstorage(): void{
 
         let borra = confirm("¿Desea eliminar el historial de tareas?");
         if(!borra) return;
@@ -82,7 +82,7 @@ export class TareasService {
     }
 
     //PARA AÑADIR LAS TAREAS A FAVORITAS, LAS BUSCO POR EL ID Y CUANDO COINCIDE LE CAMBIO EL ESTADO DE LA PROPIEDAD "FAVORITA" A 0
-    tareasFavoritas(value:Tareas){
+    tareasFavoritas(value:Tareas): void{
 
         for(let i = 0; i < this.tareas.length; i++){
 
@@ -95,7 +95,7 @@ export class TareasService {
     }
 
     //LO USO PARA QUITAR LAS TAREAS DE FAVORITO COMBIANDOLE EL ESTADOD DE LA PROPIEDAD "FAVORITA" A 1
-    quitardeFavorito(value:Tareas){
+    quitardeFavorito(value:Tareas): void{
         
         for(let i = 0; i < this.tareas.length; i++){
             

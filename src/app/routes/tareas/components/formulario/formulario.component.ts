@@ -48,7 +48,7 @@ export class FormularioComponent {
   };
 
   //FUNCION PARA GUARDAR LA TAREA EN EL ARRAY DE TAREAS DEL LOCALSTORAGE
-  guardarTarea(){
+  guardarTarea(): void{
 
     //CONTROL DE ERRORES PARA EVITAR QUE EL TITULO VENGA VACIO
     if(this.Tarea.nombre === ''){

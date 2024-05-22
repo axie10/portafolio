@@ -41,7 +41,7 @@ export class AppComponent implements DoCheck{
   }
 
   //PARA CERRAR SESION
-  onLogout() {
+  onLogout(): void{
     this.authService.logout();
     this.snackbarService.show('Se ha cerrado la sesión', 2000, 'custom-snackbar-rojo');
     setTimeout(() => {

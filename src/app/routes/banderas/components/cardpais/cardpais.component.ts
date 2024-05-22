@@ -24,20 +24,20 @@ export class CardpaisComponent implements OnInit {
     private snackbarService: SnackbarService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     //NOS SUBSCRIBIMOS A LA FUNCION DE SACAR TODAS LAS BANDERAS
     this.servicioFlags.getBanderasPaises().subscribe({
       next: (data: Paises[]) => {
         this.flags = data;
       },
-      error: (error: any) => {
+      error: (error: Error) => {
         this.snackbarService.show('Error al cargar las banderas', 2000, 'custom-snackbar-rojo');
       }
     });
   }
 
   //FUNCION QUE EMITE EL PAIS SELECCIONADO 
-  pasarpais(pais:string){
+  pasarpais(pais:string): void{
     this.paises2.emit(pais)
   }
 

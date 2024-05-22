@@ -17,17 +17,17 @@ export class MainPageComponent implements OnChanges {
   constructor(
   ) { }
 
-  ngOnChanges() {
+  ngOnChanges():void {
     this.setNombrePais(this.nombrepais);
   }
 
   //ESTE METODO ES PARA PASARLE LA LISTA DE TEMPERATURAS AL GRAFICO
-  setList(list: List[]) {
+  setList(list: List[]): void{
     this.list = list;
   }
 
   //METODO PARA SACAR LA CIUDAD Y EL PAIS EN LA NAVBAR
-  setNombrePais(nombrepais: string[]) {
+  setNombrePais(nombrepais: string[]): void{
     this.nombrepais = nombrepais;
   }
 

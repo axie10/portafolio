@@ -64,7 +64,7 @@ export class BuscadorComponent implements OnInit {
   public pais6?: Autocompleted [] = [];
 
   //PARA EL AUTOCOMPLETED
-  buscarPais() {
+  buscarPais(): void{
     if(this.buscadorPais.value === null || this.buscadorPais.value === '') {return}
     const value = this.buscadorPais.value;
       this.servicioTiempo.getautocompletar(value)
@@ -105,7 +105,7 @@ export class BuscadorComponent implements OnInit {
   }
 
   //FUNCION POR DEFECTO
-  buscarPaisPorDefecto() {
+  buscarPaisPorDefecto(): void{
     const defaultCity: string = 'Madrid';
 
     forkJoin({
@@ -124,7 +124,7 @@ export class BuscadorComponent implements OnInit {
   }
 
   //FUNCION PARA EL PAIS DE LA BANDERA
-  buscarTiempoPorPaisBanderaAndMapa(value:string) {
+  buscarTiempoPorPaisBanderaAndMapa(value:string): void{
 
     if(value === undefined) {return}
 

@@ -33,6 +33,12 @@ export class ListatareasComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+
+      if(result.nombre == ""){
+        this.snackbarService.show('Los campos no pueden estar vacios', 1000, 'custom-snackbar-rojo');
+        return;
+
+      }
       if (!result) {
         this.snackbarService.show('La tarea no fue editada', 1000, 'custom-snackbar-rojo');
         setTimeout(() => {
@@ -47,7 +53,7 @@ export class ListatareasComponent {
 
 
   //OBTENGO DEL SERVICIO EL OBJETO TAREAS QUE TENGO CREADO
-  get listadoTareas (){
+  get listadoTareas (): Tareas[]{
     return [...this.listadotareas.tareas]
   }
 

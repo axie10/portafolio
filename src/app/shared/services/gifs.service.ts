@@ -41,7 +41,7 @@ export class GifsService {
     }
 
     //esto lo usamos para organizar el historial
-    private orgizarhistorial (tag:string){
+    private orgizarhistorial (tag:string):void{
 
         tag = tag.toLowerCase();
         //lo usamos para filtrar que los inputs que nos vienen no existen en nuestro array

@@ -32,7 +32,7 @@ export class RegistroPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  crearUsuario(){
+  crearUsuario(): void{
     // console.log(this.Form.value);
     this.user.email = this.Form.get('email')?.value;
     this.user.user = this.Form.get('usuario')?.value;

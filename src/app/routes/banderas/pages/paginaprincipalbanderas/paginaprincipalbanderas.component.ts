@@ -40,7 +40,7 @@ export class PaginaprincipalbanderasComponent implements OnInit{
   }
 
   // FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL INPUT
-  buscarPais(){
+  buscarPais(): void{
     
     //SI EL INPUT ESTA VACIO NO HACE NADA
     if (this.pais.value === '' || this.pais.value === null) { 
@@ -71,19 +71,19 @@ export class PaginaprincipalbanderasComponent implements OnInit{
   }
 
   //FUNCION QUE LLAMAMOS CUANDO SE EJECUTA EL EVENTEMMITER
-  cogerpais(value: string){
+  cogerpais(value: string): void{
       //NOS TRAE EL CODIGO DEL PAIS POR UN POUTPUT DE LA CARD Y NOS SUSBRINBIMOS CUANDO SE PDORUCE EL EVENTEMMITER 
       let encontrarPais = this.flags.find(flag => flag.cca3.toLowerCase() === value.toLowerCase());
       this.result = encontrarPais;
   }
 
   //FUNCION QUE NOS LLEVA A LA PAGINA DEL TIEMPO Y NOS MUESTRA EL TIEMPO DE LA CIUDAD
-  llevarTiempo(value:string [] | undefined){
+  llevarTiempo(value:string [] | undefined): void{
     if(value === undefined){return};
   }
 
   //FUNCION QUE NOS LLEVA A LA PAGINA DE BANDERAS
-  atras(){
+  atras(): void{
     this.control = false;
     this.pais.reset();
     window.location.reload();

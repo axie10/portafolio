@@ -14,7 +14,7 @@ export class BarraBusquedaComponent {
   constructor(private gifssService: GifsService) {
   }
   
-  buscarEtiqueta(){
+  buscarEtiqueta(): void{
 
     const newTag = this.tagInput.nativeElement.value;
     this.gifssService.searchtag(newTag);

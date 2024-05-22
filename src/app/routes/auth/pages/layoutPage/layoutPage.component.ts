@@ -4,12 +4,9 @@ import {Component, OnInit } from '@angular/core';
   selector: 'app-layoutPage',
   templateUrl: './layoutPage.component.html',
 })
-export class LayoutPageComponent implements OnInit {
+export class LayoutPageComponent {
 
   constructor() { }
 
-
-  ngOnInit() {
-  }
 
 }

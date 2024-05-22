@@ -13,7 +13,7 @@ export class PaginaprincipaltareasComponent implements OnInit {
   ngOnInit() {
   }
 
-  borraLocalStorage(){
+  borraLocalStorage(): void{
 
     this.listadoTareas.borrarLocalstorage();
 

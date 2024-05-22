@@ -20,7 +20,7 @@ export class LazyImageComponent implements OnInit {
     if (!this.url) throw new Error('Method not implemented.');
   }
 
-  onLoad(){
+  onLoad(): void{
     setTimeout(() => {
       this.controler = true
     }, 1000);

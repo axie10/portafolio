@@ -55,7 +55,7 @@ export class CalendarioComponent {
   };
 
   //FUNCION PARA ACTUALIZAR LOS EVENTOS DEL CALENDARIO
-  actualizarEventos() {
+  actualizarEventos(): void{
     // Mapear los eventos2 en el formato esperado por FullCalendar y asignarlos a events
     //ESTO HA SIDO LO QUE YO NO HE SABIDO HACER
     this.calendarOptions.events = this.events2.map(evento => ({
@@ -66,7 +66,7 @@ export class CalendarioComponent {
 
 
   //FUNCION PARA AÑADIR UNA TAREA AL CALENDARIO
-  handleDateClick(arg:any) {
+  handleDateClick(arg:any): void{
     let titulotareacalendario = prompt('Título de la tarea: ');
     //CONTROL DE ERRORES PARA QUE NO VENGA VACIO NI NULO
     if(titulotareacalendario === null){return}

@@ -11,11 +11,11 @@ export class GraficoComponent implements OnInit, OnChanges {
 
   constructor() {}
   
-  ngOnChanges() {
+  ngOnChanges(): void{
     this.temperatura = this.result();  
   }
 
-  ngOnInit() {
+  ngOnInit(): void{
     this.temperatura = this.result();
   }
 

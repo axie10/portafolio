@@ -10,7 +10,7 @@ import { TiempoService } from '../../../../shared/services/tiempo.service';
   templateUrl: './card-ciudad.component.html',
   styleUrls: ['./card-ciudad.component.css']
 })
-export class CardCiudadComponent implements OnInit {
+export class CardCiudadComponent {
 
   constructor(
     private servicioTiempo: TiempoService,
@@ -19,8 +19,6 @@ export class CardCiudadComponent implements OnInit {
   public pais!: Tiempo;
   public url: string = 'https://openweathermap.org/img/wn/';
   public url2: string = '@2x.png';
-
-  ngOnInit() {}
 
   get result() : TiempoPais {
     return this.servicioTiempo.sacarpaises;

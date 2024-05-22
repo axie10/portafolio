@@ -110,7 +110,7 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
   }
 
   //FUNCION PARA SACAR EL MUNICIPIO PARA EL TIEMPO
-  tiempoparamunicipio() {
+  tiempoparamunicipio(): void{
     this.myForm.get('municipio')?.valueChanges
       .subscribe( () => {
         this.municipioparatiempo = this.myForm.get('municipio')?.value;
@@ -130,7 +130,7 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
   }
 
   ///PARA EL MARCADOR//////////////////
-  createMarker(){
+  createMarker(): void{
     if(!this.map) return;
     const color = '#xxxxxx'.replace(/x/g, y=>(Math.random()*16|0).toString(16));
     const lngLat = this.map.getCenter();
@@ -157,7 +157,7 @@ export class PaginaPrincipalComponent implements OnInit ,AfterViewInit {
   }
 
   //FUNCION PARA AÑADIR EL MARCADOR AL MAPA
-  añadirMarcador(lngLat: LngLat, color:string){
+  añadirMarcador(lngLat: LngLat, color:string): void{
     if( !this.map ) return;
 
     const marker = new Marker({
