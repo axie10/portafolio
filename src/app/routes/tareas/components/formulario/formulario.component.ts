@@ -52,7 +52,7 @@ export class FormularioComponent {
 
     //CONTROL DE ERRORES PARA EVITAR QUE EL TITULO VENGA VACIO
     if(this.Tarea.nombre === ''){
-      this.snackbarService.show('La operación se completó con éxito', 2000, 'custom-snackbar-rojo');
+      this.snackbarService.show('El titulo de la tarea no puede estar vacio', 2000, 'custom-snackbar-rojo');
       return;
     }
 

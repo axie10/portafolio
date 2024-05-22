@@ -6,7 +6,10 @@
     background-color: rgba(31, 62, 155, 0.279);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
-
+.maps{
+    display: flex;
+    flex-flow: row nowrap;
+}
 .contactoprincipal { 
     background-color: rgba(0, 4, 247, 0.489);
     position: fixed;

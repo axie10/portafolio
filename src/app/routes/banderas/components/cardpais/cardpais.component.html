@@ -2,28 +2,11 @@
 <div class="informacionpais">
 
   <mat-card class="bandera" *ngFor="let flag of flags; let i = index" >
-
-    <div>
       <div>
         <button  type="button" (click)="pasarpais(flag.cca3)" style="margin: 0%; padding: 0%;" data-bs-toggle="modal" data-bs-target="#modalpais">
           <img class="imagen" src="{{flag.flags.png}}" alt="">
         </button>
-
       </div>
-  
-      <div>
-        <mat-card-content class="texto">
-
-          <a target="_blank" href="{{flag.maps.googleMaps}}">
-            <mat-icon class="mat-18">pin_drop</mat-icon>
-          </a>
-          <p>Maps</p>
-        </mat-card-content>
-      </div>
-
-    </div>
-
-    
   </mat-card>
 
 </div>

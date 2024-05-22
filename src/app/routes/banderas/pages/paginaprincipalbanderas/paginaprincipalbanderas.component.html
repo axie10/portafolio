@@ -45,6 +45,15 @@
             </div>
 
           </li>
+          <li>
+            <div class="maps">
+              <p><strong>Maps:</strong></p>
+              <a target="_blank" href="{{result?.maps?.googleMaps}}">
+                <mat-icon class="mat-18">pin_drop</mat-icon>
+              </a>
+            </div>
+
+          </li>
           
         </ul>
       </div>
@@ -108,7 +117,7 @@
               [formControl] = "pais"
               (keyup.enter) = "buscarPais()"
               matInput 
-              placeholder="Código pais">
+              placeholder="Nombre país en Inglés">
 
             </mat-form-field>
           </form>

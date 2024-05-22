@@ -8,6 +8,7 @@ import {v4 as uuid} from 'uuid';
 import { TareasService } from '../../../../shared/services/tareas.service.js';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { SnackbarService } from '../../../../shared/services/snackbar.service.js';
+import { style } from '@angular/animations';
 
 
 
@@ -42,10 +43,9 @@ export class CalendarioComponent {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
     dateClick: (arg) => this.handleDateClick(arg),
-    events :  [],
+    events: [],
     eventContent: (arg, createElement) => {
       const container = document.createElement('div');
-      //slice para que solo muestre los primeros 8 caracteres
       container.innerHTML = arg.event.title.slice(0, 8);
       container.style.backgroundColor = 'lightblue';
       container.style.borderRadius = '2px';
@@ -54,6 +54,9 @@ export class CalendarioComponent {
     }
   };
 
+
+
+  
   //FUNCION PARA ACTUALIZAR LOS EVENTOS DEL CALENDARIO
   actualizarEventos(): void{
     // Mapear los eventos2 en el formato esperado por FullCalendar y asignarlos a events
