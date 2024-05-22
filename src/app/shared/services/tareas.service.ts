@@ -74,11 +74,10 @@ export class TareasService {
 
     //LO USO PARA LIMPIAR EL HISTORIAL DE TAREAS
     borrarLocalstorage(): void{
-
-        let borra = confirm("¿Desea eliminar el historial de tareas?");
-        if(!borra) return;
         localStorage.removeItem('history');
-        location.reload();
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
     }
 
     //PARA AÑADIR LAS TAREAS A FAVORITAS, LAS BUSCO POR EL ID Y CUANDO COINCIDE LE CAMBIO EL ESTADO DE LA PROPIEDAD "FAVORITA" A 0

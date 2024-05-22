@@ -1,0 +1,54 @@
+.mat-dialog-container {
+    background-color: #fafafa;
+    /* fondo del diálogo */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.texto{
+    color: #000000;
+    font-size: large;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.mat-button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.mat-button-no {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #af4f4c;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.mat-button:hover {
+    background-color: #00e908;
+}
+
+.mat-button-no:hover {
+    background-color: #d60f0f;
+}
+
+.form{
+    display: flex;
+    flex-flow: column wrap;
+}

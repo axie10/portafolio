@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TareasService } from '../../../../shared/services/tareas.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogBasicoComponent } from '../../../../shared/components/mat-dialog-basico/mat-dialog-basico.component';
 
 @Component({
   selector: 'app-paginaprincipaltareas',
@@ -8,15 +10,32 @@ import { TareasService } from '../../../../shared/services/tareas.service';
 })
 export class PaginaprincipaltareasComponent implements OnInit {
 
-  constructor(private listadoTareas: TareasService) { }
+  constructor(
+    private listadoTareas: TareasService,
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
   }
 
-  borraLocalStorage(): void{
 
-    this.listadoTareas.borrarLocalstorage();
+  openEditDialog2(): void {
 
+    const dialogRef = this.dialog.open(MatDialogBasicoComponent, {
+      width: '50%',
+      data: '¿Estas seguro de que quieres borrar todas las tareas?',
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+  
+      if (!result) {
+        return;
+      } else {
+        this.listadoTareas.borrarLocalstorage();
+      }
+  
+    });
   }
+
 
 }

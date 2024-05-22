@@ -3,8 +3,9 @@ import { TareasService } from '../../../../shared/services/tareas.service';
 import { Tareas } from '../../../../shared/interfaces/Tareas/tarea.interface';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { TareaMatDialogComponent } from '../../../../shared/components/task-mat-dialog/task-mat-dialog.component';
 import { SnackbarService } from '../../../../shared/services/snackbar.service';
+import { TareaMatDialogComponent } from '../../../../shared/components/task-mat-dialog/task-mat-dialog.component';
+import { MatDialogBasicoComponent } from '../../../../shared/components/mat-dialog-basico/mat-dialog-basico.component';
 
 
 @Component({
@@ -20,7 +21,6 @@ export class ListatareasComponent {
 
   constructor(
     private listadotareas: TareasService,
-    private _snackBar: MatSnackBar,
     private dialog: MatDialog,
     private snackbarService: SnackbarService
   ) { }
@@ -37,7 +37,6 @@ export class ListatareasComponent {
       if(result.nombre == ""){
         this.snackbarService.show('Los campos no pueden estar vacios', 1000, 'custom-snackbar-rojo');
         return;
-
       }
       if (!result) {
         this.snackbarService.show('La tarea no fue editada', 1000, 'custom-snackbar-rojo');
@@ -65,10 +64,18 @@ export class ListatareasComponent {
   }
 
   borrarTarea(value:Tareas):void{
-    let borra = confirm("¿Desea eliminar la tareas?");
-    if(!borra) return;
-    this.listadotareas.borrarTarea(value);
-    this.snackbarService.show('area eliminada', 2000, 'custom-snackbar-rojo');
+    const dialogRef = this.dialog.open(MatDialogBasicoComponent, {
+      width: '50%',
+      data: '¿Estas seguro de que quiere borrar todas la tarea?',
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) {
+        return;
+      } else {
+        this.listadotareas.borrarTarea(value);
+      }
+    });
   }
 
   /*PROPIEDADES QUE USAMOS EN EL TEMPLATE PARA MOSTRAR LA FECHA
