@@ -10,6 +10,14 @@
     opacity: 0.5;
 }
 
+.principal{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding-top: 2%;
+}
+
+.texto{
+    color: white;
+}
 
 .todo{
     display: flex;
@@ -17,7 +25,8 @@
 }
 
 .linea1{
-    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    border-width: 3px;
 }
 
 .titulo{
@@ -127,6 +136,10 @@
 }
 
 @media (max-width: 600px) {
+
+    .principal{
+        margin: 1%;
+    }
 
     .todo{
         display: flex;
