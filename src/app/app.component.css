@@ -93,8 +93,9 @@ a{
 
 .portafoliotitulo{
     margin-left: 10px;
-    color: rgb(0, 0, 0);
+    color: rgb(1, 26, 248);
     font-family:monospace;
+    font-weight: 900;
 }
 
 .primera{
