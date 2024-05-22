@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Comunidadesautonomas } from '../../selectoresMapa/interfaces/cccaa.interface';
-import { Provincia } from '../../selectoresMapa/interfaces/provincia.interface';
-import { Municipio } from '../../selectoresMapa/interfaces/municipio.interface';
-import { Tiempopormarcador } from '../../selectoresMapa/interfaces/tiempopormarcador.interface';
-import { Todoconmunicipio } from '../../selectoresMapa/interfaces/sacartodoconmunicipio.interface';
+import { Comunidadesautonomas } from '../interfaces/selectoresMapa/cccaa.interface';
+import { Provincia } from '../interfaces/selectoresMapa/provincia.interface';
+import { Municipio } from '../interfaces/selectoresMapa/municipio.interface';
+import { Tiempopormarcador } from '../interfaces/selectoresMapa/tiempopormarcador.interface';
+import { Todoconmunicipio } from '../interfaces/selectoresMapa/sacartodoconmunicipio.interface';
 
 
 @Injectable({providedIn: 'root'})
@@ -17,7 +17,6 @@ export class ComunidadesAutonomasService {
 
     // FUNCION PARA HACER LA PETICION A LA API DE TODAS LAS CCAA
     getCCAA(): Observable<Comunidadesautonomas> {
-
         return this.httpClient.get<Comunidadesautonomas>('https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/georef-spain-comunidad-autonoma/records?limit=20&select=acom_name');
     }
 

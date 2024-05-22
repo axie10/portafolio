@@ -1,0 +1,25 @@
+.informacionpais{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bandera{
+    margin: 1%;
+    border: 1px solid rgba(0, 0, 0, 0.637);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.texto{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 2%;
+    background-color: rgba(164, 177, 201, 0.452);
+}
+
+.imagen{
+    width: 300px; 
+    height:150px;
+    transition: all 0.5s;
+}
+

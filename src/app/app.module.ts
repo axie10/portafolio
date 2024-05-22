@@ -5,15 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MaterialModule } from './material/material.module';
-import { TiempoModule } from './Tiempo/tiempo.module';
-import { TareasModule } from './tareas/tareas.module';
-import { GifssModule } from './gifs/gifss.module';
-import { BanderasModule } from './banderas/banderas.module';
-import { ContactoModule } from './contacto/contacto.module';
-import { SelectoresMapaModule } from './selectoresMapa/selectores-mapa.module';
-import { AuthModule } from './auth/auth.module';
-import { SharedModule } from './gifs/shared/shared.module';
+import { AuthModule } from './routes/auth/auth.module';
+import { BanderasModule } from './routes/banderas/banderas.module';
+import { ContactoModule } from './routes/contacto/contacto.module';
+import { GifssModule } from './routes/gifs/gifss.module';
+import { SelectoresMapaModule } from './routes/selectoresMapa/selectores-mapa.module';
+import { TiempoModule } from './routes/Tiempo/tiempo.module';
+import { SharedModule } from './shared/shared.module';
+import { TareasModule } from './routes/tareas/tareas.module';
+import { MaterialModule } from './shared/module/material/material.module';
+
 
 @NgModule({
   declarations: [
