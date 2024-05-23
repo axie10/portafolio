@@ -83,7 +83,6 @@ export class TareasService {
     }
 
     borrarLocalstorage(){
-
         let borra = confirm("¿Desea eliminar el historial de tareas?");
         if(!borra) return;
         localStorage.removeItem('history');
@@ -92,14 +91,12 @@ export class TareasService {
 
 
     tareasFavoritas(value:Tareas){
-
         for(let i = 0; i < this.tareas.length; i++){
 
             if(this.tareas[i].id === value.id){
                 this.tareas[i].favorita = 1;
             }
         }
-
         this.guardarEnLocalStorage(this.tareas);
         // alert(this.tareaFavoritostareaAlert)
     }
