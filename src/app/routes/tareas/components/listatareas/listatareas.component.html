@@ -10,11 +10,12 @@
 
   <div class="col-sd-12 col-md-12 col-lg-6">
 
-    <h4 class="d-flex justify-content-center"><strong>TAREAS PENDIENTES</strong></h4>
-    
+    <h4 class="d-flex justify-content-center">
+      <strong>TAREAS PENDIENTES</strong>
+    </h4>
     <hr class="linea1">
 
-    <div class="mt-5" style="overflow-y: scroll; height:60vh;">
+    <div class="mt-5 tareaspendientes">
 
       <div *ngFor="let item of listadoTareas">
 
@@ -29,7 +30,8 @@
             (mousemove)="mostrarfecha(item.id)"
             (mouseleave)="quitarFecha()"  
             class="list-group-item bg-success bg-opacity-50 d-flex justify-content-between align-items-center cajaverde"
-            ><strong>
+            >
+              <strong>
                 {{item.nombre}}
               </strong>
               <!-- EL DIV QUE SE ACTIVA CUANDO PASAMOS EL RATON POR ECNIMA DE LA TAREA
@@ -92,12 +94,13 @@
   <!-- LISTADO DE TAREAS TERMINADAS -->
   <div class="col-sd-12 col-md-12 col-lg-6">
 
-    <h4 class="d-flex justify-content-center"><strong>TAREAS COMPLETADAS</strong></h4>
-
+    <h4 class="d-flex justify-content-center">
+      <strong>TAREAS COMPLETADAS</strong>
+    </h4>
     <hr class="linea2">
 
 
-    <div class="mt-5" style="overflow-y: scroll; height:60vh;">
+    <div class="mt-5 tareascompletadas">
       
       <div *ngFor="let item of listadoTareas">
 

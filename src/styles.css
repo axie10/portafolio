@@ -3,8 +3,9 @@
 html, body { 
     height: auto;
     cursor:crosshair;
+    margin: 0; 
 }
-body { margin: 0;  }
+
 
 /* ESTILOS PARA LOS SNACKBAR */
 .custom-snackbar-rojo {
@@ -45,4 +46,54 @@ body { margin: 0;  }
 }
 
 
+/* Variables */
+:root {
+    --sb-track-color: #7781b7;
+    --sb-thumb-color: #0022ff6c;
+    --sb-size: 14px;
+}
 
+/* Chrome y Safari */
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 20px;
+}
+
+/* Firefox */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+
+/* Edge y otros navegadores */
+body {
+    -ms-overflow-style: none;
+    /* Oculta el scrollbar por defecto */
+    overflow: overlay;
+    /* Muestra el scrollbar solo cuando es necesario */
+}
+
+body::-ms-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+body::-ms-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+}
+
+body::-ms-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 20px;
+}

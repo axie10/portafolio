@@ -37,3 +37,13 @@
 .cajaroja{
     border: 2px solid red;
 }
+
+.tareaspendientes{
+    overflow-y: scroll; 
+    height:60vh;
+}
+
+.tareascompletadas{
+    overflow-y: scroll; 
+    height:60vh;
+}
