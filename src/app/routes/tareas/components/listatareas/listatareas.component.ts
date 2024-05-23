@@ -23,10 +23,6 @@ export class ListatareasComponent {
     this.listadotareas.tareaCompletada(value);
   }
 
-  get listadotareas1 () {
-    return [...this.listadotareas.tareas];
-  }
-
   borrarTarea(value:Tareas){
     // console.log(value)
     this.listadotareas.borrarTarea(value);
@@ -59,13 +55,7 @@ export class ListatareasComponent {
   }
 
   anadiraFavorita(value: Tareas){
-
     this.listadotareas.tareasFavoritas(value);
-    
   }
-
-
-
-  
 
 }

@@ -4,6 +4,7 @@ import { FlagsService } from '../../../../shared/services/banderas.service';
 import { of } from 'rxjs';
 import { Paises } from '../../../../shared/interfaces/banderas/paises.interface';
 import { MaterialModule } from '../../../../shared/module/material/material.module';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 const paisesMock: Paises[] = [
   {
@@ -79,20 +80,31 @@ const paisesMock: Paises[] = [
     population: 83166700
   }
 ];
- 
+
+//CREO UN ESPIA PARA EL SERVICIO DE BANDERAS
+class MockFlagsService {
+
+  //CREO UN ESPIA PARA CASDA UNO DE LOS METODOS DE LA CLASE
+  getBanderasPaises = jasmine.createSpy('getBanderasPaises').and.returnValue(of(paisesMock));
+  getBanderasPaisesPorPais = jasmine.createSpy('getBanderasPaisesPorPais').and.returnValue(of(paisesMock[0]));
+}
+
 describe('CardpaisComponent', () => {
   let component: CardpaisComponent;
   let fixture: ComponentFixture<CardpaisComponent>;
-  let flagsServiceSpy: jasmine.SpyObj<FlagsService>;
+  // let flagsServiceSpy: jasmine.SpyObj<FlagsService>;
+  let flagsServiceSpy: MockFlagsService;
  
-  beforeEach(async () => {
-    flagsServiceSpy = jasmine.createSpyObj('FlagsService', ['getBanderasPaises']);
-    flagsServiceSpy.getBanderasPaises.and.returnValue(of(paisesMock));
+  beforeEach(() => {
+    flagsServiceSpy = new MockFlagsService();
+    // flagsServiceSpy = jasmine.createSpyObj('FlagsService', ['getBanderasPaises']);
+    // flagsServiceSpy.getBanderasPaises.and.returnValue(of(paisesMock));
  
-    await TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       imports: [MaterialModule],
       declarations: [CardpaisComponent],
-      providers: [{ provide: FlagsService, useValue: flagsServiceSpy }]
+      providers: [{ provide: FlagsService, useValue: flagsServiceSpy }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
  

@@ -43,9 +43,7 @@ export class TareasFavoritasComponent {
   }
 
   quitardeFavorito(value:Tareas){
-
     this.listadotareas.quitardeFavorito(value);
-
   }
 
 }
