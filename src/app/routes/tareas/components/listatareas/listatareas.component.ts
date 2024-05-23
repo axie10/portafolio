@@ -66,7 +66,7 @@ export class ListatareasComponent {
   borrarTarea(value:Tareas):void{
     const dialogRef = this.dialog.open(MatDialogBasicoComponent, {
       width: '50%',
-      data: '¿Estas seguro de que quiere borrar todas la tarea?',
+      data: '¿Estas seguro que quiere borrar esta tarea?',
     });
   
     dialogRef.afterClosed().subscribe(result => {

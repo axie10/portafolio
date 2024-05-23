@@ -2,11 +2,11 @@
 
 </div>
 
-  <div class="titulo">
-    <h2 style="font-family: monospace;">Welcome!</h2>
+  <div>
+    <h2 class="titulo">Welcome!</h2>
   </div>
   
-  
+  <hr style="color: white; border-width: 2px;">
   <form [formGroup]="Form" class="formulariologin">
   
   
@@ -31,7 +31,7 @@
     <div class="ingresarregistro">
 
       <div class="registrarse">
-        <a routerLink="/login/registro">¿No tienes cuenta?</a>
+        <a routerLink="/login/registro" style="color: rgba(0, 0, 0, 0.503);">¿No tienes cuenta?</a>
       </div>
   
       <button (click)="onLogin()" class="botonlogin" mat-button mat-flat-button color="primary">
