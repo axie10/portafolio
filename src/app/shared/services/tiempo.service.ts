@@ -11,7 +11,10 @@ import { enviromnets } from '../../../environments/environments';
 
 export class TiempoService implements OnInit {
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient
+    ) { }
+    
     ngOnInit(): void {
         this.guardarDatos
     }
